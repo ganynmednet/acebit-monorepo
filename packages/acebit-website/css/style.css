@@ -2,12 +2,21 @@ body {
     background-color: black;
 }
 
-.logo{
+.logo_box{
     position: fixed;
     left: 50%;
     top: 50%;
 }
 
-.text{
-    color: white;
+.image{
+    width:300px;
 }
+
+
+@media (max-width: 1400px) {
+    .blockchain__box {
+      padding-top: 75px;
+      padding-bottom: 100px;
+    }
+  }
+  
