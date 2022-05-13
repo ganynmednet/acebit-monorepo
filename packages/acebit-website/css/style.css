@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+}
+
+.logo{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+}
+
+.text{
+    color: white;
+}
