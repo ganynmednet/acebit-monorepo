@@ -15,7 +15,7 @@
 
     <script type="text/javascript">
         window.onload = choosePic;
-        var myPix = new Array("images/cards.png", "images/spades.png");
+        var myPix = new Array("images/quads.png", "images/chip.png", "images/slot.png");
         function choosePic() {
             var randomNum = Math.floor(Math.random() * myPix.length);
             document.getElementById("aceImg").src = myPix[randomNum];
@@ -25,10 +25,10 @@
 </head>
 
 <body>
-    <div class="logo_box">
-        <div class="text">
-            <img src="" class="logo" id="aceImg">
-        </div>
+    <div class="frame">
+        <!-- <div class="helper"><img src="" class="ace_image" id="aceImg">
+        </div> -->
+        <img src="" class="ace_image" id="aceImg">
     </div>
 </body>
 
