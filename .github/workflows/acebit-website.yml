@@ -31,7 +31,7 @@ jobs:
       # with Jekyll _site/ is the default location of the built files
       # use s3://BUCKET_NAME
       - name: Deploy to S3 bucket
-        working-directory: ./packages/neoworld-website
+        working-directory: ./packages/acebit-website
         run: aws s3 sync ./ s3://${{ secrets.S3_BUCKET_WEBSITE }} --delete
 
       # Remove this step if you're not using CloudFront
