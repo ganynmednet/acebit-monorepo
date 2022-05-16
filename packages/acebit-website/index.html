@@ -10,14 +10,25 @@
         content="AceBit - Crypto Casino Games & Casino Slot Games. Online Live dealer and over 10000 slot games & provably fair casino supports fast withdrawals and many crypto currencies!" />
     <meta name="robots" content="index, follow" />
 
-    <title>NeoWorld Metaverse</title>
+    <title>AceBit</title>
     <link rel="stylesheet" href="css/style.css">
+
+    <script type="text/javascript">
+        window.onload = choosePic;
+
+        var myPix = new Array("images/cards.png", "images/spades.png");
+        function choosePic() {
+            var randomNum = Math.floor(Math.random() * myPix.length);
+            document.getElementById("aceImg").src = myPix[randomNum];
+        }
+    </script>
+
 </head>
 
 <body>
     <div class="logo_box">
         <div class="text">
-            <img src="./images/image.png" class="logo">
+            <img src="" class="logo" id="aceImg">
         </div>
     </div>
 </body>

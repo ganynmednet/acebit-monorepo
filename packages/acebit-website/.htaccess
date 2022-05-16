@@ -1,0 +1,15 @@
+ErrorDocument 404 /notfound.html
+
+<Files "README.md">  
+    Order Allow,Deny
+    Deny from all
+    Require all denied
+</Files>
+
+# STRONG HTACCESS PROTECTION
+<Files ~ "^.*\.([Hh][Tt][Aa])">
+    order allow,deny
+    deny from all
+    satisfy all
+</Files>
+
