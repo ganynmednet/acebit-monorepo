@@ -1,0 +1,44 @@
+const { expect } = require("chai");
+const { ethers } = require("hardhat");
+
+describe("NeoWorldWhitelist", function () {
+  it("Shoud deploy NeoWorldWhitelist and test it", async function () {
+
+    [deployer, user, newOwner] = await ethers.getSigners()
+
+
+    const NeoWorldWhitelist = await ethers.getContractFactory("NeoWorldWhitelist");
+    const neoWorldWhitelist = await NeoWorldWhitelist.deploy();
+    await neoWorldWhitelist.deployed();
+
+    // console.log(await neoWorldWhitelist.owner())
+
+    
+    // console.log(await neoWorldWhitelist.verifyUser(user.address))
+
+    // Check contract owner
+    expect(await neoWorldWhitelist.owner()).to.equal(deployer.address);
+    expect(await neoWorldWhitelist.getBeta()).to.equal(deployer.address);
+
+    // add usert to the WL
+    await neoWorldWhitelist.addUser(user.address);
+    expect(await neoWorldWhitelist.verifyUser(user.address)).to.equal(true);
+    expect(await neoWorldWhitelist.getAlpha()).to.equal(1);
+
+    // remove user from the WL
+    await neoWorldWhitelist.removeUser(user.address);
+    expect(await neoWorldWhitelist.getAlpha()).to.equal(0);
+
+    // update contract Owner
+    await neoWorldWhitelist.setOwner(newOwner.address);
+    expect(await neoWorldWhitelist.owner()).to.equal(newOwner.address);
+    expect(await neoWorldWhitelist.getBeta()).to.equal(deployer.address);
+
+    // const setGreetingTx = await greeter.setGreeting("Hola, mundo!");
+
+    // // wait until the transaction is mined
+    // await setGreetingTx.wait();
+
+    // expect(await greeter.greet()).to.equal("Hola, mundo!");
+  });
+});
