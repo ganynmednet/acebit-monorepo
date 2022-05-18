@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <meta name="description"
         content="AceBit - Crypto Casino Games & Casino Slot Games. Online Live dealer and over 10000 slot games & provably fair casino supports fast withdrawals and many crypto currencies!" />
@@ -12,24 +13,25 @@
 
     <title>AceBit</title>
     <link rel="stylesheet" href="css/style.css">
-
-    <script type="text/javascript">
-        window.onload = choosePic;
-        var myPix = new Array("images/quads.png", "images/chip.png", "images/slot.png");
-        function choosePic() {
-            var randomNum = Math.floor(Math.random() * myPix.length);
-            document.getElementById("aceImg").src = myPix[randomNum];
-        }
-    </script>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
 </head>
 
 <body>
-    <div class="frame">
-        <!-- <div class="helper"><img src="" class="ace_image" id="aceImg">
-        </div> -->
-        <img src="" class="ace_image" id="aceImg">
+    
+    <header class="header">
+        <div class="header__logo">
+            <img src="./images/logo.svg" alt="logo">
+        </div>
+    </header>
+
+    <div class="main__img-container">
+        <div class="main__img">
+            <img alt="cards img" id="aceImg">
+        </div>
     </div>
+
+    <script src="scripts/script.js"></script>
 </body>
 
 </html>
