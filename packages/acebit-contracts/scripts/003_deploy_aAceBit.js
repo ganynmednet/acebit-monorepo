@@ -5,17 +5,17 @@ const NETWORK = process.env.NETWORK.toLowerCase();
 
 async function main() {
 
-  if ("ACEBIT" in constants[NETWORK] && constants[NETWORK]["ACEBIT"] != ""){
-    throw new Error("ACEBIT deploy error: contract exists");
+  if ("aACEBIT" in constants[NETWORK] && constants[NETWORK]["aACEBIT"] != ""){
+    throw new Error("aACEBIT deploy error: contract exists");
   }
 
   const [deployer] = await ethers.getSigners();
 
   console.log("Deploying contracts with the account: " + deployer.address);
 
-  const AceBitERC20 = await ethers.getContractFactory("AceBitERC20");
-  const aceBitERC20 = await AceBitERC20.deploy(constants[NETWORK]["DAO"]);
-  console.log("AceBitERC20 address: %s", aceBitERC20.address);
+  const AlphaAceBitERC20 = await ethers.getContractFactory("AlphaAceBitERC20");
+  const alphaAceBitERC20 = await AlphaAceBitERC20.deploy();
+  console.log("AlphaAceBitERC20 address: %s", alphaAceBitERC20.address);
 }
 
 main()

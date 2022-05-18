@@ -11,8 +11,8 @@ import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 
 contract AceBitERC20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit, ERC20Votes {
-    constructor() ERC20("AceBit", "ACEBIT") ERC20Permit("AceBit") {
-        _mint(msg.sender, 400000000 * 10 ** decimals());
+    constructor(address _dao) ERC20("AceBit", "ACEBIT") ERC20Permit("AceBit") {
+        _mint(_dao, 400000000 * 10 ** decimals());
     }
 
     function pause() public onlyOwner {

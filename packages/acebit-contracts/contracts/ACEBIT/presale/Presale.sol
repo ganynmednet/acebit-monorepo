@@ -23,8 +23,8 @@ contract AceBitPresale is Ownable {
 
     struct UserInfo {
         uint256 amount; // Amount DAI deposited by user
-        uint256 debt; // total ROME claimed thus aROME debt
-        bool claimed; // True if a user has claimed ROME
+        uint256 acebitDebt; // total ACEBIT claimed thus aACEBIT debt
+        bool claimed; // True if a user has claimed ACEBIT
     }
 
     // Tokens to raise (DAI) & (FRAX) and for offer (aROME) which can be swapped for (ROME)
@@ -43,7 +43,9 @@ contract AceBitPresale is Ownable {
 
     uint256 public minCap = 500 * 1e18; // 1500 DAI cap per whitelisted user
 
-    uint256 public maxCap = 1500 * 1e18; // 1500 DAI cap per whitelisted user
+    // uint256 public maxCap = 1500 * 1e18; // 1500 DAI cap per whitelisted user
+
+    uint256 public maxCap;
 
     uint256 public totalDAIRaised; // total DAI raised by sale
     // uint256 public totalRaisedFRAX; // total FRAX raised by sale
@@ -56,7 +58,7 @@ contract AceBitPresale is Ownable {
 
     bool public claimable; // true when sale is claimable
 
-    // bool public claimAlpha; // true when aROME is claimable
+    // bool public claimAlpha; // true when aROME is claimableh
 
     bool public contractPaused; // circuit breaker
 
@@ -68,10 +70,10 @@ contract AceBitPresale is Ownable {
 
     // mapping(address => bool) public whitelistedTeam; // True if team member is whitelisted
 
-    mapping(address => uint256) public romeClaimable; // amount of rome claimable by address
+    mapping(address => uint256) public acebitClaimable; // amount of ACEBIT claimable by address
 
     event Deposit(address indexed who, uint256 amount);
-    event Withdraw(address token, address indexed who, uint256 amount);
+    event Claim(address token, address indexed who, uint256 amount);
     event Mint(address token, address indexed who, uint256 amount);
     event SaleStarted(uint256 block);
     event SaleEnded(uint256 block);
@@ -84,7 +86,8 @@ contract AceBitPresale is Ownable {
         address _aACEBIT,
         address _DAI,
         address _DAO,
-        address _UserStorage
+        address _UserStorage,
+        uint256 _maxCap
     ) {
         require( _ACEBIT != address(0) );
         ACEBIT = IERC20(_ACEBIT );
@@ -100,6 +103,9 @@ contract AceBitPresale is Ownable {
 
         require( _UserStorage != address(0) );
         UserStorage = _UserStorage;
+
+        require( _maxCap > 0 );
+        maxCap = _maxCap;
     }
 
     //* @notice modifer to check if contract is paused
@@ -126,7 +132,7 @@ contract AceBitPresale is Ownable {
 
     // @notice lets users claim ACEBIT
     // @dev send sufficient ACEBIT before calling
-    function unlockACEBITClaim() external onlyOwner {
+    function unlockAceBitClaim() external onlyOwner {
         require(ended, "Sale has not ended");
         require(!claimable, "Claim has already been unlocked");
         require(ACEBIT.balanceOf(address(this)) >= totalACEBITDebt, 'not enough ROME in contract');
@@ -149,15 +155,15 @@ contract AceBitPresale is Ownable {
         return contractPaused;
     }
     
-    /**
-     *  @notice transfer ERC20 token to DAO multisig
-     *  @param _token: token address to withdraw
-     *  @param _amount: amount of token to withdraw
-     */
-    function adminWithdraw(address _token, uint256 _amount) external onlyOwner {
-        IERC20( _token ).safeTransfer( address(msg.sender), _amount );
-        emit AdminWithdrawal(_token, _amount);
-    }
+    // /**
+    //  *  @notice transfer ERC20 token to DAO multisig
+    //  *  @param _amount: amount of token to withdraw
+    //  */
+    // function adminWithdraw(address _dao, uint256 _amount) external onlyOwner {
+    //     require(_amount <= DAI.balanceOf( address(this) ), "Amount exceeds the available balance");
+    //     IERC20( DAI ).safeTransfer( address(_dao), _amount );
+    //     emit AdminWithdrawal(_dao, _amount);
+    // }
 
     /**
      *  @notice it deposits DAI for the sale
@@ -173,20 +179,21 @@ contract AceBitPresale is Ownable {
 
         require(
             maxCap >= user.amount.add(_amount),
-            'new amount above user limit'
+            'new amount above the user limit'
             );
 
         require(
             minCap <= user.amount.add(_amount),
-            'new amount below user limit'
+            'new amount below the user limit'
             );
 
         user.amount = user.amount.add(_amount);
         totalDAIRaised = totalDAIRaised.add(_amount);
 
-        uint256 payout = _amount.mul(1e18).div(price).div(1e9); // aROME to mint for _amount
+        uint256 payout = _amount.div( price ).mul( 1e18 ); // aACEBIT to mint for _amount
 
         totalACEBITDebt = totalACEBITDebt.add(payout);
+        user.acebitDebt = user.acebitDebt.add(payout);
 
         DAI.safeTransferFrom( msg.sender, DAO, _amount );
 
@@ -196,41 +203,65 @@ contract AceBitPresale is Ownable {
     }
 
     /**
-     *  @notice it deposits aACEBIT to withdraw ACEBIT from the sale
-     *  @param _amount: amount of aACEBIT to deposit to sale (9 decimals)
+     *  @notice it deposits aACEBIT to withdraw ACEBIT from the presale contract
      */
-    function claimACEBIT(uint256 _amount) external checkIfPaused {
+    function claimAceBit() external checkIfPaused {
         require(claimable, 'ACEBIT is not yet claimable');
-        require(_amount > 0, '_amount must be greater than zero');
-        require(aACEBIT.balanceOf(address(this)) >= _amount, 'Not enough aACEBIT');
-
+    
         UserInfo storage user = userInfo[msg.sender];
 
-        user.debt = user.debt.add(_amount);
+        // require(_amount <= user.amount, "Claimable amount exceeds the user allocation");
+        // user.acebitDebt = user.acebitDebt.sub(_amount);
+        uint256 payout = user.acebitDebt;
 
-        totalACEBITDebt = totalACEBITDebt.sub(_amount);
+        require(ACEBIT.balanceOf(address(this)) >= payout, 'Not enough ACEBIT on the presale contract balance');
+        require(!user.claimed, 'User has already claimed ACEBIT');
+        require(payout > 0, "User doesn't have claimable ACEBIT amount");
+        
 
-        aACEBIT.safeTransferFrom( msg.sender, address(this), _amount );
+        user.claimed = true;
+        user.acebitDebt = user.acebitDebt.sub(payout);
+        totalACEBITDebt = totalACEBITDebt.sub(payout);
 
-        ACEBIT.safeTransfer( msg.sender, _amount );
+        aACEBIT.safeTransferFrom( msg.sender, address(this), payout );
+        ACEBIT.safeTransfer( msg.sender, payout );
 
-        emit Mint(address(aACEBIT), msg.sender, _amount);
-        emit Withdraw(address(ACEBIT), msg.sender, _amount);
+        emit Mint(address(aACEBIT), msg.sender, payout);
+        emit Claim(address(ACEBIT), msg.sender, payout);
     }
 
     // @notice it checks a users DAI allocation remaining
     function getUserRemainingAllocation(address _user) external view returns ( uint256 ) {
         UserInfo memory user = userInfo[_user];
         return maxCap.sub(user.amount);
-
     }
+
+    // @notice get user allocation
+    function getUserClaimableAllocation(address _user) external view returns ( uint256 ) {
+        UserInfo memory user = userInfo[_user];
+        return user.amount;
+    }
+
+    // @notice get user allocation
+    function getUserAceBitDebt(address _user) external view returns ( uint256 ) {
+        UserInfo memory user = userInfo[_user];
+        return user.acebitDebt;
+    }
+
+    // @notice it checks a users DAI allocation remaining
+    function setMaxCap(uint256 _newMaxCap) external {
+        maxCap = _newMaxCap;
+    }
+
     // @notice it claims aROME back from the sale
     // function claimAlphaRome() external checkIfPaused {
-    //     require(claimAlpha, 'aROME is not yet claimable');
+    //     require(claimable, 'ACEBIT is not yet claimable');
+    //     require(_amount > 0, 'Amount must be greater than zero');
+    //     require(ACEBIT.balanceOf(address(this)) >= _amount, 'Not enough ACEBIT');
 
     //     UserInfo storage user = userInfo[msg.sender];
 
-    //     require(user.debt > 0, 'msg.sender has not participated');
+    //     require(user.acebitDebt > 0, 'user do');
     //     require(!user.claimed, 'msg.sender has already claimed');
 
     //     user.claimed = true;
