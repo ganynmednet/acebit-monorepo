@@ -1,6 +1,8 @@
 # wizard
 https://wizard.openzeppelin.com/
 
+# gas price tracker
+https://github.com/cgewecke/hardhat-gas-reporter
 
 # Deploy mock contracts
 npx hardhat run scripts/mock/deploy_DAI.js --network mumbai

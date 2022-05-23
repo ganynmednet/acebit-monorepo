@@ -1,6 +1,7 @@
 require("@nomiclabs/hardhat-waffle");
 require("@nomiclabs/hardhat-ethers");
 require("@nomiclabs/hardhat-etherscan");
+require("hardhat-gas-reporter");
 require('dotenv').config();
 
 // import { getApi } from "./utils/network";
@@ -28,6 +29,12 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
  */
  module.exports = {
   defaultNetwork: "hardhat",
+  gasReporter: {
+    // currency: 'EUR',
+    // gasPrice: 35,
+    token: "MATIC",
+    gasPriceApi: "https://api.polygonscan.com/api?module=proxy&action=eth_gasPrice"
+  },
   networks: {
     hardhat: {
     },
