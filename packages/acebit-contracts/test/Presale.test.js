@@ -26,11 +26,10 @@ let
   
 
 
-describe("ACEBIT Presale test", function () {
+describe("ACEBIT PRESALE TEST", function () {
 
   beforeEach(async () => {
     [deployer, dao] = await ethers.getSigners();    
-   
   });
 
   it("Should deploy ACEBIT Presale, ACEBIT, and aACEBIT contracts", async function () {

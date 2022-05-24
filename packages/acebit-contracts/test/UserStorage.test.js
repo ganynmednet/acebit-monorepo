@@ -11,13 +11,14 @@ const { ethers } = require("hardhat");
 //   return Web3.utils.asciiToHex(string);
 // };
 
+let deployer, newOwner, userInstrance, userStorage, user;
 
-describe("UserStorage", function () {
-  it("Shoud deploy UserStorage and test it", async function () {
+describe("USER STORAGE TEST", function () {
+  it("Shoud deploy UserStorage", async function () {
 
     [deployer, newOwner, userInstrance] = await ethers.getSigners()
 
-    const user = {
+    user = {
       userAddress: userInstrance.address,
       userName: "Name",
       discordId: "DiscordId",
@@ -29,7 +30,7 @@ describe("UserStorage", function () {
     // console.log(user)
 
     const UserStorage = await ethers.getContractFactory("UserStorage");
-    const userStorage = await UserStorage.deploy(deployer.address);
+    userStorage = await UserStorage.deploy(deployer.address);
     await userStorage.deployed();
 
 
@@ -43,6 +44,9 @@ describe("UserStorage", function () {
     expect(await userStorage.getActiveUsers()).to.equal(0);
     expect(await userStorage.getDeletedUsers()).to.equal(0);
 
+  });
+
+  it("Shoud Add user to the storage", async function () {
     // add user
     await userStorage.addUser(
       user.userAddress,
@@ -59,7 +63,9 @@ describe("UserStorage", function () {
     expect(await userStorage.isUserWhitelisted(user.userAddress)).to.equal(true);
     expect(await userStorage.isUser(user.userAddress)).to.equal(true);
     expect(await userStorage.isUser(deployer.address)).to.equal(false);
+  });
 
+  it("Shoud Update user name", async function () {
     // update user Name
     await userStorage.updateUserName(
       user.userAddress,
@@ -99,6 +105,6 @@ describe("UserStorage", function () {
     // console.log(_res);
     expect(_res.history.length).to.equal(5);
 
-  
+
   });
 });
