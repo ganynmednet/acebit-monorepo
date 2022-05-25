@@ -9,6 +9,8 @@ describe("ACEBIT STAKING TEST", function () {
         [deployer, dao] = await ethers.getSigners()
         const _largeApproval = '100000000000000000000000000000000';
         const _name = "AceBitStaking";
+        const _period = "1"
+        const _rewardPerPeriod = "5000000000000000" // 1e15 or 0.005% per hour => 0.136% per day => ~ 50% year
 
         // Deploy ACEBIT contract
         ACEBIT = await ethers.getContractFactory("AceBitERC20");
@@ -17,7 +19,13 @@ describe("ACEBIT STAKING TEST", function () {
 
         // Staking contract deploy
         const AceBitStaking = await ethers.getContractFactory(_name);
-        aceBitStaking = await AceBitStaking.deploy(_name, acebit.address);
+        aceBitStaking = await AceBitStaking.deploy(
+            _name, 
+            acebit.address,
+            _period,
+            _rewardPerPeriod
+            
+            );
         await aceBitStaking.deployed();
 
         await acebit.approve(aceBitStaking.address, _largeApproval);
@@ -35,22 +43,37 @@ describe("ACEBIT STAKING TEST", function () {
 
     it("Shoud Stake ACEBIT", async function () {
 
-        // stake twice and check rewards
+        // stake 1000 and then 1000 again + perform all the required checks
 
+        // first stake of 1000
         await aceBitStaking.stake("1000000000000000000000");
-        console.log(await aceBitStaking.getUser(deployer.address));
+        var _user = await aceBitStaking.getUser(deployer.address);
+        // console.log(_user);
+        expect(_user.balance).to.equal("1000000000000000000000");
+        expect(_user.totalRewards).to.equal("0");
+        expect( await acebit.balanceOf(aceBitStaking.address)).to.equal("1000000000000000000000")
+        expect( await acebit.balanceOf(deployer.address)).to.equal("399999000000000000000000000")
+
+        // second stake of 1000
+        await aceBitStaking.stake("1000000000000000000000");
+        _user = await aceBitStaking.getUser(deployer.address);
+        // console.log(_user);
+        expect(_user.balance).to.equal("2000000000000000000000");
+        expect(_user.totalRewards).to.equal("5000000000000000000");
+        expect( await acebit.balanceOf(aceBitStaking.address)).to.equal("2000000000000000000000")
+        expect( await acebit.balanceOf(deployer.address)).to.equal("399998000000000000000000000")
+
 
     });
 
 
-    it("Shoud Unstake ACEBIT ", async function () {
+    it("Shoud claim Staking Reward ", async function () {
 
-        // unstake twice and check rewards
-
-        // await aceBitStaking.stake("1000000000000000000000");
-        // console.log(await aceBitStaking.getUser(deployer.address));
+        // cliam reward once + checks
+        // claim reward twice + checks
 
     });
+
 
     it("Shoud test Fronted fucntions", async function () {
 

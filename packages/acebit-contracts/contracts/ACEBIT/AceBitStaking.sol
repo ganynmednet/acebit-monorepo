@@ -7,6 +7,8 @@ import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
+import "hardhat/console.sol";
+
 // https://github.com/HQ20/StakingToken/blob/master/contracts/StakingToken.sol
 // https://github.com/second-state/simple-staking-smart-contract/blob/main/SimpleStaking.sol
 // https://github.com/xdaichain/easy-staking-contracts/blob/master/contracts/EasyStaking.sol
@@ -24,7 +26,9 @@ contract AceBitStaking is Ownable {
     string public NAME;
     IERC20 public ACEBIT;
 
-    uint256 public REWARD_PER_BLOCK_RATE;
+    uint256 public REWARD_PERIOD;
+    uint256 public REWARD_PER_PERIOD;
+
     uint256 public totalStaked;
 
     struct Staker {
@@ -38,12 +42,21 @@ contract AceBitStaking is Ownable {
     event Staked(address indexed owner, uint256 amount);
     event Unstaked(address indexed owner, uint256 amount);
 
-    constructor(string memory name_, address acebit_) {
+    constructor(
+        string memory name_,
+        address acebit_,
+        uint256 period_,
+        uint256 rewardPerPeriod_
+    ) {
         require(bytes(name_).length > 0, "Invalid Contract name");
         require(acebit_ != address(0), "Invalid ACEBIT address");
+        require(period_ > 0, "Invalid period");
+        require(rewardPerPeriod_ > 0, "Invalid RewardPerPeriod");
 
         NAME = name_;
         ACEBIT = IERC20(acebit_);
+        REWARD_PERIOD = period_;
+        REWARD_PER_PERIOD = rewardPerPeriod_;
     }
 
     /**
@@ -103,20 +116,44 @@ contract AceBitStaking is Ownable {
 
     /**
      *  @dev show accumulated rewards to date
+     * @param _user address of the user to update reward
      */
     function _updateRewards(address _user) internal {
         Staker storage staker = stakers[_user];
 
-        staker.totalRewards = staker.balance.mul(2);
+        // uint256 _reward = _calculateRewards(staker.updatedAt, staker.balance);
+        // console.log(_reward);
+        staker.totalRewards =
+            staker.totalRewards +
+            _calculateRewards(staker.updatedAt, staker.balance);
         staker.updatedAt = block.timestamp;
     }
 
     /**
-     *  @dev calculate rewards (math)
+     *  @dev calculate rewards per hour per token holdings
+     *  @param updatedAt_ the latest reward update timestamp
+     *  @param balance_ current user balance to be used for the reward calculation
+     *  @return  _reward calculated reward
      */
-    function _calculateRewards() internal {
-        // calculate rewards
-        return;
+    function _calculateRewards(uint256 updatedAt_, uint256 balance_)
+        internal
+        returns (uint256 _reward)
+    {
+        // https://medium.com/coinmonks/math-in-solidity-part-4-compound-interest-512d9e13041b
+        if (updatedAt_ == 0) return 0;
+
+        uint256 _x = REWARD_PER_PERIOD.mul(
+            block.timestamp.sub(updatedAt_).div(REWARD_PERIOD).mul(
+                balance_.div(1e18)
+            )
+        );
+        // console.log("result: ", _x);
+        // console.log(REWARD_PER_PERIOD);
+        // console.log(updatedAt_);
+        // console.log(block.timestamp);
+        // console.log(balance_);
+        // return 0;
+        return _x;
     }
 
     /**
@@ -132,16 +169,11 @@ contract AceBitStaking is Ownable {
         return staker;
     }
 
-
-        /**
+    /**
      *  @dev migrate
      *  @dev https://github.com/TidalFinance/tidal-contracts/blob/main/contracts/Staking.sol
      */
-    function migrate(address user_)
-        external
-        view
-        onlyOwner
-    {
+    function migrate(address user_) external view onlyOwner {
         return;
     }
 }

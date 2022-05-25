@@ -1,5 +1,9 @@
 
 # backlog
+- 
+
+
+# research
 
 - override + contract params
 https://jeancvllr.medium.com/solidity-tutorial-all-about-functions-dba2ccb1e931
