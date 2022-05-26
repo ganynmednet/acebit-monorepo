@@ -35,9 +35,6 @@ describe("ACEBIT STAKING TEST", function () {
         // expect(await aceBitStaking.name()).to.equal(_name);
         // expect(await aceBitStaking.tokenAddress()).to.equal(acebit.address);
 
-
-
-
         // check aceBit balances contract & staker
     });
 
