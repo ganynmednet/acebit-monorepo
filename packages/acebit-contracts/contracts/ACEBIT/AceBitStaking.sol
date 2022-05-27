@@ -60,7 +60,8 @@ contract AceBitStaking is Ownable {
     }
 
     /**
-     *  @dev stake ACEBIT
+     *  @dev stake ACEBIT tokens
+     *  @param amount_ staking amount
      */
     function stake(uint256 amount_) external {
         require(amount_ > 0, "Expected Staking amount greater than 0");
@@ -81,7 +82,8 @@ contract AceBitStaking is Ownable {
     }
 
     /**
-     *  @dev unstake ACEBIT
+     *  @dev unstake ACEBIT tokens
+     *  @param amount_ unstaking amount
      */
     function unstake(uint256 amount_) external {
         require(amount_ > 0, "Expected Unstaking amount greater than 0");
