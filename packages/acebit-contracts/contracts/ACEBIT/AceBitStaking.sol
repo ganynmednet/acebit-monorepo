@@ -63,10 +63,10 @@ contract AceBitStaking is Ownable {
      *  @dev stake ACEBIT
      */
     function stake(uint256 amount_) external {
-        require(amount_ > 0, "Invalid amount");
+        require(amount_ > 0, "Expected Staking amount greater than 0");
         require(
             ACEBIT.balanceOf(msg.sender) > amount_,
-            "Invalid user ACEBIT balance"
+            "Invalid user ACEBIT User balance"
         );
 
         _updateRewards(msg.sender);
@@ -84,13 +84,21 @@ contract AceBitStaking is Ownable {
      *  @dev unstake ACEBIT
      */
     function unstake(uint256 amount_) external {
-        require(amount_ > 0, "Invalid amount");
+        require(amount_ > 0, "Expected Unstaking amount greater than 0");
+
+        Staker storage staker = stakers[msg.sender];
+
+        require(
+            staker.balance >= amount_,
+            "Expected amount less or equal user balance"
+        );
 
         _updateRewards(msg.sender);
 
-        Staker storage staker = stakers[msg.sender];
         staker.balance = staker.balance.sub(amount_);
         totalStaked = totalStaked.sub(amount_);
+
+        ACEBIT.safeTransfer(address(msg.sender), amount_);
 
         emit Unstaked(msg.sender, amount_);
     }
