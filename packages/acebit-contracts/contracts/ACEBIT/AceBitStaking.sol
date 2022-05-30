@@ -107,21 +107,38 @@ contract AceBitStaking is Ownable {
 
     /**
      *  @dev show accumulated rewards to date
+     *  @return _totalRewards total user rewards to date
      */
-    function userRewards() external view {
-        // calculate rewards
+    function userRewards() public view returns (uint256 _totalRewards) {
         Staker storage staker = stakers[msg.sender];
-        return;
+
+        require(
+            staker.balance > 0,
+            "Expected User Staked balance regater than 0"
+        );
+        uint256 __totalRewards = staker.totalRewards +
+            _calculateRewards(staker.updatedAt, staker.balance);
+        return __totalRewards- staker.rewardsWithdrawn;
     }
 
     /**
      *  @dev withdrwaw user rewards
      */
-    function withdrawRewards(uint256 amount) external {
-        // check ammount
-        // transfer tokens
+    function withdrawRewards() external {
+        _updateRewards(msg.sender);
 
-        return;
+        Staker storage staker = stakers[msg.sender];
+        uint256 _availableRewards = staker.totalRewards -
+            staker.rewardsWithdrawn;
+
+        require(
+            _availableRewards > 0,
+            "There is no available rewards for the user"
+        );
+
+        staker.rewardsWithdrawn = staker.rewardsWithdrawn + _availableRewards;
+
+        ACEBIT.safeTransfer(address(msg.sender), _availableRewards);
     }
 
     /**
@@ -130,6 +147,8 @@ contract AceBitStaking is Ownable {
      */
     function _updateRewards(address _user) internal {
         Staker storage staker = stakers[_user];
+
+        // if (staker.balance == 0) return;
 
         // uint256 _reward = _calculateRewards(staker.updatedAt, staker.balance);
         // console.log(_reward);
@@ -147,6 +166,7 @@ contract AceBitStaking is Ownable {
      */
     function _calculateRewards(uint256 updatedAt_, uint256 balance_)
         internal
+        view
         returns (uint256 _reward)
     {
         // https://medium.com/coinmonks/math-in-solidity-part-4-compound-interest-512d9e13041b

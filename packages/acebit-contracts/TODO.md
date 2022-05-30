@@ -1,6 +1,12 @@
 
 # backlog
-- 
+- staking: code cleaning
+- staking: error validation, flow validation
+- staking: migrate research
+  
+- nft: research
+- nft contract
+- nft staking
 
 
 # research

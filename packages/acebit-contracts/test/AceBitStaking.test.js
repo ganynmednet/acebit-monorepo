@@ -6,7 +6,7 @@ let aceBitStaking, deployer, dao;
 describe("ACEBIT STAKING TEST", function () {
     it("Shoud deploy AceBit Staking", async function () {
 
-        [deployer, dao] = await ethers.getSigners()
+        [deployer, dao, randomUser] = await ethers.getSigners()
         const _largeApproval = '100000000000000000000000000000000';
         const _name = "AceBitStaking";
         const _period = "1"
@@ -32,6 +32,7 @@ describe("ACEBIT STAKING TEST", function () {
 
         // After-deploy checks
         expect(await aceBitStaking.owner()).to.equal(deployer.address);
+        await acebit.transfer(aceBitStaking.address, "1000000000000000000000");
         // expect(await aceBitStaking.name()).to.equal(_name);
         // expect(await aceBitStaking.tokenAddress()).to.equal(acebit.address);
 
@@ -52,8 +53,8 @@ describe("ACEBIT STAKING TEST", function () {
         // console.log(_user);
         expect(_user.balance).to.equal("1000000000000000000000");
         expect(_user.totalRewards).to.equal("0");
-        expect(await acebit.balanceOf(aceBitStaking.address)).to.equal("1000000000000000000000")
-        expect(await acebit.balanceOf(deployer.address)).to.equal("399999000000000000000000000")
+        expect(await acebit.balanceOf(aceBitStaking.address)).to.equal("2000000000000000000000")
+        expect(await acebit.balanceOf(deployer.address)).to.equal("399998000000000000000000000")
 
         // second stake of 1000
         await aceBitStaking.stake("1000000000000000000000");
@@ -61,14 +62,25 @@ describe("ACEBIT STAKING TEST", function () {
         // console.log(_user);
         expect(_user.balance).to.equal("2000000000000000000000");
         expect(_user.totalRewards).to.equal("5000000000000000000");
-        expect(await acebit.balanceOf(aceBitStaking.address)).to.equal("2000000000000000000000")
-        expect(await acebit.balanceOf(deployer.address)).to.equal("399998000000000000000000000")
+        expect(await acebit.balanceOf(aceBitStaking.address)).to.equal("3000000000000000000000")
+        expect(await acebit.balanceOf(deployer.address)).to.equal("399997000000000000000000000")
 
 
     });
 
 
     it("Shoud claim Staking Reward ", async function () {
+        
+        await expect(aceBitStaking.connect(randomUser).withdrawRewards()).to.be.revertedWith("There is no available rewards for the user");
+
+        await aceBitStaking.withdrawRewards();
+
+        _user = await aceBitStaking.getUser(deployer.address);
+        // console.log(_user);
+        expect(await aceBitStaking.userRewards()).to.equal("0");
+        expect(_user.totalRewards).to.equal("25000000000000000000");
+        expect(await acebit.balanceOf(deployer.address)).to.equal("399997025000000000000000000")
+        expect(await acebit.balanceOf(aceBitStaking.address)).to.equal("2975000000000000000000")
 
         // cliam reward once + checks
         // claim reward twice + checks
@@ -78,14 +90,10 @@ describe("ACEBIT STAKING TEST", function () {
 
     it("Shoud test Fronted fucntions", async function () {
 
-        // view user rewards
-        // withdraw rewards
+        await expect(aceBitStaking.connect(randomUser).userRewards()).to.be.revertedWith("Expected User Staked balance regater than 0");
 
-    });
-
-    it("Shoud withdraw user rewards", async function () {
-
-        // withdraw twice
+        var _userRewards = await aceBitStaking.userRewards();
+        expect(_userRewards).to.equal("0");
 
     });
 
@@ -101,7 +109,9 @@ describe("ACEBIT STAKING TEST", function () {
         _user = await aceBitStaking.getUser(deployer.address);
         // console.log(_user);
         expect(_user.balance).to.equal("1000000000000000000000");
-        expect(_user.totalRewards).to.equal("35000000000000000000");
+        expect(_user.totalRewards).to.equal("55000000000000000000");
+        expect(await acebit.balanceOf(aceBitStaking.address)).to.equal("1975000000000000000000");
+        expect(await acebit.balanceOf(deployer.address)).to.equal("399998025000000000000000000")
 
         // second unstake of 1000
         await expect(aceBitStaking.unstake("1000000000000000000001")).to.be.revertedWith("Expected amount less or equal user balance");
@@ -109,10 +119,9 @@ describe("ACEBIT STAKING TEST", function () {
         _user = await aceBitStaking.getUser(deployer.address);
         // console.log(_user);
         expect(_user.balance).to.equal("0");
-        expect(_user.totalRewards).to.equal("45000000000000000000");
-
-        // expect(await acebit.balanceOf(aceBitStaking.address)).to.equal("1000000000000000000000")
-        // expect(await acebit.balanceOf(deployer.address)).to.equal("39999000000000000000000000")
+        expect(_user.totalRewards).to.equal("65000000000000000000");
+        expect(await acebit.balanceOf(aceBitStaking.address)).to.equal("975000000000000000000");
+        expect(await acebit.balanceOf(deployer.address)).to.equal("399999025000000000000000000")
         // check everything
 
     });
