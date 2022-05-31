@@ -10,9 +10,16 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/draft-ERC20Permit.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Votes.sol";
 
-contract AceBitERC20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit, ERC20Votes {
+contract AceBitERC20 is
+    ERC20,
+    ERC20Burnable,
+    Pausable,
+    Ownable,
+    ERC20Permit,
+    ERC20Votes
+{
     constructor(address _dao) ERC20("AceBit", "ACEBIT") ERC20Permit("AceBit") {
-        _mint(_dao, 400000000 * 10 ** decimals());
+        _mint(_dao, 400000000 * 10**decimals());
     }
 
     function pause() public onlyOwner {
@@ -23,20 +30,21 @@ contract AceBitERC20 is ERC20, ERC20Burnable, Pausable, Ownable, ERC20Permit, ER
         _unpause();
     }
 
-    function _beforeTokenTransfer(address from, address to, uint256 amount)
-        internal
-        whenNotPaused
-        override
-    {
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal override whenNotPaused {
         super._beforeTokenTransfer(from, to, amount);
     }
 
     // The following functions are overrides required by Solidity.
 
-    function _afterTokenTransfer(address from, address to, uint256 amount)
-        internal
-        override(ERC20, ERC20Votes)
-    {
+    function _afterTokenTransfer(
+        address from,
+        address to,
+        uint256 amount
+    ) internal override(ERC20, ERC20Votes) {
         super._afterTokenTransfer(from, to, amount);
     }
 

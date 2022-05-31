@@ -4,8 +4,8 @@
 - staking: error validation, flow validation
 - staking: migrate research
   
+~~- nft contract~~
 - nft: research
-- nft contract
 - nft staking
 
 

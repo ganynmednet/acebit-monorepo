@@ -118,7 +118,7 @@ contract AceBitStaking is Ownable {
         );
         uint256 __totalRewards = staker.totalRewards +
             _calculateRewards(staker.updatedAt, staker.balance);
-        return __totalRewards- staker.rewardsWithdrawn;
+        return __totalRewards - staker.rewardsWithdrawn;
     }
 
     /**
