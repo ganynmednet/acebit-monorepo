@@ -101,7 +101,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
                 runs: 800,
             },
           },
-        },
+        }
     ],
     settings: {
         outputSelection: {
