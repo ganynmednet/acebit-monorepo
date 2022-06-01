@@ -11,3 +11,11 @@ https://docs.ethers.io/v5/api/providers/provider/ - estimate gas
 1 weeks = 7 days
 1 years = 365 days
 https://ethereum.stackexchange.com/questions/94351/revert-reason-for-arithmetic-overflows-in-solidity-v0-8
+
+
+NFT
+https://moralis.io/how-to-bulk-mint-nfts-batch-minting-guide/
+https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/token/ERC1155/ERC1155.sol
+https://github.com/OpenZeppelin/openzeppelin-contracts/blob/master/contracts/access/Ownable.sol
+
+

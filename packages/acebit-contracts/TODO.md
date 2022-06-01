@@ -8,6 +8,9 @@
 - nft: research
 - nft staking
 
+# nft flow
+- mint nft by batches (each batch mints a range of NFTs)?
+- OR mint all NFTs at once
 
 # research
 
