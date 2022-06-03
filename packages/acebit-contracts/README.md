@@ -25,3 +25,6 @@ npx hardhat verify 0x2770a25250c747E30f7d7F4f6A921481814E4C14 --network mumbai 0
 
 # Support
 npx hardhat clean
+
+# info
+ERC1155 - https://eips.ethereum.org/EIPS/eip-1155

@@ -1,11 +1,13 @@
 
-# backlog
+# token 
 - staking: code cleaning
 - staking: error validation, flow validation
 - staking: migrate research
   
+# nft
 ~~- nft contract~~
-- nft: research
+~~- nft: research~~
+- limit 8888 or stop minting?
 - nft staking
 
 # nft flow

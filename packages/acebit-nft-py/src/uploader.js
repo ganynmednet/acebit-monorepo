@@ -9,8 +9,7 @@ let totalAces = 10;
 // total each suite
 //
 
-for (let i = 1; i < 20; i++) {
-    console.log(i.toString(16))
+for (let i = 1; i < 5; i++) {
     let paddedHex = ("0000000000000000000000000000000000000000000000000000000000000000" + i.toString(16)).substr("-64");
     console.log(paddedHex)
     promises.push(new Promise( (res, rej) => {
@@ -25,20 +24,20 @@ for (let i = 1; i < 20; i++) {
     }))
     // console.log(promises)
 }
-// Promise.all(promises).then( () => {
-//     axios.post("https://deep-index.moralis.io/api/v2/ipfs/uploadFolder", 
-//         ipfsArray,
-//         {
-//             headers: {
-//                 "X-API-KEY": 'jhm4AZUaFMTlqcD5eHT2tuyY06pspE6Pu7S9eLo74XyQsPrmEhEP3ZQNrGKD8psh',
-//                 "Content-Type": "application/json",
-//                 "accept": "application/json"
-//             }
-//         }
-//     ).then( (res) => {
-//         console.log(res.data);
-//     })
-//     .catch ( (error) => {
-//         console.log(error)
-//     })
-// })
+Promise.all(promises).then( () => {
+    axios.post("https://deep-index.moralis.io/api/v2/ipfs/uploadFolder", 
+        ipfsArray,
+        {
+            headers: {
+                "X-API-KEY": 'jhm4AZUaFMTlqcD5eHT2tuyY06pspE6Pu7S9eLo74XyQsPrmEhEP3ZQNrGKD8psh',
+                "Content-Type": "application/json",
+                "accept": "application/json"
+            }
+        }
+    ).then( (res) => {
+        console.log(res.data);
+    })
+    .catch ( (error) => {
+        console.log(error)
+    })
+})
