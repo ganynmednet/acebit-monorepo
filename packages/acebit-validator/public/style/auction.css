@@ -1,0 +1,734 @@
+/*new style*/
+.auctions {
+    /*margin-top: 16px;*/
+    position: relative;
+    /*padding-bottom: 15px;*/
+}
+/*new style*/
+
+.nftdetails__box {
+    max-width: 100%;
+    margin: 0 auto ;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-rows: 92px auto;
+    grid-template-columns: auto 432px;
+    grid-row-gap: 54px;
+    grid-template-areas:
+    "nft__name rarity__rank"
+    "nft__description rarity__score"
+    "traits traits";
+}
+
+.nftdetails__box-support-text {
+    color: #FFFFFF;
+    font-size: 30px;
+}
+
+
+.links {
+    color:#758FF6;
+}
+
+.highlighted {
+    color: #FF4D76;
+}
+
+.nftdetails__box-support-text {
+    color: #FF4D76;
+    font-size: 30px;
+}
+
+/* NFT NAME BLOCK */
+.nftdetails__nft__name {
+    width: 100%;
+    height: 100px;
+    display: grid;
+    grid-template-areas:
+    "nft__name-title nft__name-number"
+    "nft__name-collection nft__name-collection"
+}
+
+.nftdetails__nft__name-title  {
+    white-space: nowrap;
+    font-family: 'HeroicCondensed-Bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    font-size: 80px;
+    line-height: 80px;
+    margin-right: 47px;
+}
+.nftdetails__nft__name-number {
+    white-space: nowrap;
+    font-family: 'HeroicCondensed-Bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    font-size: 80px;
+    line-height: 80px;
+    margin-right: 47px;
+}
+
+.nftdetails__nft__name-collection {
+    width: 100%;
+}
+
+/* NFT NAME BLOCK */
+
+
+.nftdetails__rarity__rank {
+    display: block;
+    width: 100%;
+    height: 100px;
+    /* background: #000000; */
+    color: #FFFFFF;
+    text-align: right;
+    display: grid;
+    grid-template-areas:
+    "nftdetails__rarity__rank-rank nftdetails__rarity__rank-rank"
+    "nftdetails__rarity__rank-from-collection"
+}
+
+.nftdetails__rarity__rank-rank {
+
+}
+.nftdetails__rarity__rank-from-collection {
+
+}
+
+.nftdetails__nftdetails-desctiption {
+    width: 100%;
+}
+
+.nftdetails__rarity-score {
+    width: 100%;
+    height: 100px;
+}
+
+
+
+
+
+
+.traits {
+    width: 100%;
+}
+
+.auctions__box {
+    max-width: 100%;
+    padding-top: 148px;
+    margin: 0 auto;
+    display: grid;
+    grid-column-gap: 56px;
+    grid-template-rows: 92px auto;
+    grid-template-columns: auto 423px;
+    grid-row-gap: 45px;
+    grid-template-areas:
+            "map title-box"
+            "map options";
+}
+.paused {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 23px 32px;
+    width: 100%;
+    background-color: #FFA842;
+    grid-area: paused;
+    position: absolute;
+    left: 0;
+    top: 0;
+    /*right: 0;*/
+}
+
+.paused__text {
+    font-family: 'manrope-SemiBold', sans-serif;
+    text-align: center;
+    max-width: 100%;
+    font-size: 21px;
+    line-height: 32px;
+    letter-spacing: -0.1px;
+    white-space: nowrap;
+}
+/*.auctions__map{*/
+/*    !* grid-area: map; *!*/
+/*    margin-right: 35px;*/
+/*}*/
+
+.auctions__title-box{
+    grid-area: title-box;
+}
+.auctions__options{
+    grid-area: options;
+    margin-bottom: 67px;
+}
+
+.auctions__map-img{
+    max-width: 704px;
+    max-height: 601px;
+    position: relative;
+    overflow: visible;
+    margin-right: 31px;
+}
+.auctions__map-video-box {
+    /* width:"840";
+    height: "601"; */
+}
+
+.auctions__map-video {
+    border-radius: 22px;
+    -moz-border-radius:20px;
+    -webkit-border-radius:1.5em;
+    width: 100%;
+}
+
+.auctions__img-bg {
+    width: 100%;
+}
+.auctions__img-map{
+    /*position: absolute;*/
+    /*top: 2px;*/
+    /*left: 50%;*/
+    /*transform: translateX(-50%);*/
+    /*height: 96%;*/
+    width: 739px;
+    border-radius: 24px;
+}
+
+
+
+.auctions__map-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.auctions__map-title {
+    font-family: 'manrope-bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 24px;
+    margin-bottom: 16px;
+}
+
+.auctions__map-description {
+    font-family: 'manrope-medium', sans-serif;
+    color: #B8B8B8;
+    text-align: center;
+    font-size: 16px;
+    line-height: 28px;
+    max-width: 352px;
+}
+
+.auctions__buy-data {
+    font-family: 'Panton-Bold', sans-serif;
+    color: #B8B8B8;
+    font-size: 14px;
+    line-height: 11px;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    /*padding-top: 4px;*/
+    padding-left: 2px;
+}
+
+.auctions__buy-select {
+    display: flex;
+    align-items: center;
+}
+
+.auctions__buy-title {
+    white-space: nowrap;
+    font-family: 'HeroicCondensed-Bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    font-size: 80px;
+    line-height: 80px;
+    margin-right: 47px;
+    white-space: nowrap;
+}
+
+.auctions__buy-prev,
+.auctions__buy-next {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 64px;
+    height: 64px;
+    background: #34343D;
+    cursor: pointer;
+    transition: background-color .3s;
+}
+
+.auctions__buy-next {
+    margin-left: 2px;
+}
+
+.auctions__buy-prev:hover {
+    background: #474751;
+}
+
+.auctions__buy-next:hover {
+    background: #474751;
+}
+
+.auctions__buy-current {
+    display: flex;
+    margin-bottom: 41px;
+}
+
+.auctions__buy-bid {
+    font-family: 'Panton-Bold', sans-serif;
+    display: flex;
+    flex-direction: column;
+    color: #B8B8B8;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.auctions__buy-ends {
+    font-family: 'Panton-Bold', sans-serif;
+    display: flex;
+    flex-direction: column;
+    color: #B8B8B8;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 18px;
+    border-left: 1px solid #50505C;
+    padding-left: 10px;
+    margin-left: 57px;
+}
+
+.auctions__buy-bid span{
+    position: relative;
+    font-family: 'manrope-bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -0.04em;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 6px;
+}
+
+.auctions__buy-ends span {
+    font-family: 'manrope-bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -0.01em;
+    font-size: 24px;
+    line-height: 24px;
+    margin-top: 6px;
+    display: flex;
+}
+.auctions__buy-ico{
+    font-weight: 700;
+    display: inline-block;
+    margin-left: 6px;
+}
+
+/*.auctions__buy-bid span:before {*/
+/*    content: "";*/
+/*    position: absolute;*/
+/*    background-image: url("../images/sticks.svg");*/
+/*    background-repeat: no-repeat;*/
+/*    background-size: cover;*/
+/*    left: 80px;*/
+/*    top: 50%;*/
+/*    transform: translate(-50%, -50%);*/
+/*    width: 12px;*/
+/*    height: 17px;*/
+/*}*/
+
+.auctions__buy-time {
+    font-size: 19px;
+    margin-right: 5px;
+    margin-left: 2px;
+    margin-top: 3px;
+    text-transform: none;
+}
+
+.auctions__buy-replenishment {
+    max-width: 424px;
+}
+
+.auctions__buy-minimum {
+    background: #34343D;
+    border-radius: 12px 12px 0 0;
+    padding: 26px 32px 32px 31px;
+}
+
+.auctions__buy-min {
+    font-family: 'Panton-Bold', sans-serif;
+    color: #B8B8B8;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 6px;
+}
+
+.auctions__buy-min span {
+    color: #FFFFFF;
+}
+
+.auctions__buy-form {
+    display: flex;
+    align-items: center;
+}
+
+.auctions__buy-deposit {
+    border-radius: 4px;
+    max-width: 218px;
+    height: 40px;
+    background: #292930;
+    position: relative;
+}
+
+.auctions__buy-input {
+    font-family: 'manrope-medium', sans-serif;
+    padding-left: 10px;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 28px;
+    background: #292930;
+    border: 1px solid #292930;
+    border-radius: 4px;
+    width: 100%;
+    height: 40px;
+    margin-right: 10px;
+    outline: none;
+    padding-right: 40px;
+}
+
+.auctions__buy-input:focus {
+    border: 1px solid pink;
+    border-image: linear-gradient(90deg, rgba(117,143,246,1) 0%, rgba(223,120,226,1) 50%, rgba(255,82,169,1) 100%);
+    border-image-slice: 1;
+}
+
+.auctions__buy-deposit:before{
+    content: "ETH";
+    position: absolute;
+    right: -4px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Panton-Bold', sans-serif;
+    color: #B8B8B8;
+    letter-spacing: 0.2px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.auctions__buy-btn {
+    font-family: 'Panton-Bold', sans-serif;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    line-height: 16px;
+    margin-left: 10px;
+    letter-spacing: 0.291667px;
+    text-transform: uppercase;
+    background: linear-gradient(237.36deg, #FF52A9 5.21%, #DF78E2 49.38%, #758FF6 91.17%), linear-gradient(237.36deg, #FF527A 5.21%, #DF78E2 49.38%, #758FF6 91.17%), linear-gradient(237.36deg, #FF4D76 5.21%, #758FF6 91.17%);
+    border-radius: 20px;
+    width: 132px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+.auctions__purchase {
+    background: #41414B;
+    border-radius: 0px 0px 12px 12px;
+    padding: 24px 32px 21px 32px;
+}
+.auctions__purchase-item {
+    display: flex;
+    justify-content: space-between;
+    max-width: 360px;
+    margin-bottom: 7px;
+}
+
+.auctions__purchase-container {
+    display: flex;
+    align-items: center;
+}
+
+.auctions__purchase-img img {
+    border-radius: 50%;
+}
+
+.auctions__purchase-name {
+    font-family: 'manrope-bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: 0.01em;
+    font-size: 16px;
+    line-height: 14px;
+    margin-left: 12px;
+}
+
+.auctions__purchase-price {
+    font-family: 'manrope-bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: 0.01em;
+    font-size: 16px;
+    line-height: 14px;
+    margin-right: 19px;
+    position: relative;
+}
+
+.auctions__purchase-price:before {
+    content: "";
+    position: absolute;
+    background-image: url(../images/sticks.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    left: 55px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 15px;
+}
+
+.auctions__purchase-show {
+    display: block;
+    font-family: 'Panton-Bold', sans-serif;
+    color: #758FF6;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 18px;
+    margin-top: 20px;
+}
+
+/*start style successfully*/
+
+.auctions__buy-successfully {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 36px 20px 36px 20px;
+    background: #758FF6;
+    border-radius: 12px 12px 0px 0px;
+}
+
+.auctions__buy-success {
+    font-family: 'manrope-medium', sans-serif;
+    color: #FFFFFF;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    margin-top: 16px;
+}
+
+.auctions__buy-state{
+    color: #FFA842;
+}
+.auctions__buy-auction{
+    font-family: 'Panton-Bold';
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.auctions__buy-pause{
+    font-family: 'manrope-bold';
+    font-weight: 700;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    text-transform: capitalize;
+}
+/*end style successfully*/
+
+
+/*start style history*/
+
+.history {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 11;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(41, 41, 48, 0.8);
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.history__info-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    width: 29px;
+    height: 29px;
+}
+
+.history__box {
+    position: relative;
+    max-width: 467px;
+    height: 576px;
+    flex-basis: 100%;
+    background: #41414B;
+    border-radius: 12px;
+}
+
+.history__info {
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #878798;
+    height: 176px;
+}
+
+/*.history__info-img img {*/
+/*    border-radius: 12px;*/
+/*    width: 112px;*/
+/*    height: 112px;*/
+/*}*/
+.auctions__buy-deposit,
+.history__info-container {
+    margin-left: 25px;
+    margin-top: 2px;
+}
+
+.history__info-id {
+    font-family: 'manrope-bold', sans-serif;
+    color: #878798;
+    letter-spacing: -0.01em;
+    font-size: 20px;
+    line-height: 24px;
+    /*margin-bottom: 8px;*/
+}
+
+.history__info-name {
+    font-family: 'HeroicCondensed-Bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    font-size: 64px;
+    line-height: 64px;
+    margin-bottom: -7px;
+}
+.history__info-img{
+    width: 117px;
+    border-radius: 10px;
+}
+
+.history__items {
+    padding: 16px 23px 16px 32px;
+    height: 389px;
+    overflow-y: scroll;
+    margin-top: 8px;
+    margin-right: 8px;
+}
+
+.history__item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.history__item + .history__item {
+    margin-top: 16px;
+}
+
+.history__item-container {
+    display: flex;
+    align-items: center;
+}
+
+.history__item-img img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+.history__item-info {
+    margin-left: 12px;
+}
+
+.history__item-name {
+    font-family: 'manrope-bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: 0.01em;
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 2px;
+}
+
+.history__item-data {
+    font-family: 'manrope-bold', sans-serif;
+    color: #878798;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.history__item-price {
+    font-family: 'manrope-bold', sans-serif;
+    color: #FFFFFF;
+    letter-spacing: 0.01em;
+    font-size: 16px;
+    line-height: 14px;
+    padding-right: 19px;
+    position: relative;
+}
+
+.history__item-price:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("../images/sticks.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 9px;
+    height: 13px;
+}
+
+.history__item-link {
+    width: 18px;
+    height: 18px;
+}
+
+/*end style history*/
+
+/*start media paused*/
+@media (max-width: 1324px) {
+    .paused__text {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 1273px) {
+    .paused{
+        width: auto;
+    }
+}
+@media (max-width: 500px){
+    .paused {
+        padding: 16px 26px;
+    }
+
+    .paused__text {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 375px){
+    .paused__text {
+        max-width: 308px;
+    }
+}

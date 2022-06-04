@@ -1,0 +1,77 @@
+body {
+    background-color: #292930;
+}
+
+.container__auctions {
+    max-width: 1246px;
+    padding: 0 17px;
+    margin: 0 auto;
+}
+
+.container__info {
+    max-width: 1253px;
+    padding: 0 17px;
+    margin: 0 auto;
+}
+
+.container__traits {
+    max-width: 1252px;
+    padding: 0 17px;
+    margin: 0 auto;
+}
+
+*::-webkit-scrollbar {
+    width: 6px; /* ширина для вертикального скролла */
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #878798;
+    border-radius: 4px;
+}
+
+.container {
+    max-width: 2560px;
+    padding: 0 24px 0 40px;
+    margin: 0 auto;
+}
+
+*{
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+*,*::before, *::after{
+    box-sizing: inherit;
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+ul,
+li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    margin: 0;
+    font-size: inherit;
+}

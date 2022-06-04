@@ -1,0 +1,344 @@
+.validator__account {
+    background-color: #34343D;
+    width: 432px;
+    height: 194px;
+    border: 1px solid #34343D;
+    border-radius: 8px;
+    margin-top: 22px;
+    margin-bottom: 53px;
+}
+
+.validator__account-your {
+    color: #FFFFFF;
+    font-family: 'Panton-Bold', sans-serif;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding-top: 10px;
+    padding-left: 13px;
+}
+
+.validator__account-img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 1px solid #FFFFFF;
+    background: #758FF6;
+    overflow: hidden;
+    margin: 14px auto 10px;
+}
+
+.validator__account-name {
+    color: #FFFFFF;
+    font-family: 'manrope-bold', sans-serif;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: -0.03em;
+    text-align: center;
+    padding-right: 2px;
+}
+
+.validator__account-items {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+}
+
+.validator__account-item {
+    display: flex;
+    color: #FFFFFF;
+    font-family: 'manrope-SemiBold', sans-serif;
+    font-size: 12px;
+    line-height: 12px;
+    width: max-content;
+    background-color: #292930;
+    padding: 4px 6px;
+    border-radius: 4px;
+}
+
+.validator__account-item + .validator__account-item {
+    margin-left: 8px;
+}
+
+.mayors-office .validator__account-color {
+    background-color: #F71AFC;
+}
+
+.landlords .validator__account-color {
+    background-color: #EEC327;
+}
+
+.citizens .validator__account-color {
+    background-color: #4299D9;
+}
+
+.media-stars .validator__account-color {
+    background-color: #3DBC9D;
+}
+
+.marshal-deputy .validator__account-color {
+    background-color: #E07D29;
+}
+
+.marshals .validator__account-color {
+    background-color: #F7510A;
+}
+
+.validator__account-color {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #FFFFFF;
+    margin-right: 6px;
+}
+
+.validator__account-title {
+    color: #FFFFFF;
+    font-family: 'manrope-bold', sans-serif;
+    font-size: 24px;
+    line-height: 24px;
+    /*letter-spacing: -0.03em;*/
+    text-align: center;
+    margin-bottom: 18px;
+}
+
+.validator__account-description {
+    color: #B8B8B8;
+    font-family: 'manrope-medium', sans-serif;
+    text-align: center;
+    font-size: 16px;
+    line-height: 28px;
+    max-width: 382px;
+    margin-bottom: 32px;
+}
+
+.validator__account-description a {
+    color: #758FF6;
+}
+
+.validator__account-link {
+    color: #FFFFFF;
+    font-family: 'Panton-Bold', sans-serif;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding: 2px 24px 0 24px;
+    background: linear-gradient(237.36deg, #FF52A9 5.21%, #DF78E2 49.38%, #758FF6 91.17%), linear-gradient(237.36deg, #FF527A 5.21%, #DF78E2 49.38%, #758FF6 91.17%), linear-gradient(237.36deg, #FF4D76 5.21%, #758FF6 91.17%);
+    border-radius: 20px;
+}
+
+
+.create.validator__account-title{
+    margin-bottom: 0;
+}
+.create.validator__content{
+    position: relative;
+    height: auto;
+    padding: 28px 23px 51px;
+    margin: 0 auto;
+}
+.create.validator__account-link{
+    width: 100%;
+    justify-content: center;
+}
+.create.validator__account{
+    height: 82px;
+    padding: 10px 16px 19px;
+    position: relative;
+    margin-bottom: 32px;
+    margin-top: 27px;
+}
+.create__title-connect{
+    font-family: 'Panton-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #A8A8B8;
+    margin-bottom: 14px;
+}
+.create__metamask-img{
+    margin-right: 14px;
+}
+.create__metamask-box{
+    display: flex;
+}
+.create__metamask-text{
+    font-family: 'manrope-bold', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+}
+
+.create__btn{
+    font-family: 'Panton-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 0.291667px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    background: #758FF6;
+    border-radius: 20px;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    cursor: pointer;
+}
+
+.create-close-popup{
+    position: absolute;
+    top: 28px;
+    right: 25px;
+}
+
+.create__user-name-title{
+    font-family: 'manrope-bold', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+.create__user-name-title span{
+    color: #FF4D76;
+}
+.create__user-name-box{
+    width: 100%;
+}
+.form__body {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.create__input-name-box{
+    width: auto;
+    height: 81px;
+    background: linear-gradient(#758FF6,#DF78E2, #FF52A9 );
+    border-radius: 4px;
+    padding: 1px;
+    margin: 0 auto;
+}
+
+.create__input-name-wrapper{
+    width: auto;
+    height: 79px;
+    border-radius: 4px;
+    background: #303039;
+    padding: 10px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.create__name-des-box{
+    display: flex;
+    justify-content: space-between;
+}
+.create__check{
+    position: absolute;
+    right: 16px;
+    bottom: 15px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #758FF6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.create__captcha{
+    width: 300px;
+    margin-top: 28px;
+    margin-bottom: 32px;
+}
+.create__input{
+    border: none;
+    background: #303039;
+    outline: none;
+    font-family: 'manrope-bold', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 24px;
+    letter-spacing: -0.01em;
+    color: #FFFFFF;
+    padding-right: 40px;
+}
+
+.create__input-name{
+    font-family: 'Panton-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #A8A8B8;
+}
+
+.create.validator__account-title{
+    letter-spacing: -0.01em;
+}
+
+@media (max-width: 768px) {
+    .validator__account{
+        margin-top: 0;
+    }
+}
+
+@media (max-width: 530px) {
+    .validator__account{
+        width: 100%;
+        height: auto;
+        padding-bottom: 16px;
+    }
+    .validator__account-your{
+        padding-top: 7px;
+        padding-left: 9px;
+    }
+    .validator__account-img {
+        width: 51px;
+        height: 51px;
+        margin: 12px auto 4px;
+    }
+    .validator__account-img img{
+        width: 51px;
+        height: 51px;
+    }
+    .validator__account-items{
+        flex-wrap: wrap;
+        max-width: 220px;
+        margin: 0 auto;
+        column-gap: 9px;
+        row-gap: 3px;
+    }
+    .validator__account-name{
+        margin-bottom: 3px;
+    }
+    .validator__account-item{
+        /*margin-bottom: 7px;*/
+        padding: 5px 8px;
+    }
+    .validator__account-item + .validator__account-item{
+        margin-left: 0;
+    }
+    .validator__account{
+        padding-bottom: 18px;
+        margin-bottom: 27px;
+    }
+    .validator__account-title{
+        font-size: 20px;
+    }
+}

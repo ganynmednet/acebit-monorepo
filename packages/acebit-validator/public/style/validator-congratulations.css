@@ -1,0 +1,36 @@
+.validator__congratulations-logo {
+    padding-top: 25px;
+    padding-bottom: 3px;
+    /*margin-top: 87px;*/
+    /*margin-bottom: 43px;*/
+}
+
+.validator__congratulations-title {
+    font-family: 'manrope-bold', sans-serif;
+    color: #FFFFFF;
+    font-size: 24px;
+    line-height: 24px;
+    /*letter-spacing: -0.03em;*/
+    padding-left: 6px;
+    margin-bottom: 17px;
+}
+
+.validator__congratulations-description {
+    font-family: 'manrope-medium', sans-serif;
+    color: #B8B8B8;
+    width: 80%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 28px;
+    margin-bottom: 158px;
+}
+
+@media (max-width: 530px){
+    .validator__congratulations-title{
+        font-size: 20px;
+        margin-top: -3px;
+    }
+    .validator__congratulations-logo{
+        padding-top: 22px;
+    }
+}
