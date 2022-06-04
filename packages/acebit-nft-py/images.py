@@ -11,11 +11,10 @@ def main():
         _paddedHex = "0000000000000000000000000000000000000000000000000000000000000000{}".format(_hex[2:])
         _paddedHex = _paddedHex[-64:]
         print(_paddedHex)
-        
+
         # "ISO-8859-1"
         #  UTF-8
-        with open('./assets/0000000000000000000000000000000000000000000000000000000000000001.jpg'.format(_paddedHex),
-                  "rb") as _file:
+        with open('./assets/{}.jpg'.format(_paddedHex), "rb") as _file:
             _base64_str = base64.b64encode(_file.read())
             _img = {
                 "path": "images/{}.jpg".format(_paddedHex),
