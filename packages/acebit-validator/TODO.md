@@ -1,8 +1,9 @@
 
 # backlog
-- connect store to Header
+~~- connect store to Header~~
+~~- web3Context access?~~
 - connect/disconnect
-- web3Context access
+
 
 - state/state machine review
 
