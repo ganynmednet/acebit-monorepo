@@ -6,8 +6,11 @@ https://docs.moralis.io/moralis-dapp/web3-api/ipfs-storage-new
 # tasks
 ~~- images~~
 ~~- metadata basic upload]~~
-- metadata batches using 4 images
+~~- metadata batches using 4 images~~
+- rethink flow
 - opensea videoformat research
+- opensea test upload
+- 
 
 
 # flow
