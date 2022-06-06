@@ -2,12 +2,12 @@
 # backlog
 ~~- connect store to Header~~
 ~~- web3Context access?~~
-- connect/disconnect
+~~- connect/disconnect~~
+~~- ConnectDiscord~~
 
-
-- state/state machine review
-
-- ConnectDiscord
+- connectDiscord - callback test
 - ConnectWallet
+
+
 - CreateAccount
 - Confirmation

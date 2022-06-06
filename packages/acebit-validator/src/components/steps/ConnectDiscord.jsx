@@ -7,27 +7,6 @@ import { checkLocalStorage } from '../../modules/DiscordClient'
 import { connect } from 'react-redux';
 
 export function ConnectDiscord(props) {
-    // var state = store.getState()
-
-
-    // const authorizeDiscord = async () => {
-    //     if (!state.userStates["DISCORD_CONNECTED_PENDING"].completed) {
-    //         store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "DISCORD_CONNECTED_PENDING" })
-    //         // props.rerendRouter()
-    //     }
-
-    //     console.log("TRYING TO FETCH LOCAL DATA")
-    //     var _res = await checkLocalStorage()
-    //     console.log("LOCAL DATA FETCHED")
-
-    //     if(_res) {
-    //         store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "DISCORD_CONNECTED_DONE" })
-    //         props.rerendRouter()
-    //         return true;
-    //     }
-    //     window.location.href = config.discordURLs[process.env.NODE_ENV];
-    //     return;
-    // }
 
     const authorizeDiscord = async () => {
         if (!props.userStates["DISCORD_CONNECTED_PENDING"].completed) {
@@ -43,11 +22,10 @@ export function ConnectDiscord(props) {
             return;
         }
 
-        // window.location.href = config.discordURLs[process.env.NODE_ENV];
+        window.location.href = config.discordURLs[process.env.NODE_ENV];
         return;
 
     }
-    // console.log("ACCESS TOKEN " + this.accessToken)
 
     if (props.userStates["DISCORD_CONNECTED_PENDING"].completed) {
         return (
@@ -95,7 +73,7 @@ export function ConnectDiscord(props) {
             </div>
         </>
     )
-    // }
+
 };
 const mapStateToProps = function (store) {
     return {
