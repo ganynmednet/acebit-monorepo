@@ -1,14 +1,17 @@
 import Web3Modal from "web3modal";
 import { Web3Provider } from "@ethersproject/providers";
 import { providerOptions } from '../configs/providerOptions';
+import { MAINNET } from '../configs/config';
+import { utils } from 'ethers';
 import store from "../store";
+import Web3 from 'web3';
 
 
 export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner) => {
 
     // var state = store.getState()
 
-    let connectedProvider, rawProvider, changeState, signer, account, web3Modal;
+    let connectedProvider, rawProvider, chain, signer, account, web3Modal;
 
     console.log("connect")
     web3Modal = new Web3Modal({
@@ -26,11 +29,11 @@ export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner
         window.ethereum.autoRefreshOnNetworkChange = false;
     }
 
+    // get provider
     try {
         rawProvider = await web3Modal.connect();
         connectedProvider = new Web3Provider(rawProvider, "any");
         setProvider(connectedProvider)
-        console.log("PROVIDER HAS BEEN SET")
 
     } catch (e) {
         console.log(e)
@@ -48,12 +51,71 @@ export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner
         return false;
     }
 
+
+    // get chain
+    chain = await connectedProvider.getNetwork();
+    console.log(chain.chainId, MAINNET.chainId)
+
+    if (chain.chainId != MAINNET.chainId) {
+        console.log("Bad network");
+        console.log(window.ethereum)
+        if (window.ethereum) {
+            window.ethereum.request({
+                method: "wallet_addEthereumChain",
+                params: [{
+                    chainId: Web3.utils.toHex(MAINNET.chainId),
+                    rpcUrls: ["https://rpc-mainnet.matic.network/"],
+                    chainName: "Matic Mainnet",
+                    nativeCurrency: {
+                        name: "MATIC",
+                        symbol: "MATIC",
+                        decimals: 18
+                    },
+                    blockExplorerUrls: ["https://polygonscan.com/"]
+                }]
+            })
+        }
+
+    }
+
+    // get signer
+    try {
+        signer = await connectedProvider.getSigner()
+        setSigner(signer)
+
+    } catch {
+        console.log("get signer error")
+        showPopup({
+            header: "Problem getting Signer",
+            message: `Check your wallet settings.`,
+            buttons: [
+                {
+                    text: "Check Wallet and Try Again",
+                    highlighted: true,
+                    action: hidePopup
+                }
+            ]
+        })
+        return false;
+
+    }
+
+
+    // get account
+    try {
+        account = await signer.getAddress();
+    } catch {
+        console.log("get account error")
+        return false;
+    }
+
     store.dispatch({
         type: "USERDATA/UPDATE_WEB3_DATA", payload: {
-            account: "0xAF662D14D8Ab5C5d251E7DB7BB93fE7F102C1AC9",
-            chainId: "80001"
+            account: account,
+            chainId: chain.chainId
         }
     })
+
     console.log("WALLET HAS BEEN CONNECTED")
 }
 

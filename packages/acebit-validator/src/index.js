@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App.js';
+import DiscordCallback from './components/utils/DiscordCallback.jsx';
 import {
   BrowserRouter as Router,
   Routes,
@@ -19,6 +20,7 @@ root.render(
     <Routes>
       <Route index element={<App />} />
       <Route path="./" element={<App />} />
+      <Route path="/callback" element={<DiscordCallback />} />
       <Route path="*" element={<App />} />
     </Routes>
   </Router>

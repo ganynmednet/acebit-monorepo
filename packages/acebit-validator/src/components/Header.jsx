@@ -5,8 +5,6 @@ import { ConnectWallet, DisconnectWallet } from '../modules/web3Client.js';
 import { addressShortener } from '../helpers';
 import { PopupContext } from '../App';
 import { Web3Context } from '../App';
-// import { ConnectWallet } from '../modules/web3Client';
-// import store from "../store";
 
 
 function Header(props) {
@@ -25,7 +23,7 @@ function Header(props) {
     }
 
     const getButtonText = () => {
-        console.log(props)
+        // console.log(props)
         if (props.account) {
             return (
                 <a className="header__btn-disconnect" href="#" onClick={disconnectWallet}>  {addressShortener(props.account)}  </a>

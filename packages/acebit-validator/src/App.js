@@ -1,8 +1,9 @@
 import React, { useState, useEffect, createContext } from "react"
+import { Provider } from "react-redux";
+import store from "./store";
 import Header from './components/Header';
 import Popup from './components/Popup';
-import store from "./store";
-import { Provider } from "react-redux";
+import StateRouter from "./components/StateRouter";
 
 export const PopupContext = createContext();
 export const Web3Context = createContext();
@@ -33,6 +34,7 @@ function App() {
                         <div class="validator__main">
                             <Popup hidePopup={hidePopup} />
                             <Header showPopup={showPopup} />
+                            <StateRouter />
                         </div>
                     </PopupContext.Provider>
                 </Provider>
