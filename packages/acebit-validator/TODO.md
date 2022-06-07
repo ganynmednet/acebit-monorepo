@@ -14,3 +14,5 @@
 - Confirmation Step
 
 - Debug hCaptcha
+
+- Add callback avaiting screen
