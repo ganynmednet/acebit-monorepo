@@ -3,14 +3,6 @@ import { connectDiscord } from "../../modules/DiscordClient.js";
 import { useSearchParams, useNavigate } from "react-router-dom";
 
 
-const fetchUserData = (code) => {
-    connectDiscord(code)
-
-    // var _res = await ConnectDiscord(code);
-    // if (_res) {
-    //   setUserData(UserProfile.getData());
-    // }
-}
 
 
 function DiscordCallback(props) {
@@ -22,13 +14,32 @@ function DiscordCallback(props) {
 
     console.log(_code)
 
+
+    const fetchUserData = async (code) => {
+        // connectDiscord(code)
+        await connectDiscord(code);
+        // var _res = await ConnectDiscord(code);
+        // if (_res) {
+        //   setUserData(UserProfile.getData());
+        // }
+
+        navigate("../")
+    }
+    
+
     useEffect(() => {
+
         if (_code) {
           console.log("code founds")
-          navigate("./?code" + _code);
+          
           fetchUserData(_code);
+          
+        //   navigate("./?code" + _code);
+          return;
         }
         
+        // navigate("../")
+
       }, []);
 
       

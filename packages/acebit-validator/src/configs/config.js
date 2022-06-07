@@ -3,8 +3,8 @@ require('dotenv')
 
 export const config = {
     discordURLs: {
-        development: "https://discord.com/api/oauth2/authorize?client_id=964527215175938060&redirect_uri=https%3A%2F%2Flocalhost%3A3000&response_type=code&scope=guilds.members.read%20identify%20email%20guilds",
-        production: "https://discord.com/api/oauth2/authorize?client_id=964527215175938060&redirect_uri=https%3A%2F%2Flocalhost%3A3000&response_type=code&scope=guilds.members.read%20identify%20email%20guilds"
+        development: "https://discord.com/api/oauth2/authorize?client_id=964527215175938060&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=identify%20guilds%20email%20guilds.members.read",
+        production: "https://discord.com/api/oauth2/authorize?client_id=964527215175938060&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=guilds.members.read%20identify%20email%20guilds"
     } ,
     discordServer: "917377050095009802",
     discordPermissions: "guilds.members.read identify email guilds",
@@ -36,8 +36,8 @@ export const config = {
         }
     },
     directionURLs: {
-        development: "https://localhost:3000",
-        production: "https://wl.neoworoldgame.xyz"
+        development: "https://localhost:3000/callback",
+        production: "https://wl.acebit.casino/callback"
     },
     hCaptcha: {
         siteKey: "02eb9287-a674-4b88-bdf3-f7faa9953e11", 

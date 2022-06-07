@@ -36,9 +36,11 @@ function Header(props) {
         //     )
         // }
 
-        return (
-            <a className="header__btn" href="#" onClick={connectWallet}> Connect Wallet </a>
-        )
+        // return (
+        //     <a className="header__btn" href="#" onClick={connectWallet}> Connect Wallet </a>
+        // )
+
+        return;
 
     }
 
@@ -60,7 +62,8 @@ function Header(props) {
 
 const mapStateToProps = function (store) {
     return {
-        account: store.web3Data.account
+        account: store.web3Data.account,
+        userStates: store.userStates
     }
 }
 

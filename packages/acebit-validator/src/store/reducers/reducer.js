@@ -26,9 +26,9 @@ const initialState = {
         'ACCOUNT_CREATED_PENDING': {
             completed: false
         },
-        'ACCOUNT_CREATED_ADDING_USER': {
-            completed: false
-        },
+        // 'ACCOUNT_CREATED_ADDING_USER': {
+        //     completed: false
+        // },
         'ACCOUNT_CREATED_WHITELISTED': {
             completed: false
         },
@@ -115,6 +115,30 @@ const reducer = (state = initialState, action) => {
                 }
             }
         }
+
+        case 'STATES/TOGGLE_STATE_BACK': {
+            if (!state.userStates[action.payload]) {
+                console.log("zero state")
+                return state
+            }
+
+            if (state.userStates[action.payload]["completed"] == false) {
+                return state
+            }
+
+            return {
+                ...state,
+                userStates: {
+                    ...state.userStates,
+                    [action.payload]: {
+                        ...state.userStates[action.payload],
+                        completed: false
+                    }
+                }
+            }
+        }
+
+
         default:
             return state;
     }

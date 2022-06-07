@@ -1,8 +1,9 @@
 
 import React, { useContext } from 'react';
 import { connect } from 'react-redux';
-import ConnectDiscord from './steps/ConnectDiscord'
-import ConnectWallet from './steps/ConnectWallet';
+import ConnectDiscordStep from './steps/ConnectDiscordStep'
+import ConnectWalletStep from './steps/ConnectWalletStep';
+import CreateAccountStep from './steps/CreateAccountStep'
 
 
 function StateRouter(props) {
@@ -13,14 +14,20 @@ function StateRouter(props) {
 
     if (!props.userStates["DISCORD_CONNECTED_DONE"].completed) {
         console.log("ROUTE TO StepConnectDiscord")
-        return <ConnectDiscord />
+        return <ConnectDiscordStep />
     }
 
 
     if (!props.userStates["WALLET_CONNECTED_DONE"].completed) {
         console.log("ROUTE TO StepConnectWallet")
-        return <ConnectWallet />
-      }
+        return <ConnectWalletStep />
+    }
+
+
+    if (!props.userStates["ACCOUNT_CREATED_DONE"].completed) {
+        console.log("ROUTE TO StepCreateAccount")
+        return <CreateAccountStep />
+    }
 
 }
 

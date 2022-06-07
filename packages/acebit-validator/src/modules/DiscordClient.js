@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { fetcher, sortRoles, urlencodeSerializer } from '../helpers';
 import { config } from "../configs/config"
-import { connect } from 'react-redux'
+// import { connect } from 'react-redux'
 // import { updateUserData, updateAccessToken } from "../store/actions"
 import store from "../store"
 
@@ -78,6 +78,7 @@ const fetchAccessToken = async (code) => {
     'code': code,
     'redirect_uri': config.directionURLs[process.env.NODE_ENV]
   }
+  
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -199,7 +200,6 @@ export const connectDiscord = async (code) => {
 
   console.log("CONNECT DISCORD >>>");
   console.log(code)
-  store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "DISCORD_PENDING" })
 
   // fetching access token
   _res = await fetchAccessToken(code);
@@ -207,11 +207,12 @@ export const connectDiscord = async (code) => {
     console.log("error getting TOKEN");
     return false;
   }
+
   store.dispatch({ type: "USERDATA/UPDATE_ACCESS_TOKEN", payload: _res.access_token })
 
   var _dataRes = await fetchFullUserData()
   if (_dataRes) {
-    store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "DISCORD_DONE" })
+    store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "DISCORD_CONNECTED_DONE" })
     return true;
   }
 

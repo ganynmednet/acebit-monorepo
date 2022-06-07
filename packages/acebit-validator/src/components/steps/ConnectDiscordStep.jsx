@@ -6,7 +6,7 @@ import store from '../../store';
 import { checkLocalStorage } from '../../modules/DiscordClient'
 import { connect } from 'react-redux';
 
-export function ConnectDiscord(props) {
+export function ConnectDiscordStep(props) {
 
     const authorizeDiscord = async () => {
         if (!props.userStates["DISCORD_CONNECTED_PENDING"].completed) {
@@ -82,4 +82,4 @@ const mapStateToProps = function (store) {
     }
 }
 
-export default connect(mapStateToProps)(ConnectDiscord);
+export default connect(mapStateToProps)(ConnectDiscordStep);

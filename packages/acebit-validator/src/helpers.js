@@ -109,3 +109,6 @@ export const verifyCaptchaAPI = async (token, ekey) => {
   }
   return false
 }
+
+
+export const validUsername = new RegExp('^[ A-Za-z0-9_@./#&+-S]*$');

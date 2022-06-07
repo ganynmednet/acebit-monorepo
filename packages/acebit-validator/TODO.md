@@ -4,10 +4,13 @@
 ~~- web3Context access?~~
 ~~- connect/disconnect~~
 ~~- ConnectDiscord~~
+~~- ConnectWallet~~
+~~- CreateAccount~~
+~~- connectDiscord - callback test~~
 
-- connectDiscord - callback test
-- ConnectWallet
+- Debug UserStorage + Create Account
+- Debug AvatarImage
 
+- Confirmation Step
 
-- CreateAccount
-- Confirmation
+- Debug hCaptcha

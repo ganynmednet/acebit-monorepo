@@ -116,6 +116,11 @@ export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner
         }
     })
 
+    store.dispatch({
+        type: "STATES/TOGGLE_STATE",
+        payload: "WALLET_CONNECTED_DONE"
+    })
+
     console.log("WALLET HAS BEEN CONNECTED")
 }
 

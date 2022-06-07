@@ -3,8 +3,10 @@ import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { config } from '../../configs/config';
 import { getDiscordAvatart } from '../../modules/DiscordClient.js'
+import { ConnectWallet, DisconnectWallet } from '../../modules/web3Client.js';
 import ConnectionButtonSection from '../utils/ConnectionButton'
 import { Web3Context } from '../../App';
+import { PopupContext } from '../../App';
 import store from '../../store';
 
 class RolesList extends React.Component {
@@ -30,27 +32,20 @@ class RolesList extends React.Component {
 }
 
 
-function ConnectWallet(props) {
+function ConnectWalletStep(props) {
     console.log("StepConnectWallet >>>")
-    // var state = store.getState()
-    // const rerendRouter = props.rerendRouter;
-    // // if (!state.userStates["WALLET_CONNECTED_PENDING"].completed) {
-    // //     store.dispatch( {type: "STATES/TOGGLE_STATE", payload: "WALLET_CONNECTED_PENDING"})
-    // //     // props.rerendRouter()
-    // // }
 
-    // // store.dispatch( {type: "STATES/TOGGLE_STATE", payload: "WALLET_CONNECTED_PENDING"})
-
-    const { connect, disconnect, account } = useContext(Web3Context)
-
-    // var state = store.getState()
-    // console.log(state.userData)
-    // var changeState = props.changeState;44
+    const { showPopup, hidePopup, popupMessage } = useContext(PopupContext)
+    const { setSigner, setProvider } = useContext(Web3Context)
 
     async function handleConnect() {
+
         if (!props.userStates["WALLET_CONNECTED_PENDING"].completed) {
             store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "WALLET_CONNECTED_PENDING" })
         }
+        console.log("HEADER: I TRY TO CONNECT")
+        ConnectWallet(showPopup, hidePopup, setProvider, setSigner)
+
     }
 
     return (
@@ -91,4 +86,4 @@ const mapStateToProps = function (store) {
     }
 }
 
-export default connect(mapStateToProps)(ConnectWallet);
+export default connect(mapStateToProps)(ConnectWalletStep);
