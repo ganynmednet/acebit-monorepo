@@ -7,12 +7,16 @@
 ~~- ConnectWallet~~
 ~~- CreateAccount~~
 ~~- connectDiscord - callback test~~
+~~- Debug UserStorage + Create Account~~
+~~- Confirmation Step~~
+~~-- Debug AvatarImage~~-
+~~- Add callback avaiting screen~~
 
-- Debug UserStorage + Create Account
-- Debug AvatarImage
-
-- Confirmation Step
+- deploy to web
 
 - Debug hCaptcha
+- Test Avatar
 
-- Add callback avaiting screen
+- mobile test
+
+- upload and debug HTML & CSS

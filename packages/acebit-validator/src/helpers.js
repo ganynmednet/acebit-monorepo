@@ -36,8 +36,8 @@ export const fetcher = async (URL, requestOptions) => {
   // https://stackoverflow.com/questions/43462367/how-to-overcome-the-cors-issue-in-reactjs
 
   var _url = URL
-  
-  if(process.env.NODE_ENV == "development") {
+
+  if (process.env.NODE_ENV == "development") {
     var _url = "https://cors-anywhere.herokuapp.com/" + URL
   }
 
@@ -77,6 +77,11 @@ export const getDefaultAvatar = (_address) => {
   // https://github.com/nounsDAO/nouns-monorepo/blob/master/packages/nouns-webapp/src/components/ShortAddress/index.tsx
   // https://www.npmjs.com/package/@davatar/react
   // console.log(_address)
+
+  if (process.env.NODE_ENV == "development") {
+    return;
+  }
+
   return <Davatar size={24} address={_address} generatedAvatarType='jazzicon' />
 }
 
@@ -104,7 +109,7 @@ export const verifyCaptchaAPI = async (token, ekey) => {
   console.log(requestOptions)
   const result = await fetcher('https://hcaptcha.com/siteverify', requestOptions);
 
-  if(result["success"]) {
+  if (result["success"]) {
     return true
   }
   return false

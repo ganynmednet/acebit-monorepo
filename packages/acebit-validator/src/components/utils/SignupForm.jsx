@@ -104,7 +104,7 @@ function SignupForm(props) {
             return;
         }
 
-        store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "ACCOUNT_CREATED_WHITELISTED" })
+        store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "ACCOUNT_CREATED_DONE" })
         return;
     }
 
@@ -119,7 +119,7 @@ function SignupForm(props) {
     }
 
     function validateInput(data) {
-        
+
         console.log(validUsername.test(data))
 
         if (data.length < 4 || data.length > 20) {

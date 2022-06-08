@@ -18,42 +18,40 @@ function DiscordCallback(props) {
     const fetchUserData = async (code) => {
         // connectDiscord(code)
         await connectDiscord(code);
-        // var _res = await ConnectDiscord(code);
-        // if (_res) {
-        //   setUserData(UserProfile.getData());
-        // }
-
         navigate("../")
     }
-    
+
 
     useEffect(() => {
 
         if (_code) {
-          console.log("code founds")
-          
-          fetchUserData(_code);
-          
-        //   navigate("./?code" + _code);
-          return;
+            console.log("code founds")
+
+            fetchUserData(_code);
+
+            //   navigate("./?code" + _code);
+            return;
         }
-        
-        // navigate("../")
 
-      }, []);
 
-      
-      navigate("../?code_" + _code)
-    
+    }, []);
 
-    // if (_code) {
-    //     // setUserState(1);
 
-    //     fetchUserData(_code);
-    //     navigate("./?code" + _code);
-    // }
-    // console.log("navigate")
-    // navigate("../index.html")
+    //   navigate("../?code_" + _code)
+
+
+    return (
+        <div class="validator__content-box">
+            <div class="validator__content">
+                <div class="validator__congratulations-logo">
+                    <img src="./images/validator-logo-congratulations.png" alt="" />
+                </div>
+                <div class="validator__congratulations-title">
+                    LOADING SCREEN
+                </div>
+            </div>
+        </div>
+    )
 
 }
 

@@ -28,11 +28,11 @@ export const config = {
     contracts: {
         "80001": {
             whitelist: "0x483D125DC49fF936f146ffc14C611ecAE1668dd3",
-            UserStorage: "0xAF662D14D8Ab5C5d251E7DB7BB93fE7F102C1AC9",
+            UserStorage: "0x7bBB67605BA0F185Ed8B1c101ece42eefFE32fc4",
         },
         "137": {
             whitelist: "0x483D125DC49fF936f146ffc14C611ecAE1668dd3",
-            UserStorage: "0xAF662D14D8Ab5C5d251E7DB7BB93fE7F102C1AC9",
+            UserStorage: "0x7bBB67605BA0F185Ed8B1c101ece42eefFE32fc4",
         }
     },
     directionURLs: {

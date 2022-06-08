@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import ConnectDiscordStep from './steps/ConnectDiscordStep'
 import ConnectWalletStep from './steps/ConnectWalletStep';
 import CreateAccountStep from './steps/CreateAccountStep'
-
+import ConfirmationStep from './steps/ConfirmationStep';
 
 function StateRouter(props) {
 
@@ -28,6 +28,8 @@ function StateRouter(props) {
         console.log("ROUTE TO StepCreateAccount")
         return <CreateAccountStep />
     }
+
+    return <ConfirmationStep />
 
 }
 

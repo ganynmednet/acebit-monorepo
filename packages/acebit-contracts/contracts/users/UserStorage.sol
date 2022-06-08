@@ -121,7 +121,8 @@ contract UserStorage {
         bool whitelisted,
         uint256 created
     ) public onlyOwner returns (bool) {
-        require(!_isUser(userAddress), "User exists");
+        // require(!_isUser(userAddress), "User exists");
+        if (_isUser(userAddress)) return true;
 
         userStructs[userAddress].userAddress = userAddress;
         userStructs[userAddress].userName = userName;
@@ -262,13 +263,6 @@ contract UserStorage {
     {
         return userStructs[userAddress];
     }
-
-    // function getAlpha() public onlyOwner returns (address) {
-    //     console.log("test");
-    //     // console.log(deployer);
-    //     address _deployer = deployer;
-    //     return _deployer;
-    // }
 
     function setOwner(address newOwner) public onlyOwner {
         owner = newOwner;

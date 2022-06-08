@@ -1,17 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { connect } from 'react-redux';
 import { addressShortener, getDefaultAvatar } from '../../helpers';
 import { ConnectWallet, DisconnectWallet } from '../../modules/web3Client.js';
 import SignupForm from '../utils/SignupForm';
 import { Web3Context } from '../../App';
 import { PopupContext } from '../../App';
+import Davatar from '@davatar/react';
 
 
 function CreateAccountStep(props) {
     // var _account = props.account;
 
     const { showPopup, hidePopup, popupMessage } = useContext(PopupContext)
-    const { setSigner, setProvider } = useContext(Web3Context)
+    const { signer, setSigner, provider, setProvider } = useContext(Web3Context)
 
     async function handleChange() {
         ConnectWallet(showPopup, hidePopup, setProvider, setSigner)
@@ -36,11 +37,11 @@ function CreateAccountStep(props) {
                     </div>
                     <div class="create__metamask-box">
                         {/* <img class="create__metamask-img" src="./images/metamask-img.svg" /> */}
-                        {/* 
-                        {
-                            getDefaultAvatar(_account)
-                        } */}
 
+                        {
+                            getDefaultAvatar("0x7bBB67605BA0F185Ed8B1c101ece42eefFE32fc4")
+                        }
+                        
                         <div class="create__metamask-text">{addressShortener(props.account)}</div>
                     </div>
                     <div class="create__btn" onClick={handleChange}>Change</div>

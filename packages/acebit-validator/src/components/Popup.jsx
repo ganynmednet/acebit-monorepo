@@ -1,6 +1,7 @@
 
 import React, { useContext } from 'react';
 import { PopupContext } from '../App';
+import { getUniqueKey } from "../helpers"
 
 
 function Popup() {
@@ -10,13 +11,13 @@ function Popup() {
     const getButton = (button) => {
         if (button.highlighted) {
             return (
-                <a class="validator__verification-link" href="#" onClick={button.action}> {button.text} </a>
+                <a class="validator__verification-link" href="#" key={getUniqueKey()} onClick={button.action}> {button.text} </a>
             )
 
         }
 
         return (
-            <a class="header__btn-disconnect" href="#" onClick={button.action}> {button.text} </a>
+            <a class="header__btn-disconnect" href="#" key={getUniqueKey()} onClick={button.action}> {button.text} </a>
         )
 
     }
@@ -43,7 +44,7 @@ function Popup() {
                     <div class="validator__popup-des">{popupMessage.message}</div>
                     <div class="validator__popup-btn-box">
 
-                        {getButtonList(popupMessage)}
+                        { getButtonList(popupMessage)}
 
                     </div>
                 </div>

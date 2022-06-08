@@ -27,7 +27,7 @@ describe("USER STORAGE TEST", function () {
       whitelisted: true,
       created: new Date().getTime()
     }
-    // console.log(user)
+    console.log(user)
 
     const UserStorage = await ethers.getContractFactory("UserStorage");
     userStorage = await UserStorage.deploy(deployer.address);
@@ -57,12 +57,24 @@ describe("USER STORAGE TEST", function () {
       user.whitelisted,
       user.created
     )
+    // console.log(await userStorage.getActiveUsers())
     expect(await userStorage.getActiveUsers()).to.equal(1);
     expect(await userStorage.getDeletedUsers()).to.equal(0);
 
     expect(await userStorage.isUserWhitelisted(user.userAddress)).to.equal(true);
     expect(await userStorage.isUser(user.userAddress)).to.equal(true);
     expect(await userStorage.isUser(deployer.address)).to.equal(false);
+
+    await userStorage.addUser(
+      user.userAddress,
+      user.userName,
+      user.discordId,
+      user.userEmail,
+      user.reason,
+      user.whitelisted,
+      user.created
+    )
+
   });
 
   it("Shoud Update user name", async function () {
