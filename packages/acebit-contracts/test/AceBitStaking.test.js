@@ -22,6 +22,7 @@ describe("ACEBIT STAKING TEST", function () {
         aceBitStaking = await AceBitStaking.deploy(
             _name,
             acebit.address,
+            ace,
             _period,
             _rewardPerPeriod
 
