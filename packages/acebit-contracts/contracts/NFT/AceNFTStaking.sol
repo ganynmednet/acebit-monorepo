@@ -1,0 +1,247 @@
+// SPDX-License-Identifier: MIT
+/// @title ACEBIT NFT Staking
+
+pragma solidity ^0.8.4;
+
+import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
+import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
+import "hardhat/console.sol";
+
+contract AceNFTStaking is Ownable {
+    using SafeERC20 for IERC20;
+    // using IERC1155 for IERC1155; 
+    using SafeMath for uint256;
+
+    string public NAME;
+    IERC20 public ACEBIT;
+    address public ACEBIT_NFT;
+
+    uint256 public REWARD_PERIOD;
+    uint256 public REWARD_PER_PERIOD;
+
+    uint256 public totalStaked;
+
+    struct Staker {
+        uint256 balance;
+        uint256[] tokenIds;
+        uint256 totalRewards;
+        uint256 rewardsWithdrawn;
+        uint256 updatedAt;
+    }
+    mapping(address => Staker) public stakers;
+
+    event NFTStaked(address indexed owner, uint256 tokenId_);
+    event NFTUnstaked(address indexed owner, uint256 tokenId_);
+
+    constructor(
+        string memory name_,
+        address aceBit_,
+        address aceBitNFT_,
+        uint256 period_,
+        uint256 rewardPerPeriod_
+    ) {
+        require(bytes(name_).length > 0, "Invalid Contract name");
+        require(aceBit_ != address(0), "Invalid ACEBIT address");
+        require(aceBitNFT_ != address(0), "Invalid AceBit NFT address");
+        require(period_ > 0, "Invalid period");
+        require(rewardPerPeriod_ > 0, "Invalid RewardPerPeriod");
+
+        NAME = name_;
+        ACEBIT = IERC20(aceBit_);
+        ACEBIT_NFT = aceBitNFT_;
+        REWARD_PERIOD = period_;
+        REWARD_PER_PERIOD = rewardPerPeriod_;
+    }
+
+    /**
+     *  @dev stake ACEBIT tokens
+     *  @param tokenId_ NFT id
+     */
+    function stake(uint256 tokenId_) external {
+        // require(amount_ > 0, "Expected Staking amount greater than 0");
+        // require(
+        //     ACEBIT_NFT.balanceOf(msg.sender) > amount_,
+        //     "Invalid user ACEBIT User balance"
+        // );
+
+        _stake(msg.sender, tokenId_);
+    }
+
+    /**
+     * @dev All the staking goes through this function
+     * @dev Rewards to be given out is calculated
+     * @param user_ User address
+     * @param tokenId_ NFT id
+     */
+    function _stake(address user_, uint256 tokenId_) internal {
+        _updateRewards(msg.sender);
+
+        Staker storage staker = stakers[msg.sender];
+        staker.tokenIds.push(tokenId_);
+        // staker.balance = staker.balance.add(amount_);
+        totalStaked = totalStaked += 1;
+
+        IERC1155( ACEBIT_NFT ).safeTransferFrom(address(msg.sender), address(this), tokenId_, 1, "0x0");
+
+        emit NFTStaked(msg.sender, tokenId_);
+    }
+
+    /**
+     *  @dev unstake ACEBIT tokens
+     *  @param amount_ unstaking amount
+     */
+    // function unstake(uint256 tokenId_) external {
+    //     require(amount_ > 0, "Expected Unstaking amount greater than 0");
+
+    //     Staker storage staker = stakers[msg.sender];
+
+    //     require(
+    //         staker.balance >= amount_,
+    //         "Expected amount less or equal user balance"
+    //     );
+
+    //     _unstake(msg.sender, tokenId_);
+    // }
+
+    /**
+     * @dev All the staking goes through this function
+     * @dev Rewards to be given out is calculated
+     */
+    // function _unstake(address user_, uint256 tokenId_) internal {
+
+    //             _updateRewards(msg.sender);
+
+    //     staker.balance = staker.balance.sub(amount_);
+    //     totalStaked = totalStaked.sub(amount_);
+
+    //     ACEBIT.safeTransfer(address(msg.sender), amount_);
+
+    //     emit Unstaked(msg.sender, amount_);
+
+    // }
+
+    /**
+     *  @dev show accumulated rewards to date
+     *  @return _totalRewards total user rewards to date
+     */
+    function userRewards() public view returns (uint256 _totalRewards) {
+        Staker storage staker = stakers[msg.sender];
+
+        require(
+            staker.balance > 0,
+            "Expected User Staked balance regater than 0"
+        );
+        uint256 __totalRewards = staker.totalRewards +
+            _calculateRewards(staker.updatedAt, staker.balance);
+        return __totalRewards - staker.rewardsWithdrawn;
+    }
+
+    /**
+     *  @dev withdrwaw user rewards
+     */
+    function withdrawRewards() external {
+        _updateRewards(msg.sender);
+
+        Staker storage staker = stakers[msg.sender];
+        uint256 _availableRewards = staker.totalRewards -
+            staker.rewardsWithdrawn;
+
+        require(
+            _availableRewards > 0,
+            "There is no available rewards for the user"
+        );
+
+        staker.rewardsWithdrawn = staker.rewardsWithdrawn + _availableRewards;
+
+        ACEBIT.safeTransfer(address(msg.sender), _availableRewards);
+    }
+
+    /**
+     *  @dev show accumulated rewards to date
+     * @param _user address of the user to update reward
+     */
+    function _updateRewards(address _user) internal {
+        Staker storage staker = stakers[_user];
+
+        // if (staker.balance == 0) return;
+
+        // uint256 _reward = _calculateRewards(staker.updatedAt, staker.balance);
+        // console.log(_reward);
+        staker.totalRewards =
+            staker.totalRewards +
+            _calculateRewards(staker.updatedAt, staker.balance);
+        staker.updatedAt = block.timestamp;
+    }
+
+    /**
+     *  @dev calculate rewards per hour per token holdings
+     *  @param updatedAt_ the latest reward update timestamp
+     *  @param balance_ current user balance to be used for the reward calculation
+     *  @return  _reward calculated reward
+     */
+    function _calculateRewards(uint256 updatedAt_, uint256 balance_)
+        internal
+        view
+        returns (uint256 _reward)
+    {
+        // https://medium.com/coinmonks/math-in-solidity-part-4-compound-interest-512d9e13041b
+        if (updatedAt_ == 0) return 0;
+
+        uint256 _x = REWARD_PER_PERIOD.mul(
+            block.timestamp.sub(updatedAt_).div(REWARD_PERIOD).mul(
+                balance_.div(1e18)
+            )
+        );
+        // console.log("result: ", _x);
+        // console.log(REWARD_PER_PERIOD);
+        // console.log(updatedAt_);
+        // console.log(block.timestamp);
+        // console.log(balance_);
+        // return 0;
+        return _x;
+    }
+
+    /**
+     *  @dev retrive user data (Admin)
+     */
+    function getUser(address user_)
+        external
+        view
+        onlyOwner
+        returns (Staker memory)
+    {
+        Staker storage staker = stakers[user_];
+        return staker;
+    }
+
+    /**
+     *  @dev migrate
+     *  @dev https://github.com/TidalFinance/tidal-contracts/blob/main/contracts/Staking.sol
+     */
+    function migrate(address user_) external view onlyOwner {
+        return;
+    }
+}
+
+// /**
+//  *  @notice returns Staking Pool name
+//  *  @param _amount: amount of token to withdraw
+//  */
+
+// /**
+//  *  @dev returns Staking Pool name
+//  *  @return _name The Staking pool name
+//  */
+// function name() public view returns (string memory) {
+//     return _name;
+// }
+
+// /**
+//  *  @dev returns Staking Pool name
+//  *  @return _tokenAddress The staking token address
+//  */
+// function tokenAddress() public view returns (address) {
+//     return _tokenAddress;
+// }
