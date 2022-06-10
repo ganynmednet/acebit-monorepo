@@ -1,0 +1,265 @@
+.home{
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  max-width: 1920px;
+  margin: 0 auto;
+  overflow-x: clip;
+  .header__document{
+    margin-left: 52px;
+  }
+  &__box{
+    max-width: 1633px;
+    padding: 147px 116px 0;
+    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    width: 100%;
+    //background-image: url('../images/home/bg.png');
+    //background-size: 1628px;
+    //background-repeat: no-repeat;
+    //background-position: right 1px;
+  }
+
+  &__list-link {
+    position: relative;
+    height: 50px;
+    margin-left: 48px;
+    padding-left: 57px;
+    transition: all .4s;
+    &::before {
+      content: "";
+      width: 16px;
+      height: 13px;
+      position: absolute;
+      left: 33px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-image: url("../images/global/discord-icon.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__image{
+    max-width: 1405px;
+    margin-right: 146px;
+    margin-top: 15px;
+  }
+  &__left-content{
+    z-index: 1;
+  }
+  &__logo {
+    padding-left: 21px;
+    img {
+      width: 162px;
+      height: 40px;
+    }
+  }
+
+  &__title{
+    margin-top: 33px;
+    img{
+      max-width: 473px;
+      margin-left: -2px;
+    }
+  }
+  &__list{
+    margin-bottom: 80px;
+    margin-top: -13px;
+    margin-left: 12px;
+  }
+  &__list-item{
+    font-family: 'ProximaNovaCond-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.02em;
+    color: #FFFFFF;
+    position: relative;
+    padding-left: 41px;
+    margin-bottom: 1px;
+    &:before{
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 42%;
+      transform: translateY(-50%);
+      background-image: url('../images/menu/star.png');
+      background-size: cover;
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__banner-box{
+    position: relative;
+    z-index: 1;
+    margin: 108px auto 0;
+    max-width: 637px;
+    column-gap: 26px;
+    display: flex;
+  }
+}
+
+
+
+
+
+
+@media (max-width: 1730px) {
+  .home__list-link {
+    margin-left: 13px;
+  }
+  .home__image {
+    margin-right: -75px;
+    margin-top: 116px;
+    max-width: 1217px;
+  }
+  //.home__box {
+  //  padding: 147px 116px 0;
+  //}
+  .home__banner-box {
+    margin: 109px auto 0;
+  }
+}
+@media (max-width: 1310px){
+  .home__image {
+    margin-right: -276px;
+  }
+}
+
+@media (max-width: 1130px){
+  .home__box {
+    padding: 147px 40px 0;
+  }
+  .home .header__document {
+    margin: 0 auto;
+    display: table;
+  }
+  .home__image {
+    margin-top: -30px;
+    padding-bottom: 100px;
+  }
+  .home__logo{
+    display: none;
+  }
+}
+
+@media (max-width: 1020px){
+  .home__list-link {
+    padding: 13px 24px 12px 50px;
+    height: 42px;
+  }
+
+  .home__list-link::before {
+    left: 24px;
+  }
+  .home__banner-box {
+    column-gap: 24px;
+  }
+  .home__box {
+    padding: 83px 28px 0;
+  }
+  .home__title img {
+    max-width: 398px;
+    margin-left: -2px;
+  }
+  .home__image {
+    max-width: 766px;
+    margin-right: -228px;
+    margin-top: 22px;
+  }
+  .home__list-item{
+    font-size: 18px;
+    line-height: 28px;
+    margin-bottom: 3px;
+  }
+  .home__list {
+    margin-bottom: 46px;
+    margin-top: -20px;
+    margin-left: 7px;
+  }
+  .home__list-item:before {
+    left: 4px;
+    top: 15px;
+  }
+  .home__banner-box {
+    margin: 47px auto 0;
+    max-width: 443px;
+  }
+  .home__images-banner{
+    height: 48px;
+  }
+}
+
+@media (max-width: 769px) {
+  .home__list-item::before {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 690px) {
+  .home{
+    justify-content: center;
+  }
+  .home__image{
+    margin: 100px 0 0;
+    padding-bottom: 200px;
+  }
+  .home__box {
+    padding: 44px 28px 0;
+  }
+  .home__title img {
+    max-width: 324px;
+    margin-left: -2px;
+  }
+  .home__list {
+    margin: 244px auto 48px;
+  }
+  .home__images-banner {
+    height: 40px;
+  }
+  .home__banner-box {
+    max-width: 383px;
+  }
+}
+
+@media (max-width: 444px){
+  .home__list-link {
+    padding: 16px 32px 16px 58px;
+  }
+
+  .home__list-link::before {
+    left: 33px;
+  }
+
+  .home__banner-box{
+    justify-content: center;
+    column-gap: 8px;
+  }
+  .home__list-item{
+    font-size: 16px;
+  }
+  .home__box {
+    padding: 44px 15px 0;
+  }
+  .home__list-item {
+    padding-left: 33px;
+  }
+  .home__list {
+    margin: 248px auto 48px;
+  }
+  .home__image {
+    max-width: 636px;
+    margin: 156px 48px 0 0;
+  }
+  .home__title img {
+    max-width: 319px;
+  }
+}

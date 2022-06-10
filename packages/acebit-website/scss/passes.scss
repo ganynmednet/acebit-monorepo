@@ -1,0 +1,487 @@
+.passes{
+  font-family: 'ProximaNovaCond-Regular', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  padding-top: 138px;
+  overflow: hidden;
+  &__box{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1550px;
+    padding: 0 75px 0 50px;
+    margin: 0 auto;
+  }
+  &__left-content{
+    max-width: 628px;
+    position: relative;
+    z-index: 2;
+  }
+  &__title{
+    width: 520.953px;
+    margin-bottom: 44px;
+    height: 220.328px;
+    margin-left: -61px;
+  }
+
+  &__des{
+    width: 475px;
+    margin-left: 87px;
+    span{
+      color: #FFE7AA;
+    }
+  }
+  &__right-content{
+    position: relative;
+    margin: 3px 22px 0 0;
+    &:before{
+      content: "";
+      position: absolute;
+      top: -85px;
+      right: 19px;
+      background-image: url('../images/passes/Union.svg');
+      background-size: cover;
+      width: 742px;
+      height: 742px;
+      z-index: 1;
+      animation: rotation 120s infinite linear;
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      bottom: -23px;
+      right: 0;
+      width: 742px;
+      height: 742px;
+      background: linear-gradient(173deg, rgba(23, 23, 23, 0) 50%, #171717 100%),#313a4100;
+      z-index: 1;
+    }
+  }
+
+  &__image-car{
+    position: relative;
+    z-index: 9;
+    max-width: 730px;
+    height: auto;
+    aspect-ratio: 19/17.3;
+    margin-top: -48px;
+  }
+}
+
+
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
+
+
+
+
+.club{
+  &__box{
+    max-width: 1530px;
+    padding: 0 33px 0 30px;
+    margin: 0 auto;
+  }
+  &__content{
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 80px;
+    .passes__des{
+      margin-left: 0;
+      max-width: 486px;
+      margin-top: 135px;
+    }
+
+  }
+  &__cart-box{
+    display: flex;
+    column-gap: 12px;
+    position: relative;
+    padding-left: 5px;
+  }
+  &__cart{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 16px;
+    width: 184.62px;
+    height: 300px;
+    background: linear-gradient(180deg, #2F3841 0%, #1A2025 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  &__cart-img{
+    pointer-events: none;
+    height: 271.8px;
+    width: 156.9px;
+  }
+  &__title{
+    max-width: 550px;
+    margin: 3px 0 0 0;
+    position: relative;
+    z-index: 1;
+  }
+  &__title-box{
+    margin: -55px 0 37px 5px;
+  }
+  &__des{
+    position: relative;
+    padding-top: 32px;
+    width: auto;
+    &:before{
+      content: '';
+      position: absolute;
+      width: 105px;
+      height: 2px;
+      background-color: #FEE37C;
+      top: 0;
+      left: 0;
+    }
+  }
+  &__link{
+    color: #E1A03F;
+  }
+}
+
+.heart-cursor,
+.diamond-cursor,
+.club-cursor,
+.spade-cursor{
+  width: 215px;
+  height: 215px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0) 100%);
+  position: absolute;
+  z-index: 20;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .3s ease-in-out ;
+}
+
+@media (max-width: 1550px) {
+  .passes__image-car{
+    max-width: 625px;
+    margin-top: 1px;
+  }
+  .passes__right-content:before{
+    width: 642px;
+    height: 642px;
+    top: -34px;
+    right: 12px;
+  }
+  .passes__title {
+    margin-left: 22px;
+  }
+  .passes__des {
+    margin-left: 175px;
+  }
+  .club__box {
+    max-width: 1250px;
+  }
+  .club__title-box {
+    margin: -8px 0 37px 5px;
+  }
+  .club__cart{
+    height: 272px;
+    width: 167px;
+  }
+  .club__cart-img{
+    height: 246px;
+    width: 142px;
+  }
+  .club__content .passes__des {
+    margin-top: 67px;
+  }
+  .club__box {
+    padding: 0 30px;
+  }
+}
+
+
+@media (max-width: 1400px) {
+  .passes__des{
+    margin-left: 0;
+  }
+  .passes__title {
+    max-width: 431px;
+    margin-bottom: 47px;
+    margin-left: -50px;
+    height: 182.266px;
+  }
+  .passes__left-content{
+    overflow: hidden;
+  }
+  .passes__box{
+    padding: 0 40px;
+  }
+  .passes__des {
+    width: auto;
+    max-width: 475px;
+  }
+  //.club__box{
+  //  max-width: 100%;
+  //}
+  //.club__content{
+  //  justify-content: space-between;
+  //}
+}
+
+
+@media (max-width: 1125px){
+  .club__content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+
+  .club__title {
+    margin: -111px -70px 0 0;
+  }
+  .passes__right-content {
+    margin: 130px 0 0 auto;
+  }
+  .passes__box {
+    padding: 0 0 0 40px;
+  }
+  .passes{
+    font-size: 18px;
+  }
+  .passes__left-content {
+    position: absolute;
+    z-index: 3;
+    max-width: 377px;
+  }
+  //.passes__des {
+  //  max-width: 586px;
+  //  text-align: center;
+  //}
+  .passes {
+    padding-top: 74px;
+  }
+  .passes__image-car {
+    max-width: 480px;
+  }
+  .passes__right-content:before {
+    width: 470px;
+    height: 470px;
+    top: -5px;
+    right: 22px;
+  }
+  .club__des:before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .passes__right-content:after{
+    width: 415px;
+    height: 415px;
+  }
+  .club__des.passes__des{
+    max-width: 586px;
+    text-align: center;
+  }
+  .passes__right-content:after {
+    width: 470px;
+    height: 470px;
+  }
+}
+
+
+@media (max-width: 768px){
+  .passes__image-car {
+    max-width: 467px;
+  }
+  .passes__des {
+    width: auto;
+    max-width: 325px;
+  }
+  .passes__right-content {
+    margin: 103px -29px 0 auto;
+  }
+  .club__title {
+    margin: -104px -45px 0 0;
+    max-width: 376px;
+  }
+  .club__cart{
+    height: 264px;
+    width: 164px;
+  }
+  .club__cart-box {
+    column-gap: 11px;
+  }
+  .club__title-box {
+    margin: -8px 0 16px 5px;
+  }
+
+
+  .club__content .passes__des {
+    margin-top: 48px;
+  }
+  //.benefits {
+  //  margin-top: 90px;
+  //}
+}
+
+@media (max-width: 750px){
+
+  .club__cart-img{
+    width: 64px;
+    height: 110px;
+  }
+  .club__cart{
+    height: 130px;
+    width: 80px;
+    padding: 5px;
+    border-radius: 6px;
+    img{
+      height: 117px;
+      width: 68px;
+    }
+  }
+  .passes {
+    padding-top: 75px;
+  }
+  .passes__right-content {
+    margin: 108px -24px 0 auto;
+  }
+  .passes__image-car {
+    max-width: 460px;
+  }
+  .club__box {
+    max-width: 1243px;
+    padding: 0 32px 0 50px;
+    margin: 0 auto;
+  }
+  .club__title {
+    max-width: 377px;
+    margin: -108px 0 11px -40px;
+  }
+  .club__box {
+    padding: 0px 39px 0 72px;
+  }
+  .club__content {
+    column-gap: 33px;
+  }
+}
+
+
+@media (max-width: 768px) {
+  .passes{
+    line-height: 28px;
+  }
+}
+
+@media (max-width: 730px){
+  .passes__left-content{
+    position: static;
+  }
+  .passes__box{
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+  .passes__right-content {
+    margin: -20px auto 0;
+  }
+  .passes__des{
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .passes__right-content:before {
+    top: -40px;
+    right: 14px;
+  }
+  .club__title {
+    margin: -45px 0 11px -40px;
+  }
+}
+
+@media (max-width: 700px){
+  .club__content{
+    flex-direction: column;
+  }
+  .club__box {
+    padding: 0 40px 0 40px;
+  }
+
+  .club__content .passes__des {
+    margin-top: 40px;
+  }
+  .club__content .passes__des {
+    max-width: 610px;
+  }
+  .club__title {
+    margin: -41px 0 11px 0;
+  }
+}
+
+@media (max-width: 490px){
+  .club__des.passes__des {
+    text-align: start;
+  }
+  .club__des:before {
+    left: 0;
+    transform: translateX(0);
+  }
+
+  .club__title {
+    margin: 21px -50px -4px 0;
+  }
+  .passes {
+    padding-top: 44px;
+  }
+  .passes__title {
+    max-width: 351px;
+    margin-bottom: 30px;
+    margin-left: -18px;
+    height: 148.422px;
+  }
+  .passes__des {
+    padding: 0 20px;
+    font-size: 16px;
+  }
+  .passes__image-car {
+    max-width: 360px;
+
+  }
+  .passes__right-content{
+    margin: 44px 0 0 14px;
+  }
+  .passes__right-content:before {
+    width: 360px;
+    height: 360px;
+    top: -27px;
+    right: 13px;
+  }
+  .passes__right-content:after {
+    width: 360px;
+    height: 360px;
+  }
+  .club__des.passes__des{
+    padding: 32px 0 0 0;
+  }
+  .club__cart-box {
+    column-gap: 4px;
+  }
+  .club__box {
+    padding: 0 20px;
+  }
+  .club__title {
+    max-width: 330px;
+  }
+  .club__des.passes__des {
+    padding: 25px 0 0 0;
+  }
+  .club__des:before {
+    width: 72px;
+  }
+  .club__content .passes__des {
+    margin-top: 34px;
+  }
+}

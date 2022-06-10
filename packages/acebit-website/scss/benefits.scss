@@ -1,0 +1,371 @@
+.benefits {
+  margin-top: 137px;
+
+  &__title {
+    text-align: center;
+    margin-bottom: 52px;
+  }
+
+  &__cards {
+    width: 100%;
+    height: 360px;
+    padding-left: 20px;
+    overflow: hidden;
+  }
+
+  &__cards-track {
+    display: flex;
+    column-gap: 20px;
+    width: calc(276px * 26);
+    animation: scrollCards 50s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  &__card {
+    width: 256px;
+    height: 360px;
+    background-image: url("../images/benefits/cardsImages/card-bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 39px;
+    padding-left: 24px;
+    position: relative;
+  }
+
+  &__card-quads {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-image: url("../images/benefits/cardsImages/quads-img.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 66px;
+    height: 44px;
+    top: 0.5px;
+    right: 16px;
+    font-family: 'Panton-Heavy', sans-serif;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 40px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+  }
+
+  &__card-img {
+    margin-bottom: 47px;
+  }
+
+  &__card-title {
+    font-family: 'ProximaNova-Bold', sans-serif;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    max-width: 150px;
+    margin-bottom: 27px;
+  }
+
+  &__card-description {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    color: #AEAEAE;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    max-width: 226px;
+  }
+
+  &__card-pig {
+    .benefits__card-img {
+      margin-top: -7px;
+      margin-left: 5px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__card-crown {
+    .benefits__card-img {
+      margin-top: 3px;
+      margin-bottom: 49px;
+    }
+
+    .benefits__card-title {
+      margin-bottom: 27px;
+    }
+
+    .benefits__card-description {
+      max-width: 209px;
+    }
+  }
+
+  &__card-cloud {
+    .benefits__card-img {
+      margin-left: 11px;
+      margin-top: -5px;
+      margin-bottom: 33px;
+    }
+
+    .benefits__card-title {
+      max-width: 140px;
+    }
+  }
+
+  &__card-chips {
+    .benefits__card-img {
+      margin-top: 9px;
+      margin-left: 9px;
+      margin-bottom: 52px;
+    }
+  }
+
+  &__card-girl {
+    .benefits__card-img {
+      margin-top: -19px;
+      margin-left: -9px;
+      margin-bottom: 11px;
+    }
+  }
+
+  &__card-airplane {
+    .benefits__card-img {
+      margin-top: 4px;
+      margin-left: -24px;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__card-alcohol {
+    .benefits__card-img {
+      margin-top: -37px;
+      margin-left: -1px;
+      margin-bottom: 19px;
+    }
+  }
+
+  &__card-cards {
+    .benefits__card-img {
+      margin-top: 6px;
+      margin-left: -2px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__card-surprice {
+    .benefits__card-img {
+      margin-left: 8px;
+      margin-bottom: 52px;
+    }
+  }
+
+  &__card-wheel {
+    overflow: hidden;
+    .benefits__card-img {
+      margin-top: -59px;
+      margin-left: -54px;
+      margin-bottom: 25px;
+    }
+
+    .benefits__card-title {
+      max-width: 165px;
+    }
+
+    .benefits__card-description {
+      max-width: 217px;
+    }
+  }
+}
+
+@keyframes scrollCards {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-276px * 13);
+  }
+}
+
+@media (max-width: 1000px) {
+
+  .benefits {
+    margin-top: 90px;
+  }
+  .benefits__title {
+    margin-bottom: 32px;
+  }
+
+  .benefits__cards-track {
+    column-gap: 16px;
+    width: calc(220px * 26);
+  }
+
+  .benefits__card {
+    width: 204px;
+    height: 282px;
+    padding-left: 18px;
+  }
+
+  @keyframes scrollCards {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-220px * 13);
+    }
+  }
+
+  .benefits__card-title {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 13px;
+  }
+
+  .benefits__card-description {
+    font-family: 'ProximaNovaCond-Regular', sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+  }
+
+  .benefits__card .benefits__card-img img {
+    width: 70px;
+  }
+
+  .benefits__card-girl .benefits__card-img {
+    margin-top: 0;
+  }
+
+  .benefits__card-airplane .benefits__card-img img {
+    width: 100px;
+  }
+
+  .benefits__card-airplane .benefits__card-img {
+    margin-left: -11px;
+  }
+
+  .benefits__card-surprice .benefits__card-img img {
+    width: 60px;
+  }
+
+  .benefits__card-alcohol .benefits__card-img img {
+    width: 50px;
+  }
+
+  .benefits__card-wheel .benefits__card-img img {
+    width: 95px;
+  }
+
+  .benefits__card-wheel .benefits__card-img {
+    margin-top: -48px;
+    margin-left: -35px;
+    margin-bottom: 35px;
+  }
+
+  .benefits__card-money .benefits__card-img {
+    margin-bottom: 23px;
+  }
+
+  .benefits__card-crown .benefits__card-title {
+    margin-bottom: 13px;
+  }
+
+  .benefits__card-pig .benefits__card-img {
+    margin-bottom: 16px;
+  }
+
+  .benefits__card-crown .benefits__card-img {
+    margin-bottom: 26px;
+  }
+
+  .benefits__card-cloud .benefits__card-img {
+    margin-bottom: 10px;
+  }
+
+  .benefits__card-cloud .benefits__card-title {
+    max-width: 100px;
+  }
+
+  .benefits__card-chips .benefits__card-img {
+    margin-bottom: 33px;
+  }
+
+  .benefits__card-girl .benefits__card-img img {
+    width: 70px;
+  }
+
+  .benefits__card-zero .benefits__card-img {
+    margin-bottom: 33px;
+  }
+
+  .benefits__card-gold .benefits__card-img {
+    margin-bottom: 29px;
+  }
+
+  .benefits__card-airplane .benefits__card-img {
+    margin-bottom: 15px;
+  }
+
+  .benefits__card-airplane .benefits__card-title {
+    max-width: 100px;
+  }
+
+  .benefits__card-gold .benefits__card-title {
+    max-width: 100px;
+  }
+
+  .benefits__card-alcohol .benefits__card-title {
+    max-width: 100px;
+  }
+
+  .benefits__card-alcohol .benefits__card-img {
+    margin-bottom: 11px;
+  }
+
+  .benefits__card-cards .benefits__card-title {
+    max-width: 100px;
+  }
+
+  .benefits__card-cards .benefits__card-img {
+    margin-top: 0;
+    margin-bottom: 13px;
+  }
+
+  .benefits__card-surprice .benefits__card-img {
+    margin-bottom: 26px;
+  }
+}
+
+@media (max-width: 700px) {
+  .benefits__title {
+    max-width: 500px;
+    margin: auto auto 32px auto;
+  }
+
+  .benefits__title-exclusive {
+    margin-bottom: 5px;
+  }
+}
+
+@media (max-width: 470px) {
+  .benefits__cards {
+    height: auto;
+  }
+  .benefits {
+    margin-top: 70px;
+  }
+  .benefits__title {
+    max-width: 400px;
+  }
+
+  .benefits__title-exclusive {
+    width: 150px;
+    margin-bottom: 5px;
+  }
+
+  .benefits__title-vip {
+    width: 260px;
+  }
+}
