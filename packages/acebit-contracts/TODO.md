@@ -15,6 +15,11 @@
 - mint nft by batches (each batch mints a range of NFTs)?
 - OR mint all NFTs at once
 
+# nft mint
+- generate tokenIds
+- test mint, togglePause
+
+
 # nft staking
 - mint NFTs -> tranfer to operator contract (mint)
 - conduct sale -> user purchase nft (to dao) and receives nft from operator contract (mint)
