@@ -9,9 +9,25 @@ import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
 
+// interface IERC1155Supply {
+//     // function _exists(address account_, uint256 amount_) external;
+//     // function exists(uint256 id) public view virtual returns (bool);
+//     mapping(uint256 => uint256) private _totalSupply;
+// }
+
+interface IERC155ACEBIT {
+    function transferToken(
+        address from,
+        address to,
+        uint256 id,
+        uint256 amount,
+        bytes calldata data
+    ) external;
+}
+
 contract AceNFTStaking is Ownable {
     using SafeERC20 for IERC20;
-    // using IERC1155 for IERC1155; 
+    // using IERC1155 for IERC1155;
     using SafeMath for uint256;
 
     string public NAME;
@@ -24,7 +40,7 @@ contract AceNFTStaking is Ownable {
     uint256 public totalStaked;
 
     struct Staker {
-        uint256 balance;
+        // uint256 balance;
         uint256[] tokenIds;
         uint256 totalRewards;
         uint256 rewardsWithdrawn;
@@ -76,14 +92,25 @@ contract AceNFTStaking is Ownable {
      * @param tokenId_ NFT id
      */
     function _stake(address user_, uint256 tokenId_) internal {
-        _updateRewards(msg.sender);
+        // require(
+        //     exists(tokenId_),
+        //     "AceNFTStaking::stake: invalid tokenId"
+        // );
 
-        Staker storage staker = stakers[msg.sender];
+        _updateRewards(user_);
+
+        Staker storage staker = stakers[user_];
         staker.tokenIds.push(tokenId_);
         // staker.balance = staker.balance.add(amount_);
         totalStaked = totalStaked += 1;
 
-        IERC1155( ACEBIT_NFT ).safeTransferFrom(address(msg.sender), address(this), tokenId_, 1, "0x0");
+        IERC1155(ACEBIT_NFT).safeTransferFrom(
+            address(user_),
+            address(this),
+            tokenId_,
+            1,
+            "0x0"
+        );
 
         emit NFTStaked(msg.sender, tokenId_);
     }
@@ -129,12 +156,15 @@ contract AceNFTStaking is Ownable {
     function userRewards() public view returns (uint256 _totalRewards) {
         Staker storage staker = stakers[msg.sender];
 
-        require(
-            staker.balance > 0,
-            "Expected User Staked balance regater than 0"
-        );
+        // require(
+        //     staker.tokenIds.length > 0,
+        //     "Expected User Staked balance greater than 0"
+        // );
+
+        if (staker.tokenIds.length == 0) return 0;
+
         uint256 __totalRewards = staker.totalRewards +
-            _calculateRewards(staker.updatedAt, staker.balance);
+            _calculateRewards(staker.updatedAt, staker.tokenIds.length);
         return __totalRewards - staker.rewardsWithdrawn;
     }
 
@@ -171,17 +201,17 @@ contract AceNFTStaking is Ownable {
         // console.log(_reward);
         staker.totalRewards =
             staker.totalRewards +
-            _calculateRewards(staker.updatedAt, staker.balance);
+            _calculateRewards(staker.updatedAt, staker.tokenIds.length);
         staker.updatedAt = block.timestamp;
     }
 
     /**
      *  @dev calculate rewards per hour per token holdings
      *  @param updatedAt_ the latest reward update timestamp
-     *  @param balance_ current user balance to be used for the reward calculation
+     *  @param tokenNumber_ number of stakedNFTs
      *  @return  _reward calculated reward
      */
-    function _calculateRewards(uint256 updatedAt_, uint256 balance_)
+    function _calculateRewards(uint256 updatedAt_, uint256 tokenNumber_)
         internal
         view
         returns (uint256 _reward)
@@ -190,9 +220,7 @@ contract AceNFTStaking is Ownable {
         if (updatedAt_ == 0) return 0;
 
         uint256 _x = REWARD_PER_PERIOD.mul(
-            block.timestamp.sub(updatedAt_).div(REWARD_PERIOD).mul(
-                balance_.div(1e18)
-            )
+            block.timestamp.sub(updatedAt_).div(REWARD_PERIOD).mul(tokenNumber_)
         );
         // console.log("result: ", _x);
         // console.log(REWARD_PER_PERIOD);
@@ -222,6 +250,35 @@ contract AceNFTStaking is Ownable {
      */
     function migrate(address user_) external view onlyOwner {
         return;
+    }
+
+    function onERC1155Received(
+        address,
+        address,
+        uint256,
+        uint256,
+        bytes memory
+    ) public virtual returns (bytes4) {
+        return this.onERC1155Received.selector;
+    }
+
+    function onERC1155BatchReceived(
+        address,
+        address,
+        uint256[] memory,
+        uint256[] memory,
+        bytes memory
+    ) public virtual returns (bytes4) {
+        return this.onERC1155BatchReceived.selector;
+    }
+
+    function onERC721Received(
+        address,
+        address,
+        uint256,
+        bytes memory
+    ) public virtual returns (bytes4) {
+        return this.onERC721Received.selector;
     }
 }
 

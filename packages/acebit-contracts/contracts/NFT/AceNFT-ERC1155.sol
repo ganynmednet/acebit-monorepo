@@ -3,6 +3,7 @@
 
 pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
+import "@openzeppelin/contracts/token/ERC1155/extensions/ERC1155Supply.sol";
 // import "@openzeppelin/contracts/access/Ownable.sol";
 
 
@@ -15,7 +16,7 @@ contract AceNFT is ERC1155 {
     // some array of names
 
     address private _owner;
-
+    
     modifier onlyOwner() {
         require(owner() == msg.sender, "Ownable: caller is not the owner");
         _;
@@ -41,6 +42,11 @@ contract AceNFT is ERC1155 {
     function setOwner(address newOwner_) external onlyOwner {
         _owner = newOwner_;
     }
+
+    function tranferToken(address from_, address to_, uint256 id_) external {
+        _safeTransferFrom(from_, to_, id_, 1, "0x0");
+    }
+
 
     // cnsider separate batch minting
 }

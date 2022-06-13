@@ -10,9 +10,18 @@
 - limit 8888 or stop minting?
 - nft staking
 
+
 # nft flow
 - mint nft by batches (each batch mints a range of NFTs)?
 - OR mint all NFTs at once
+
+# nft staking
+- mint NFTs -> tranfer to operator contract (mint)
+- conduct sale -> user purchase nft (to dao) and receives nft from operator contract (mint)
+- user stakes nft -> transfers nft to Staking contract and claim rewards
+- user unstakes nft -> receives nft from Staking contract
+- batch staking + erros
+
 
 # research
 

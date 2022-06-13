@@ -2,12 +2,13 @@ const { expect } = require("chai");
 const { ethers } = require("hardhat");
 
 let aceBitStaking, deployer, dao, aceNFT, aceNFTStaking;
+const _largeApproval = '100000000000000000000000000000000';
 
 describe("ACE NFT STAKING TEST", function () {
-    it("Shoud deploy AceBit Staking", async function () {
+    it("Shoud deploy AceBit NFT Staking", async function () {
 
         [deployer, dao, randomUser] = await ethers.getSigners()
-        const _largeApproval = '100000000000000000000000000000000';
+        
         const _name = "AceNFTStaking";
         const _period = "1"
         const _rewardPerPeriod = "5000000000000000" // 1e15 or 0.005% per hour => 0.136% per day => ~ 50% year
@@ -35,22 +36,42 @@ describe("ACE NFT STAKING TEST", function () {
 
         );
         await aceNFTStaking.deployed();
-
-        await acebit.approve(aceNFTStaking.address, _largeApproval);
-
-        // After-deploy checks
-        expect(await aceNFTStaking.owner()).to.equal(deployer.address);
-        await acebit.transfer(aceNFTStaking.address, "1000000000000000000000");
         // expect(await aceBitStaking.name()).to.equal(_name);
-        // expect(await aceBitStaking.tokenAddress()).to.equal(acebit.address);
+        // expect(await aceNFTStaking.owner()).to.equal(deployer.address);
 
-        // check aceBit balances contract & staker
     });
 
-    it("Shoud Stake ACEBIT", async function () {
+    it("Shoud prepare befoe staking (mint, acebit tranfer, approvals)", async function () {
+
+        // Approve WHAT?
+        await acebit.approve(aceNFTStaking.address, _largeApproval);
+
+        // approve Staking contract (operator) to trasnfer user's tokens
+        await aceNFT.setApprovalForAll(aceNFTStaking.address, true);
+        expect(await aceNFT.isApprovedForAll(deployer.address, aceNFTStaking.address)).to.equal(true);
+
+        // Transfer AceBit tokens to Staking contract
+        await acebit.transfer(aceNFTStaking.address, "1000000000000000000000");
+
+        // mint NFT
+        await aceNFT.mint();
+        expect(await aceNFT.balanceOf(deployer.address, "0")).to.equal("1");
+        // expect(await aceNFT.exists("0")).to.equal("20000000000000000000000000");
+
+    });
 
 
 
+    it("Shoud Stake ACEBIT NFT", async function () {
+        await aceNFTStaking.stake("0");
+
+        var _user = await aceNFTStaking.getUser(deployer.address);
+        console.log(_user);
+        expect(_user.tokenIds[0]).to.equal("0");
+        expect(_user.totalRewards).to.equal("0");
+        // await expect(aceNFTStaking.stake("0")).to.be.revertedWith("AceNFTStaking::stake: invalid tokenId");
+
+        // stake second NFT
     });
 
 

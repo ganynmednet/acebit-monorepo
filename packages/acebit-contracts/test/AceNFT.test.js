@@ -20,7 +20,7 @@ describe("ACEBIT NFT TEST", function () {
     });
 
     it('Should set NFT URI', async () => {
-        console.log(await aceNFT.uri(0))
+        // console.log(await aceNFT.uri(0))
         expect(await aceNFT.uri(0)).to.eq(_URI);
         
         await aceNFT.setURI(_newURI);
