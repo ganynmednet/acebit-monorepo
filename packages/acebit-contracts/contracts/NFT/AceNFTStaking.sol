@@ -46,7 +46,7 @@ contract AceNFTStaking is Ownable {
         uint256 rewardsWithdrawn;
         uint256 updatedAt;
     }
-    mapping(address => Staker) public stakers;
+    mapping(address => Staker) private stakers;
 
     event NFTStaked(address indexed owner, uint256 tokenId_);
     event NFTUnstaked(address indexed owner, uint256 tokenId_);
