@@ -38,7 +38,7 @@ describe("ACEBIT NFT TEST", function () {
     it('Should mint NFT', async () => {
         // think about minting logic
 
-        await aceNFT.mint(deployer.address, "2");
+        await aceNFT.mint(deployer.address, ["2"]);
     });
 
 });

@@ -141,6 +141,10 @@ describe("ACE NFT STAKING TEST", function () {
 
         await expect(aceNFTFactory.mint("5")).to.be.revertedWith("AceNFTFactory::mint: Mintable amount exceded. You can mint up to 5 Aces.");
 
+        await aceNFTFactory.togglePause();
+        await expect(aceNFTFactory.mint("2")).to.be.revertedWith("AceNFTMint::mint: The mint is innactive.");
+        await aceNFTFactory.togglePause();
+
     });    
 
     it("Shoud Stake ACEBIT NFT", async function () {

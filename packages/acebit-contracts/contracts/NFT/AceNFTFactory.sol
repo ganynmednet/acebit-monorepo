@@ -13,14 +13,14 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
 
 interface IACENFT {
-    function mint(address address_, uint256 tokenId_) external;
+    function mint(address address_, uint256[] memory tokenId_) external;
 }
 
 contract AceNFTFactory is Ownable {
     using SafeERC20 for IERC20;
     using SafeMath for uint256;
     using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
+    Counters.Counter private TOKEN_IDS;
 
     bool public ACTIVE;
 
@@ -37,7 +37,7 @@ contract AceNFTFactory is Ownable {
     }
     mapping(address => Buyer) private buyers;
 
-    event Minted(address indexed owner, uint256 tokenId);
+    event Minted(address indexed owner, uint256[] tokenId);
     event TogglePause(bool active);
 
     constructor(
@@ -65,10 +65,15 @@ contract AceNFTFactory is Ownable {
         require(ACTIVE, "AceNFTMint::mint: The mint is innactive.");
 
         Buyer storage buyer = buyers[msg.sender];
-        // console.log(MAX_MINTABLE + tokensToBuy_);
+
         require(
             buyer.tokendIds.length + tokensToBuy_ <= MAX_MINTABLE,
             "AceNFTFactory::mint: Mintable amount exceded. You can mint up to 5 Aces."
+        );
+
+        require(
+            TOKEN_IDS.current() + tokensToBuy_ <= MAX_SUPPLY,
+            "AceNFTFactory::_mint: MAX_SUPPLY exceeded."
         );
 
         _mint(msg.sender, buyer, tokensToBuy_);
@@ -81,28 +86,25 @@ contract AceNFTFactory is Ownable {
     ) private {
         // implement batch minting!
 
-        _tokenIds.increment();
-        uint256 _newTokenId = _tokenIds.current();
-
-        require(_newTokenId <= MAX_SUPPLY, "AceNFTFactory::_mint: MAX_SUPPLY exceeded.");
-
         uint256 _amount = tokensToBuy_.mul(PRICE);
 
-        buyer.tokendIds.push(_newTokenId);
+        uint256[] memory _tokenIds = new uint256[](tokensToBuy_);
 
+        for (uint256 i = 0; i < tokensToBuy_; i++) {
+
+            TOKEN_IDS.increment();
+            uint256 _newTokenId = TOKEN_IDS.current();
+
+            buyer.tokendIds.push(_newTokenId);
+            _tokenIds[i] = _newTokenId;
+        }   
+
+        
         IERC20(COIN).safeTransferFrom(buyerAddress_, address(DAO), _amount);
 
-        // IERC1155(ACENFT).safeTransferFrom(
-        //     address(this),
-        //     address(buyerAddress_),
-        //     _newTokenId,
-        //     1,
-        //     "0x0"
-        // );
+        IACENFT(ACENFT).mint(buyerAddress_, _tokenIds);
 
-        IACENFT(ACENFT).mint(buyerAddress_, _newTokenId);
-
-        emit Minted(buyerAddress_, _newTokenId);
+        emit Minted(buyerAddress_, _tokenIds);
     }
 
     function setDAO(address dao_) external onlyOwner {
