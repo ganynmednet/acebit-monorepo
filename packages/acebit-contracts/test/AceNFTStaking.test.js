@@ -57,14 +57,15 @@ describe("ACE NFT STAKING TEST", function () {
             dai.address,
             dao.address,
             "2",
-            "100"
+            "100",
+            "Bla Bla"
         );
         console.log("AceNFTFactory address: %s", aceNFTFactory.address);
 
         // toggle contratc pause
-        expect(await aceNFTFactory.active()).to.equal(false);
+        expect(await aceNFTFactory.ACTIVE()).to.equal(false);
         await aceNFTFactory.togglePause();
-        expect(await aceNFTFactory.active()).to.equal(true);
+        expect(await aceNFTFactory.ACTIVE()).to.equal(true)
 
         // check admin set functions
         await aceNFTFactory.setMaxMintable(5);
@@ -72,6 +73,7 @@ describe("ACE NFT STAKING TEST", function () {
         await aceNFTFactory.setAceNFT(aceNFT.address);
         await aceNFTFactory.setDAO(dao.address);
         await aceNFTFactory.setCoin(dai.address);
+        await aceNFTFactory.setCurrentMint("Ace NFT Private Sale");
 
         // FACTORY TESTING ? WHAT ELSE?
     });
@@ -139,10 +141,10 @@ describe("ACE NFT STAKING TEST", function () {
 
         // console.log(await dai.balanceOf(dao.address));
 
-        await expect(aceNFTFactory.mint("5")).to.be.revertedWith("AceNFTFactory::mint: Mintable amount exceded. You can mint up to 5 Aces.");
+        await expect(aceNFTFactory.mint("5")).to.be.revertedWith("AceNFTFactory::mint: Mintable amount exceded. You can mint up to 5 Aces");
 
         await aceNFTFactory.togglePause();
-        await expect(aceNFTFactory.mint("2")).to.be.revertedWith("AceNFTMint::mint: The mint is innactive.");
+        await expect(aceNFTFactory.mint("2")).to.be.revertedWith("AceNFTMint::mint: The mint is innactive");
         await aceNFTFactory.togglePause();
 
     });    

@@ -30,7 +30,9 @@ contract AceNFTFactory is Ownable {
 
     uint256 public MAX_MINTABLE;
     uint256 public PRICE;
-    uint256 public MAX_SUPPLY = 8888;
+    uint256 public constant MAX_SUPPLY = 8888;
+
+    string public CURRENT_MINT;
 
     struct Buyer {
         uint256[] tokendIds;
@@ -45,13 +47,15 @@ contract AceNFTFactory is Ownable {
         address coin_,
         address dao_,
         uint256 maxMintable_,
-        uint256 price_
+        uint256 price_,
+        string memory currentMint_
     ) {
         require(coin_ != address(0), "AceNFTFactory::constructor: Invalid ACEBIT contract address");
         require(aceNft_ != address(0), "AceNFTFactory::constructor: Invalid AceBit NFT contract address");
         require(dao_ != address(0), "AceNFTFactory::constructor: Invalid DAO address");
         require(maxMintable_ > 0, "AceNFTFactory::constructor: Invalid Max Mintable");
         require(price_ > 0, "AceNFTFactory::constructor: Invalid Price");
+        require(bytes(currentMint_).length > 0, "AceNFTFactory::constructor: Invalid Current Mint name");
 
         COIN = coin_;
         ACENFT = aceNft_;
@@ -59,16 +63,17 @@ contract AceNFTFactory is Ownable {
         MAX_MINTABLE = maxMintable_;
         PRICE = price_;
         ACTIVE = false;
+        CURRENT_MINT = currentMint_;
     }
 
     function mint(uint256 tokensToBuy_) external {
-        require(ACTIVE, "AceNFTMint::mint: The mint is innactive.");
+        require(ACTIVE, "AceNFTMint::mint: The mint is innactive");
 
         Buyer storage buyer = buyers[msg.sender];
 
         require(
             buyer.tokendIds.length + tokensToBuy_ <= MAX_MINTABLE,
-            "AceNFTFactory::mint: Mintable amount exceded. You can mint up to 5 Aces."
+            "AceNFTFactory::mint: Mintable amount exceded. You can mint up to 5 Aces"
         );
 
         require(
@@ -130,15 +135,16 @@ contract AceNFTFactory is Ownable {
         MAX_MINTABLE = maxMintable_;
     }
 
+    function setCurrentMint(string memory currentMint_) external onlyOwner {
+        CURRENT_MINT = currentMint_;
+    }
+
+
     function togglePause() external onlyOwner {
         bool _active = !ACTIVE;
         ACTIVE = !ACTIVE;
 
         emit TogglePause(_active);
-    }
-
-    function active() public view returns (bool active) {
-        return ACTIVE;
     }
 
     /**

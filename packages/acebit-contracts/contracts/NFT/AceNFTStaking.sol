@@ -10,9 +10,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
 
 // interface IERC1155Supply {
-//     // function _exists(address account_, uint256 amount_) external;
-//     // function exists(uint256 id) public view virtual returns (bool);
-//     mapping(uint256 => uint256) private _totalSupply;
+// TODO
 // }
 
 interface IERC155ACEBIT {
@@ -27,12 +25,12 @@ interface IERC155ACEBIT {
 
 contract AceNFTStaking is Ownable {
     using SafeERC20 for IERC20;
-    // using IERC1155 for IERC1155;
     using SafeMath for uint256;
 
     string public NAME;
+    
     IERC20 public ACEBIT;
-    address public ACEBIT_NFT;
+    address public ACENFT;
 
     uint256 public REWARD_PERIOD;
     uint256 public REWARD_PER_PERIOD;
@@ -40,7 +38,6 @@ contract AceNFTStaking is Ownable {
     uint256 public totalStaked;
 
     struct Staker {
-        // uint256 balance;
         uint256[] tokenIds;
         uint256 totalRewards;
         uint256 rewardsWithdrawn;
@@ -54,19 +51,19 @@ contract AceNFTStaking is Ownable {
     constructor(
         string memory name_,
         address aceBit_,
-        address aceBitNFT_,
+        address aceNFT_,
         uint256 period_,
         uint256 rewardPerPeriod_
     ) {
-        require(bytes(name_).length > 0, "Invalid Contract name");
-        require(aceBit_ != address(0), "Invalid ACEBIT address");
-        require(aceBitNFT_ != address(0), "Invalid AceBit NFT address");
-        require(period_ > 0, "Invalid period");
-        require(rewardPerPeriod_ > 0, "Invalid RewardPerPeriod");
+        require(bytes(name_).length > 0, "AceNFTStaking::constructor: Invalid Contract name");
+        require(aceBit_ != address(0), "AceNFTStaking::constructor: Invalid ACEBIT address");
+        require(aceNFT_ != address(0), "AceNFTStaking::constructor: Invalid AceBit NFT address");
+        require(period_ > 0, "AceNFTStaking::constructor: Invalid period");
+        require(rewardPerPeriod_ > 0, "AceNFTStaking::constructor: Invalid RewardPerPeriod");
 
         NAME = name_;
         ACEBIT = IERC20(aceBit_);
-        ACEBIT_NFT = aceBitNFT_;
+        ACENFT = aceNFT_;
         REWARD_PERIOD = period_;
         REWARD_PER_PERIOD = rewardPerPeriod_;
     }
@@ -76,13 +73,12 @@ contract AceNFTStaking is Ownable {
      *  @param tokenId_ NFT id
      */
     function stake(uint256 tokenId_) external {
-        // require(amount_ > 0, "Expected Staking amount greater than 0");
-        // require(
-        //     ACEBIT_NFT.balanceOf(msg.sender) > amount_,
-        //     "Invalid user ACEBIT User balance"
-        // );
+
+        // TODO refactor to uint256[]
+        // TODO require tokens exist?
 
         _stake(msg.sender, tokenId_);
+
     }
 
     /**
@@ -92,19 +88,16 @@ contract AceNFTStaking is Ownable {
      * @param tokenId_ NFT id
      */
     function _stake(address user_, uint256 tokenId_) internal {
-        // require(
-        //     exists(tokenId_),
-        //     "AceNFTStaking::stake: invalid tokenId"
-        // );
+
+        // TODO refactor to safeBatchTransferFrom
 
         _updateRewards(user_);
 
         Staker storage staker = stakers[user_];
         staker.tokenIds.push(tokenId_);
-        // staker.balance = staker.balance.add(amount_);
         totalStaked = totalStaked += 1;
 
-        IERC1155(ACEBIT_NFT).safeTransferFrom(
+        IERC1155(ACENFT).safeTransferFrom(
             address(user_),
             address(this),
             tokenId_,
@@ -180,7 +173,7 @@ contract AceNFTStaking is Ownable {
 
         require(
             _availableRewards > 0,
-            "There is no available rewards for the user"
+            "AceNFTStaking::withdrawRewards: There is no available rewards for the user"
         );
 
         staker.rewardsWithdrawn = staker.rewardsWithdrawn + _availableRewards;
@@ -282,23 +275,3 @@ contract AceNFTStaking is Ownable {
     }
 }
 
-// /**
-//  *  @notice returns Staking Pool name
-//  *  @param _amount: amount of token to withdraw
-//  */
-
-// /**
-//  *  @dev returns Staking Pool name
-//  *  @return _name The Staking pool name
-//  */
-// function name() public view returns (string memory) {
-//     return _name;
-// }
-
-// /**
-//  *  @dev returns Staking Pool name
-//  *  @return _tokenAddress The staking token address
-//  */
-// function tokenAddress() public view returns (address) {
-//     return _tokenAddress;
-// }

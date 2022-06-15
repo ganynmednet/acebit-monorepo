@@ -1,9 +1,5 @@
 
-# token 
-- staking: code cleaning
-- staking: error validation, flow validation
-- staking: migrate research
-  
+ 
 # nft
 ~~- nft contract~~
 ~~- nft: research~~
@@ -11,21 +7,29 @@
 - nft staking
 
 
-# nft flow
-- mint nft by batches (each batch mints a range of NFTs)?
-- OR mint all NFTs at once
-
 # nft factory
 ~~- generate tokenIds~~
 ~~- test mint, togglePause~~
 
 
 # nft staking
-- mint NFTs -> tranfer to operator contract (mint)
-- conduct sale -> user purchase nft (to dao) and receives nft from operator contract (mint)
-- user stakes nft -> transfers nft to Staking contract and claim rewards
-- user unstakes nft -> receives nft from Staking contract
-- batch staking + erros
+- batch staking
+- claim rewards
+- batch unstaking
+
+- poll mint rate from Treasury
+
+# token staking
+- review and refactor current contract
+
+
+# acebit treasury
+- contract design
+- dynamic mint rate based on the treasury POL
+- integrate with Staking
+
+# executive board dao
+- https://etherscan.io/address/0xbeccb6bb0aa4ab551966a7e4b97cec74bb359bf6#code
 
 
 # research
