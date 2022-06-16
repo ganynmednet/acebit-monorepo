@@ -1,4 +1,3 @@
-
  
 # nft
 ~~- nft contract~~
@@ -19,8 +18,15 @@
 
 - poll mint rate from Treasury
 
+# nft rent
+- https://app.iq.space/
+- https://unitbox.io/
+- https://double.one/
+
+
 # token staking
 - review and refactor current contract
+- 
 
 
 # acebit treasury
