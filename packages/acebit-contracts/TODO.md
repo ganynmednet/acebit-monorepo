@@ -28,7 +28,6 @@
 
 # token staking
 - review and refactor current contract
-- 
 
 
 # acebit treasury
