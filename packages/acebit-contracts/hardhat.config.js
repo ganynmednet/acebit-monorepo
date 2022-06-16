@@ -32,7 +32,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
   gasReporter: {
     // currency: 'EUR',
     // gasPrice: 35,
-    enabled: true,
+    enabled: false,
     token: "ETH",
     gasPriceApi: "https://api.polygonscan.com/api?module=proxy&action=eth_gasPrice"
   },

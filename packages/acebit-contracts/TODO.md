@@ -2,7 +2,9 @@
 # nft
 ~~- nft contract~~
 ~~- nft: research~~
-- limit 8888 or stop minting?
+~~- limit 8888 or stop minting?~~
+- ERC7212 refactoring & compiling
+- test fixing
 - nft staking
 
 
@@ -26,7 +28,6 @@
 
 # token staking
 - review and refactor current contract
-- 
 
 
 # acebit treasury

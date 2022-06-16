@@ -15,21 +15,21 @@ describe("ACEBIT NFT TEST", function () {
     it('Should deploy Ace NFT contract', async () => {
 
         const AceNFT = await ethers.getContractFactory("AceNFT");
-        aceNFT = await AceNFT.deploy(_URI);
+        aceNFT = await AceNFT.deploy("AceNFT");
 
     });
 
     it('Should set NFT URI', async () => {
         // console.log(await aceNFT.uri(0))
-        expect(await aceNFT.uri(0)).to.eq(_URI);
+        expect(await aceNFT.getURI()).to.eq("");
         
         await aceNFT.setURI(_newURI);
-        expect(await aceNFT.uri(0)).to.eq(_newURI);
+        expect(await aceNFT.getURI()).to.eq(_newURI);
     });
 
     it('Should change owner', async () => {
 
-        await aceNFT.setOwner(deployer.address);
+        await aceNFT.transferOwnership(deployer.address);
         expect(await aceNFT.owner()).to.eq(deployer.address);
 
     });
