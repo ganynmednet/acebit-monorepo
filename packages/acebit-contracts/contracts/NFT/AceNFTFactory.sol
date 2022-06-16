@@ -76,10 +76,10 @@ contract AceNFTFactory is Ownable {
             "AceNFTFactory::mint: Mintable amount exceded. You can mint up to 5 Aces"
         );
 
-        require(
-            TOKEN_IDS.current() + tokensToBuy_ <= MAX_SUPPLY,
-            "AceNFTFactory::_mint: MAX_SUPPLY exceeded."
-        );
+        // require(
+        //     TOKEN_IDS.current() + tokensToBuy_ <= MAX_SUPPLY,
+        //     "AceNFTFactory::_mint: MAX_SUPPLY exceeded."
+        // );
 
         _mint(msg.sender, buyer, tokensToBuy_);
     }

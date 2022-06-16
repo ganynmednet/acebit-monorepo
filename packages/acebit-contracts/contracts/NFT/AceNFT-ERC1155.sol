@@ -8,7 +8,7 @@ import "hardhat/console.sol";
 
 // import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract AceNFT is ERC1155 {
+contract AceNFT1155 is ERC1155 {
     // uint256 public constant GOLD = 0;
     // uint256 public constant SILVER = 1;
     // uint256 public constant THORS_HAMMER = 2;
