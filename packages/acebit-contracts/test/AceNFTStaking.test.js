@@ -119,7 +119,7 @@ describe("ACE NFT STAKING TEST", function () {
         await acebit.transfer(aceNFTStaking.address, "1000000000000000000000");
 
         // set NFT contract owner to allow minting
-        await aceNFT.setOwner(aceNFTFactory.address);
+        await aceNFT.transferOwnership(aceNFTFactory.address);
         
         // // mint NFT
         // await aceNFT.mint();
