@@ -4,7 +4,7 @@
 pragma solidity ^0.8.4;
 
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
-import "@openzeppelin/contracts/token/ERC1155/IERC1155.sol";
+import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "hardhat/console.sol";
@@ -28,7 +28,7 @@ contract AceNFTStaking is Ownable {
     using SafeMath for uint256;
 
     string public NAME;
-    
+
     IERC20 public ACEBIT;
     address public ACENFT;
 
@@ -45,8 +45,8 @@ contract AceNFTStaking is Ownable {
     }
     mapping(address => Staker) private stakers;
 
-    event NFTStaked(address indexed owner, uint256 tokenId_);
-    event NFTUnstaked(address indexed owner, uint256 tokenId_);
+    event NFTStaked(address indexed owner, uint256[] tokenIds_);
+    event NFTUnstaked(address indexed owner, uint256[] tokenIds_);
 
     constructor(
         string memory name_,
@@ -55,11 +55,23 @@ contract AceNFTStaking is Ownable {
         uint256 period_,
         uint256 rewardPerPeriod_
     ) {
-        require(bytes(name_).length > 0, "AceNFTStaking::constructor: Invalid Contract name");
-        require(aceBit_ != address(0), "AceNFTStaking::constructor: Invalid ACEBIT address");
-        require(aceNFT_ != address(0), "AceNFTStaking::constructor: Invalid AceBit NFT address");
+        require(
+            bytes(name_).length > 0,
+            "AceNFTStaking::constructor: Invalid Contract name"
+        );
+        require(
+            aceBit_ != address(0),
+            "AceNFTStaking::constructor: Invalid ACEBIT address"
+        );
+        require(
+            aceNFT_ != address(0),
+            "AceNFTStaking::constructor: Invalid AceBit NFT address"
+        );
         require(period_ > 0, "AceNFTStaking::constructor: Invalid period");
-        require(rewardPerPeriod_ > 0, "AceNFTStaking::constructor: Invalid RewardPerPeriod");
+        require(
+            rewardPerPeriod_ > 0,
+            "AceNFTStaking::constructor: Invalid RewardPerPeriod"
+        );
 
         NAME = name_;
         ACEBIT = IERC20(aceBit_);
@@ -70,42 +82,42 @@ contract AceNFTStaking is Ownable {
 
     /**
      *  @dev stake ACEBIT tokens
-     *  @param tokenId_ NFT id
+     *  @param tokenIds_ NFT id
      */
-    function stake(uint256 tokenId_) external {
-
+    function stake(uint256[] memory tokenIds_) external {
         // TODO refactor to uint256[]
         // TODO require tokens exist?
 
-        _stake(msg.sender, tokenId_);
-
+        _stake(msg.sender, tokenIds_);
     }
 
     /**
      * @dev All the staking goes through this function
      * @dev Rewards to be given out is calculated
      * @param user_ User address
-     * @param tokenId_ NFT id
+     * @param tokenIds_ NFT id
      */
-    function _stake(address user_, uint256 tokenId_) internal {
-
+    function _stake(address user_, uint256[] memory tokenIds_) internal {
         // TODO refactor to safeBatchTransferFrom
 
+        // TODO refactor _updateRewards if needed
         _updateRewards(user_);
 
         Staker storage staker = stakers[user_];
-        staker.tokenIds.push(tokenId_);
-        totalStaked = totalStaked += 1;
 
-        IERC1155(ACENFT).safeTransferFrom(
-            address(user_),
-            address(this),
-            tokenId_,
-            1,
-            "0x0"
-        );
+        for (uint256 i = 0; i < tokenIds_.length; i++) {
 
-        emit NFTStaked(msg.sender, tokenId_);
+            staker.tokenIds.push(tokenIds_[i]);
+            totalStaked = totalStaked += 1;
+
+            IERC721(ACENFT).safeTransferFrom(
+                address(user_),
+                address(this),
+                tokenIds_[i]
+            );
+        }
+
+        emit NFTStaked(msg.sender, tokenIds_);
     }
 
     /**
@@ -274,4 +286,3 @@ contract AceNFTStaking is Ownable {
         return this.onERC721Received.selector;
     }
 }
-

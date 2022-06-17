@@ -14,7 +14,8 @@
 
 
 # nft staking
-- batch staking
+~~- batch staking~~
+- test multiple id staking
 - claim rewards
 - batch unstaking
 

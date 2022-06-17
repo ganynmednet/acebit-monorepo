@@ -1,6 +1,7 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
-
+// import { utils } from "ethers";
+const { utils }= require("ethers");
 
 let aceBitStaking, deployer, dao, aceNFT, aceNFTStaking, aceNFTFactory, dai;
 const _largeApproval = '100000000000000000000000000000000';
@@ -144,19 +145,42 @@ describe("ACE NFT STAKING TEST", function () {
         await expect(aceNFTFactory.mint("5")).to.be.revertedWith("AceNFTFactory::mint: Mintable amount exceded. You can mint up to 5 Aces");
 
         await aceNFTFactory.togglePause();
-        await expect(aceNFTFactory.mint("2")).to.be.revertedWith("AceNFTMint::mint: The mint is innactive");
+        await expect(aceNFTFactory.mint("3")).to.be.revertedWith("AceNFTMint::mint: The mint is innactive");
         await aceNFTFactory.togglePause();
 
-        console.log(await aceNFT.balanceOf(deployer.address))
+
+        expect(await aceNFT.balanceOf(deployer.address)).to.equal("2");
+        expect(await aceNFT.totalSupply()).to.equal("2");
 
     });    
 
     it("Shoud Stake ACEBIT NFT", async function () {
 
-        // await aceNFTStaking.stake("0");
+        // stake One
+        // stake Multiple
 
-        // var _user = await aceNFTStaking.getUser(deployer.address);
-        // console.log(_user);
+        let _userTokens = await aceNFT.balanceOf(deployer.address)
+
+        // Single Staking
+        let _tokenIdToStakeSINGLE = await aceNFT.tokenOfOwnerByIndex(deployer.address, 0)
+        // console.log(_tokenIdToStakeSINGLE )
+        await aceNFTStaking.stake([_tokenIdToStakeSINGLE]);
+
+        // Multiple Staking
+        // let _tokenIdsToStakeMULTIPLE = new Array();
+
+
+        // for (let i = 0; i <  _userTokens ; i++) {
+        //     let _id = await aceNFT.tokenOfOwnerByIndex(deployer.address, i)
+        //     console.log(_id)
+        //     // _tokenIdsToStakeMULTIPLE.push(utils.BigNumber.toNumber(_id))
+        // }
+        // await aceNFTStaking.stake([2,3]);
+
+
+        var _user = await aceNFTStaking.getUser(deployer.address);
+        expect(await _user.tokenIds.length).to.equal(1);
+        console.log(_user);
         // expect(_user.tokenIds[0]).to.equal("0");
         // expect(_user.totalRewards).to.equal("0");
         // await expect(aceNFTStaking.stake("0")).to.be.revertedWith("AceNFTStaking::stake: invalid tokenId");

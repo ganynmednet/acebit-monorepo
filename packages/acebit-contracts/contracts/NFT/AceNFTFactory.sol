@@ -39,7 +39,7 @@ contract AceNFTFactory is Ownable {
     }
     mapping(address => Buyer) private buyers;
 
-    event Minted(address indexed owner, uint256[] tokenId);
+    event Minted(address indexed owner, uint256[] tokenIds);
     event TogglePause(bool active);
 
     constructor(
