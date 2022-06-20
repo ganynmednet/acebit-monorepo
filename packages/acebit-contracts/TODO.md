@@ -3,7 +3,7 @@
 ~~- nft contract~~
 ~~- nft: research~~
 ~~- limit 8888 or stop minting?~~
-- ERC7212 refactoring & compiling
+- ERC721 refactoring & compiling
 - test fixing
 - nft staking
 
@@ -15,8 +15,8 @@
 
 # nft staking
 ~~- batch staking~~
-- test multiple id staking
-- claim rewards
+~~- test multiple id staking~~~
+~~- claim rewards~~
 - batch unstaking
 
 - poll mint rate from Treasury

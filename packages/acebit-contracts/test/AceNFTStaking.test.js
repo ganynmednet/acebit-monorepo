@@ -3,7 +3,7 @@ const { ethers } = require("hardhat");
 // import { utils } from "ethers";
 const { utils }= require("ethers");
 
-let aceBitStaking, deployer, dao, aceNFT, aceNFTStaking, aceNFTFactory, dai;
+let aceBitStaking, deployer, dao, aceNFT, aceNFTStaking, aceNFTFactory, dai, randomUser;
 const _largeApproval = '100000000000000000000000000000000';
 
 const _name = "AceNFTStaking";
@@ -131,14 +131,14 @@ describe("ACE NFT STAKING TEST", function () {
 
     it("Shoud mint NFTs to deployer address", async function () {
 
-        await aceNFTFactory.mint("2");
+        await aceNFTFactory.mint("1");
 
         // check if NFT is has been minted
         var _buyer = await aceNFTFactory.getBuyer(deployer.address);
         expect(_buyer.tokendIds[0]).to.equal(1);
 
         // check if coin has been transfered to dao
-        expect(await dai.balanceOf(dao.address)).to.equal("200000000000000000");
+        expect(await dai.balanceOf(dao.address)).to.equal("100000000000000000");
 
         // console.log(await dai.balanceOf(dao.address));
 
@@ -148,38 +148,34 @@ describe("ACE NFT STAKING TEST", function () {
         await expect(aceNFTFactory.mint("3")).to.be.revertedWith("AceNFTMint::mint: The mint is innactive");
         await aceNFTFactory.togglePause();
 
-
-        expect(await aceNFT.balanceOf(deployer.address)).to.equal("2");
-        expect(await aceNFT.totalSupply()).to.equal("2");
+        await aceNFTFactory.mint("2");
+        expect(await aceNFT.balanceOf(deployer.address)).to.equal("3");
+        expect(await aceNFT.totalSupply()).to.equal("3");
+        expect(await dai.balanceOf(dao.address)).to.equal("300000000000000000");
+        expect(await dai.balanceOf(deployer.address)).to.equal("999700000000000000000");
 
     });    
 
     it("Shoud Stake ACEBIT NFT", async function () {
 
-        // stake One
-        // stake Multiple
-
-        let _userTokens = await aceNFT.balanceOf(deployer.address)
-
         // Single Staking
         let _tokenIdToStakeSINGLE = await aceNFT.tokenOfOwnerByIndex(deployer.address, 0)
-        // console.log(_tokenIdToStakeSINGLE )
         await aceNFTStaking.stake([_tokenIdToStakeSINGLE]);
 
         // Multiple Staking
-        // let _tokenIdsToStakeMULTIPLE = new Array();
 
-
-        // for (let i = 0; i <  _userTokens ; i++) {
+        // for (let i = 1; i <  _userTokens ; i++) {
+        //     console.log(i)
         //     let _id = await aceNFT.tokenOfOwnerByIndex(deployer.address, i)
         //     console.log(_id)
-        //     // _tokenIdsToStakeMULTIPLE.push(utils.BigNumber.toNumber(_id))
+        //     _tokenIdsToStakeMULTIPLE.push(_id)
         // }
-        // await aceNFTStaking.stake([2,3]);
+        // console.log(_tokenIdsToStakeMULTIPLE)
+        await aceNFTStaking.stake([2, 3]);
 
 
         var _user = await aceNFTStaking.getUser(deployer.address);
-        expect(await _user.tokenIds.length).to.equal(1);
+        expect(await _user.tokenIds.length).to.equal(3);
         console.log(_user);
         // expect(_user.tokenIds[0]).to.equal("0");
         // expect(_user.totalRewards).to.equal("0");
@@ -191,7 +187,17 @@ describe("ACE NFT STAKING TEST", function () {
 
     it("Shoud claim Staking Reward ", async function () {
 
+        await expect(aceNFTStaking.connect(randomUser).withdrawRewards()).to.be.revertedWith("AceNFTStaking::withdrawRewards: There is no available rewards for the user");
 
+        await aceNFTStaking.withdrawRewards();
+
+        _user = await aceNFTStaking.getUser(deployer.address);
+        console.log(_user)
+        expect(_user.totalRewards).to.equal("35000000000000000");
+        expect(_user.rewardsWithdrawn).to.equal("35000000000000000");
+
+        expect(await acebit.balanceOf(deployer.address)).to.equal("399999000035000000000000000");
+        expect(await acebit.balanceOf(aceNFTStaking.address)).to.equal("999965000000000000000");
 
     });
 

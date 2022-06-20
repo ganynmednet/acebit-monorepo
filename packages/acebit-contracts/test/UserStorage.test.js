@@ -27,7 +27,7 @@ describe("USER STORAGE TEST", function () {
       whitelisted: true,
       created: new Date().getTime()
     }
-    console.log(user)
+    // console.log(user)
 
     const UserStorage = await ethers.getContractFactory("UserStorage");
     userStorage = await UserStorage.deploy(deployer.address);
