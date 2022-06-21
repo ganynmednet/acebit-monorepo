@@ -1,7 +1,7 @@
 const { expect } = require("chai");
 const { ethers } = require("hardhat");
 // import { utils } from "ethers";
-const { utils }= require("ethers");
+const { utils } = require("ethers");
 
 let aceBitStaking, deployer, dao, aceNFT, aceNFTStaking, aceNFTFactory, dai, randomUser;
 const _largeApproval = '100000000000000000000000000000000';
@@ -40,8 +40,8 @@ describe("ACE NFT STAKING TEST", function () {
 
         // Deploy mock DAI contract
         DAI = await ethers.getContractFactory('DAI');
-        dai = await DAI.deploy( 0 );
-        console.log( "DAI: %s", dai.address );
+        dai = await DAI.deploy(0);
+        console.log("DAI: %s", dai.address);
 
         // Mint DAI
         await dai.mint(deployer.address, "1000000000000000000000");
@@ -121,7 +121,7 @@ describe("ACE NFT STAKING TEST", function () {
 
         // set NFT contract owner to allow minting
         await aceNFT.transferOwnership(aceNFTFactory.address);
-        
+
         // // mint NFT
         // await aceNFT.mint();
         // expect(await aceNFT.balanceOf(deployer.address, "0")).to.equal("1");
@@ -154,7 +154,7 @@ describe("ACE NFT STAKING TEST", function () {
         expect(await dai.balanceOf(dao.address)).to.equal("300000000000000000");
         expect(await dai.balanceOf(deployer.address)).to.equal("999700000000000000000");
 
-    });    
+    });
 
     it("Shoud Stake ACEBIT NFT", async function () {
 
@@ -172,6 +172,9 @@ describe("ACE NFT STAKING TEST", function () {
         // }
         // console.log(_tokenIdsToStakeMULTIPLE)
         await aceNFTStaking.stake([2, 3]);
+        expect(await aceNFT.balanceOf(deployer.address)).to.equal("0");
+        expect(await aceNFT.balanceOf(aceNFTStaking.address)).to.equal("3");
+        expect(await aceNFT.totalSupply()).to.equal("3");
 
 
         var _user = await aceNFTStaking.getUser(deployer.address);
@@ -182,6 +185,8 @@ describe("ACE NFT STAKING TEST", function () {
         // await expect(aceNFTStaking.stake("0")).to.be.revertedWith("AceNFTStaking::stake: invalid tokenId");
 
         // stake second NFT
+
+
     });
 
 
@@ -204,6 +209,11 @@ describe("ACE NFT STAKING TEST", function () {
 
     it("Shoud test Fronted fucntions", async function () {
 
+        // await expect(aceNFTStaking.connect(randomUser).userRewards()).to.be.revertedWith("Expected User Staked balance regater than 0");
+
+        var _userRewards = await aceNFTStaking.userRewards();
+        console.log(_userRewards)
+        expect(_userRewards).to.equal("0");
 
 
     });
@@ -211,7 +221,22 @@ describe("ACE NFT STAKING TEST", function () {
 
     it("Shoud Unstake ACEBIT ", async function () {
 
+        await expect(aceNFTStaking.unstake([])).to.be.revertedWith("AceNFTStaking::unstake: Invalid unstaking Ids");
 
+        // Unstake 1
+        await aceNFTStaking.unstake([1]);
+        expect(await aceNFT.balanceOf(deployer.address)).to.equal("1");
+        expect(await aceNFT.balanceOf(aceNFTStaking.address)).to.equal("2");
+        expect(await aceNFT.totalSupply()).to.equal("3");
+
+        _user = await aceNFTStaking.getUser(deployer.address);
+        console.log(_user)
+
+        // Unstake 2,3 
+        await aceNFTStaking.unstake([2, 3]);
+        expect(await aceNFT.balanceOf(deployer.address)).to.equal("3");
+        expect(await aceNFT.balanceOf(aceNFTStaking.address)).to.equal("0");
+        expect(await aceNFT.totalSupply()).to.equal("3");
     });
 
 });

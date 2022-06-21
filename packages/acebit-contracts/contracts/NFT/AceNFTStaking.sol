@@ -94,24 +94,23 @@ contract AceNFTStaking is Ownable {
     /**
      * @dev All the staking goes through this function
      * @dev Rewards to be given out is calculated
-     * @param user_ User address
+     * @param userAddress_ User address
      * @param tokenIds_ NFT id
      */
-    function _stake(address user_, uint256[] memory tokenIds_) internal {
+    function _stake(address userAddress_, uint256[] memory tokenIds_) internal {
         // TODO refactor to safeBatchTransferFrom
 
         // TODO refactor _updateRewards if needed
-        _updateRewards(user_);
+        _updateRewards(userAddress_);
 
-        Staker storage staker = stakers[user_];
+        Staker storage staker = stakers[userAddress_];
 
         for (uint256 i = 0; i < tokenIds_.length; i++) {
-
             staker.tokenIds.push(tokenIds_[i]);
             totalStaked = totalStaked += 1;
 
             IERC721(ACENFT).safeTransferFrom(
-                address(user_),
+                address(userAddress_),
                 address(this),
                 tokenIds_[i]
             );
@@ -122,36 +121,65 @@ contract AceNFTStaking is Ownable {
 
     /**
      *  @dev unstake ACEBIT tokens
-     *  @param amount_ unstaking amount
+     *  @param tokenIds_ List of token Ids to Unstake
      */
-    // function unstake(uint256 tokenId_) external {
-    //     require(amount_ > 0, "Expected Unstaking amount greater than 0");
+    function unstake(uint256[] memory tokenIds_) external {
+        require(
+            tokenIds_.length > 0,
+            "AceNFTStaking::unstake: Invalid unstaking Ids"
+        );
 
-    //     Staker storage staker = stakers[msg.sender];
+        // require(
+        //     IERC721(ACENFT).balanceOf(msg.sender) > 0,
+        //     "AceNFTStaking::unstake: User doesn't have staked NFTs"
+        // );
 
-    //     require(
-    //         staker.balance >= amount_,
-    //         "Expected amount less or equal user balance"
-    //     );
-
-    //     _unstake(msg.sender, tokenId_);
-    // }
+        _unstake(msg.sender, tokenIds_);
+    }
 
     /**
      * @dev All the staking goes through this function
      * @dev Rewards to be given out is calculated
+     * @param userAddress_ User address
+     * @param tokenIds_ List of token Ids to Unstake
      */
-    // function _unstake(address user_, uint256 tokenId_) internal {
+    function _unstake(
+        address userAddress_,
+        uint256[] memory tokenIds_
+    ) internal {
+        _updateRewards(userAddress_);
 
-    //             _updateRewards(msg.sender);
+        // TODO: remove TokenIds
 
-    //     staker.balance = staker.balance.sub(amount_);
-    //     totalStaked = totalStaked.sub(amount_);
+        for (uint256 i = 0; i < tokenIds_.length; i++) {
+            // for (uint256 x = 0; x < staker.tokenIds.length; x++) {
+            //     if (staker.tokenIds[x] == tokenIds_[i]) {
 
-    //     ACEBIT.safeTransfer(address(msg.sender), amount_);
+            //         console.log("DELETED TOKEN ", staker.tokenIds[x] );
+            //         delete staker.tokenIds[x];
+            //     }
+            // }
+            totalStaked = totalStaked -= 1;
 
-    //     emit Unstaked(msg.sender, amount_);
+            IERC721(ACENFT).safeTransferFrom(
+                address(this),
+                address(userAddress_),
+                tokenIds_[i]
+            );
+        }
 
+        emit NFTUnstaked(userAddress_, tokenIds_);
+    }
+
+    // function _remove(uint256 index) returns (uint256[]) {
+    //     if (index >= array.length) return;
+
+    //     for (uint256 i = index; i < array.length - 1; i++) {
+    //         array[i] = array[i + 1];
+    //     }
+    //     delete array[array.length - 1];
+    //     array.length--;
+    //     return array;
     // }
 
     /**

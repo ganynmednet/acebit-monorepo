@@ -17,7 +17,11 @@
 ~~- batch staking~~
 ~~- test multiple id staking~~~
 ~~- claim rewards~~
-- batch unstaking
+~~- batch unstaking~~
+- pop Staker.tokenIds when unstake
+- check the reward count functions
+- check the flow
+- cleanup code
 
 - poll mint rate from Treasury
 
