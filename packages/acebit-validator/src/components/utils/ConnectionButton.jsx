@@ -17,13 +17,13 @@ class ConnectionButtonSection extends React.Component {
 
             return (
                 <>
-                    <div class="validator__account-title">
+                    <div class="wallet__title">
                         You don't have the Whitelist role!
                     </div>
 
-                    <div class="validator__account-description">
-                        Unfortunatelly, you don't have the Whitelist Role in the <a href="#">NeoWorld server</a>.
-                        Learn more about the valid Whitelist Rules <a href="#">here</a>.
+                    <div class="wallet__des">
+                        Unfortunatelly, you don't have the Whitelist Role in the <a className="congratulations__description-link" href="https://discord.gg/vuZKRh6bt9">AceBit server</a>.
+                        Learn more about the valid Whitelist Rules <a className="congratulations__description-link" href="https://docs.acebit.casino/ace-sale/whitelist">here</a>.
                     </div>
 
                 </>
@@ -34,7 +34,7 @@ class ConnectionButtonSection extends React.Component {
         return (
 
             <>
-                <div class="validator__account-title">
+                {/* <div class="validator__account-title">
                     Connect your Wallet
                 </div>
 
@@ -43,6 +43,16 @@ class ConnectionButtonSection extends React.Component {
                 </div>
 
                 <a class="validator__account-link" href="#" onClick={this.connect}>
+                    Connect wallet
+                </a> */}
+
+
+                <div class="wallet__title">Connect your wallet</div>
+                <div class="wallet__des">
+                    Connect your Discord account to link
+                    it to your AceBit profile.
+                </div>
+                <a class="wallet__auth global__btn-yellow" href="#" onClick={this.connect}>
                     Connect wallet
                 </a>
             </>

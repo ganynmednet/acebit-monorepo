@@ -6,23 +6,23 @@ export const config = {
         development: "https://discord.com/api/oauth2/authorize?client_id=964527215175938060&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=identify%20guilds%20email%20guilds.members.read",
         production: "https://discord.com/api/oauth2/authorize?client_id=964527215175938060&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=guilds.members.read%20identify%20email%20guilds"
     } ,
-    discordServer: "917377050095009802",
+    discordServer: "952915415078694972",
     discordPermissions: "guilds.members.read identify email guilds",
     roles: {
-        "921369651919872070": "Marshals",
+        "952917940498489416": "Marshals",
         "955458512270553088": "Marshal Deputy",
-        "921371076213211208": "Landlords",
-        "926785865592741918": "Media Stars",
-        "920343769373610034": "Citizens",
-        "921371294178639872": "Mayor's Office"
+        "952918169452961822": "Aces",
+        "952918122619371601": "VIP",
+        "952917669806481438": "Gamblers",
+        "952917857228963860": "Backoffice"
     },
     roleColors: {
-        "921369651919872070": "validator__account-item marshals", // Marshal
-        "955458512270553088": "validator__account-item marshal-deputy", // Marshal Deputy
-        "921371076213211208": "validator__account-item landlords", // Landlord
-        "926785865592741918": "validator__account-item media-stars", // Media Stars
-        "920343769373610034": "validator__account-item citizens",  // Citizens
-        "921371294178639872": "validator__account-item mayors-office" 
+        "952917940498489416": "wallet__roles marshals", // Marshal
+        "955458512270553088": "wallet__roles marshal-deputy", // Marshal Deputy
+        "952918169452961822": "wallet__roles aces", 
+        "952918122619371601": "wallet__roles vip", 
+        "952917669806481438": "wallet__roles gamblers",  
+        "952917857228963860": "wallet__roles backoffice" 
 
     },
     contracts: {

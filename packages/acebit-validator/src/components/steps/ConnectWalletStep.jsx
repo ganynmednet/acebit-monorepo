@@ -23,7 +23,6 @@ class RolesList extends React.Component {
             this.userData.roles.map((keyName, i) =>
 
                 <div class={config.roleColors[keyName]} key={i}>
-                    <div class="validator__account-color"></div>
                     {config.roles[keyName]}
                 </div>
             )
@@ -49,32 +48,31 @@ function ConnectWalletStep(props) {
     }
 
     return (
-        <div class="validator__content-box">
-            <div class="validator__content">
-                <div class="validator__account">
-                    <div class="validator__account-your">
-                        your discord account
-                    </div>
+        <>
 
-                    <div class="validator__account-img">
-                        <img src={getDiscordAvatart(props.userData.id, props.userData.avatar)} alt="" />
-                    </div>
+            <div class="wallet">
+                <div class="wallet__top-box">
+                    <div class="wallet__top-des">your discord account</div>
+                    {/* <img class="wallet__top-img" src="./images/wallet/Chip-N.svg" alt="" /> */}
 
-                    <div class="validator__account-name">
-                        {props.userData.username}
-                    </div>
+                    <img class="wallet__top-img" src={"https://cdn.discordapp.com/avatars/"+ props.userData.id + "/" + props.userData.avatar+ ".webp?size=100"} alt="" />
+                    {/* <img class="wallet__top-img" src={getDiscordAvatart(props.userData.id, props.userData.avatar)} alt="" /> */}
+                    <div class="wallet__top-title"> {props.userData.username} </div>
 
-                    <div class="validator__account-items">
+                    <div class="wallet__roles-box">
 
                         <RolesList userData={props.userData} />
+                        
 
                     </div>
+                    
                 </div>
-
+                
                 <ConnectionButtonSection userData={props.userData} connect={handleConnect} />
 
             </div>
-        </div>
+
+        </>
     )
 };
 

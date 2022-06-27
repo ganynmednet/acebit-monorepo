@@ -1,0 +1,131 @@
+.wallet{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wallet__top-box{
+    width: 100%;
+    height: 194px;
+    background: #2C2C2C;
+    border: 1px solid #3A3A3A;
+    border-radius: 8px;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    padding: 39px 0 21px 0;
+}
+
+.wallet__roles{
+    font-family: 'ProximaNova-Semi-Bold', sans-serif;
+    font-weight: 600;
+    background: #232323;
+    border-radius: 4px;
+    padding: 4px 6px 4px 24px;
+    display: inline-block;
+    position: relative;
+    font-size: 14px;
+}
+
+.wallet__top-des{
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 10px;
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #FFFFFF;
+}
+
+.wallet__roles:before{
+    content: "";
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    transform: translateY(-50%);
+}
+
+.wallet__roles.gamblers:before{
+    background: #5097D5;
+}
+
+.wallet__roles.vip:before{
+    background: #6BAE60;
+}
+
+.wallet__roles.aces:before{
+    background: #EAC545;
+}
+
+.wallet__top-title{
+    font-family: 'ProximaNova-Semi-Bold', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    color: #FFFFFF;
+}
+
+.wallet__title{
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    font-weight: 700;
+    font-size: 26px;
+    text-align: center;
+    margin-top: 33px;
+}
+
+.wallet__des{
+    font-family: 'Proxima-Nova-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    letter-spacing: 0.01em;
+    text-align: center;
+    margin: 20px auto 33px;
+    max-width: 302px;
+    color: #B8B8B8;
+    line-height: 26px;
+}
+
+.wallet__auth{
+    margin: 0 auto 57px;
+}
+
+@media (max-width: 768px){
+    .wallet__top-box {
+        margin-top: 16px;
+    }
+    .wallet__top-img{
+        width: 50px;
+    }
+    .wallet__top-box {
+        padding: 39px 0 38px 0;
+    }
+    .wallet__top-title {
+        font-size: 24px;
+    }
+    .wallet__roles{
+        font-size: 12px;
+    }
+    .wallet__top-des {
+        left: 7px;
+    }
+    .wallet__title{
+        margin-top: 24px;
+        font-size: 24px;
+    }
+    .wallet__des {
+        margin: 18px auto 63px;
+        font-size: 18px;
+    }
+    .wallet__auth {
+        margin: 0 auto 51px;
+    }
+}
+

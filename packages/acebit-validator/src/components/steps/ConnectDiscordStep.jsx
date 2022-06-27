@@ -31,22 +31,20 @@ export function ConnectDiscordStep(props) {
         return (
 
             <>
-                <div class="validator__content-box">
-                    <div class="validator__content">
-
-                        <div class="validator__content-logo">
-                            <img src={process.env.PUBLIC_URL + "/images/validator-logo-discord.svg"} alt="" />
-                        </div>
-                        <div class="validator__content-title">
-                            Connect your Discord account {process.platform}
-                        </div>
-                        <div class="validator__content-description">
-                            We need to validate that you have the Whitelist Role in the
-                            <a href="#"> NeoWorld Discord Server</a>.
-                        </div>
-                        <br /><br /><br />
-                        <BouncingDotsLoader />
+                <div class="connect">
+                    <div class="connect__logo">
+                        <img src="./images/connect/connect-logo.svg" alt="" />
                     </div>
+                    <div class="connect__title">
+                        Connect your Discord
+                    </div>
+                    <div class="connect__description">
+                        Connect your Discord account to link
+                        it to your AceBit profile.
+                    </div>
+                    <br />
+                    {/* <br /><br /> */}
+                    <BouncingDotsLoader />
                 </div>
             </>
         )
@@ -56,21 +54,23 @@ export function ConnectDiscordStep(props) {
     return (
         <>
 
-            <div class="validator__content-box">
-                <div class="validator__content">
-                    <div class="validator__content-logo">
-                        <img src={process.env.PUBLIC_URL + "/images/validator-logo-discord.svg"} alt="" />
-                    </div>
-                    <div class="validator__content-title">
-                        Connect your Discord account
-                    </div>
-                    <div class="validator__content-description">
-                        We need to validate that you have the Whitelist Role in the
-                        <a href="#"> NeoWorld Discord Server</a>.
-                    </div>
-                    <a class="validator__content-link" href="#" onClick={async () => { await authorizeDiscord() }}>CONNECT My DISCORD ACCOUNT</a>
+            <div class="connect">
+                <div class="connect__logo">
+                    <img src="./images/connect/connect-logo.svg" alt="" />
                 </div>
+                <div class="connect__title">
+                    Connect your Discord
+                </div>
+                <div class="connect__description">
+                    Connect your Discord account to link
+                    it to your AceBit profile.
+                </div>
+
+                <a class="connect__auth global__btn-yellow" href="#" onClick={async () => { await authorizeDiscord() }}>
+                    CONNECT MY DISCORD ACCOUNT
+                </a>
             </div>
+
         </>
     )
 
