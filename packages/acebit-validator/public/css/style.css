@@ -3,6 +3,7 @@
 @import "bouncing-dots.css";
 @import "wallet.css";
 @import "congratulations.css";
+@import "create.css";
 
 *{
     box-sizing: border-box;

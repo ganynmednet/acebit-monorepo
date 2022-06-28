@@ -4,17 +4,17 @@ import { connect } from 'react-redux';
 function ConfirmationScreen(props) {
 
     return (
-        <div class="validator__content-box">
-            <div class="validator__content">
-                <div class="validator__congratulations-logo">
-                    <img src="./images/validator-logo-congratulations.png" alt="" />
-                </div>
-                <div class="validator__congratulations-title">
-                    Congratulations! 🎉
-                </div>
-                <div class="validator__congratulations-description">
-                    Your Wallet has been succesfully validated and added to the Whitelist!
-                </div>
+        <div class="congratulations">
+            <div class="congratulations__logo">
+                <img src="./images/congratulations/congratulations-logo.png" alt="" />
+            </div>
+            <div class="congratulations__title">
+                Congratulations! 🎉
+            </div>
+            <div class="congratulations__description">
+                Your wallet has been successfully validated
+                and is ready to participate in the 
+                <a class="congratulations__description-link" href="#"> AceBit Private Mint.</a>
             </div>
         </div>
     )
