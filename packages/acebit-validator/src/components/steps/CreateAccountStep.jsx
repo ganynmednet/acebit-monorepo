@@ -4,7 +4,6 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { addUser } from "../../modules/web3functions";
 import { addressShortener, getDefaultAvatar, validUsername, verifyCaptchaAPI } from '../../helpers';
 import { ConnectWallet, DisconnectWallet } from '../../modules/web3Client.js';
-// import SignupForm from '../utils/_SignupForm';
 import { config, MAINNET } from '../../configs/config';
 import { Web3Context } from '../../App';
 import { PopupContext } from '../../App';
@@ -13,7 +12,6 @@ import store from '../../store';
 
 
 function CreateAccountStep(props) {
-    // var _account = props.account;
 
     const { showPopup, hidePopup, popupMessage } = useContext(PopupContext)
     const { signer, setSigner, provider, setProvider } = useContext(Web3Context)

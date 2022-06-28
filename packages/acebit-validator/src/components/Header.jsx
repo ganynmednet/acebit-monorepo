@@ -31,16 +31,6 @@ function Header(props) {
             )
         }
 
-        // if (props.currentState > 3) {
-        //     return (
-        //         <a className="header__btn" href="#" onClick={ConnectWallet}> Connect Wallet </a>
-        //     )
-        // }
-
-        // return (
-        //     <a className="header__btn" href="#" onClick={connectWallet}> Connect Wallet </a>
-        // )
-
         return;
 
     }
