@@ -4,7 +4,7 @@ import HCaptcha from '@hcaptcha/react-hcaptcha';
 import { addUser } from "../../modules/web3functions";
 import { config, MAINNET } from '../../configs/config';
 import { verifyCaptchaAPI, validUsername } from "../../helpers"
-import BouncingDotsLoader from '../utils/BouncingDotsLoader';
+import BouncingDotsLoader from './BouncingDotsLoader';
 import { PopupContext } from '../../App';
 import { Web3Context } from '../../App';
 import store from '../../store';
@@ -183,7 +183,7 @@ function SignupForm(props) {
             <div class="create__username">Create Username<span>*</span></div>
                 <div class="create__username-box true">
                     <div class="create__username-top">
-                        <div class="create__username-top-text">Must be 3—20 characters</div>
+                        <div class="create__username-top-text">Must be 4—20 characters</div>
                         <div class="create__username-top-text">{getAvailable(available)}</div>
                     </div>
                     <input class="create__username-input" type="text"  onChange={e => validateInput(e.target.value)} />
