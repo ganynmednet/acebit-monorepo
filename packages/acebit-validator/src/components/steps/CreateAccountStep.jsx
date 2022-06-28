@@ -19,40 +19,28 @@ function CreateAccountStep(props) {
     }
 
     return (
-        <div class="create validator__content-box">
 
-            <div class="create validator__content">
-                <div class="create-close-popup">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M2 18L18 2" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                        <path d="M2 2L18 18" stroke="white" strokeWidth="2.5" strokeLinecap="round" />
-                    </svg>
-                </div>
-                <div class="create validator__account-title ">
-                    Create Account
-                </div>
-                <div class="create validator__account">
-                    <div class="create__title-connect">
-                        Connected Account
-                    </div>
-                    <div class="create__metamask-box">
-                        {/* <img class="create__metamask-img" src="./images/metamask-img.svg" /> */}
+        <div class="create true">
 
-                        {
+            <div class="create__title">Create Account</div>
+
+            <div class="create__connected-box">
+                <div class="create__connected-title">ConnectED with metamask</div>
+                <div class="create__connected-content">
+                    <Davatar size={24} address={"0x7bBB67605BA0F185Ed8B1c101ece42eefFE32fc4"} generatedAvatarType='jazzicon' />
+                    {/* {
                             getDefaultAvatar("0x7bBB67605BA0F185Ed8B1c101ece42eefFE32fc4")
-                        }
-                        
-                        <div class="create__metamask-text">{addressShortener(props.account)}</div>
-                    </div>
-                    <div class="create__btn" onClick={handleChange}>Change</div>
+                        } */}
+
+                    <img class="create__connected-logo" src="./images/create/logo.svg" alt="" />
+                    <div class="create__connected-name">{addressShortener(props.account)}</div>
+                    <div class="create__connected-change" onClick={handleChange} >Change</div>
                 </div>
-
-
-                <SignupForm rerendRouter={props.rerendRouter} />
-
-
             </div>
-        </div>
+
+            <SignupForm rerendRouter={props.rerendRouter} />
+
+        </div >
     )
 
 }

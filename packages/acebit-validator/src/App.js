@@ -31,19 +31,19 @@ function App() {
             <Web3Context.Provider value={{ signer, setSigner, provider, setProvider }}>
                 <Provider store={store} >
                     <PopupContext.Provider value={{ showPopup, hidePopup, popupMessage }}>
+
                         <div className="validator">
 
-                            <a className="validator__logo" href="#">
-                                <img src="./images/global/logo.svg" alt="" />
-                            </a>
+                            <Popup hidePopup={hidePopup} />
+                            <Header showPopup={showPopup} />
+
                             <div className="validator__content">
 
-                                <Popup hidePopup={hidePopup} />
-                                <Header showPopup={showPopup} />
                                 <StateRouter />
 
                             </div>
                         </div>
+
                     </PopupContext.Provider>
                 </Provider>
             </Web3Context.Provider>

@@ -163,7 +163,7 @@ function SignupForm(props) {
         if (available) {
 
             return (
-                <button type="submit" class="create validator__account-link" href="#">
+                <button type="submit" class="create__btn" href="#">
                     Create Account
                 </button >
             )
@@ -179,6 +179,28 @@ function SignupForm(props) {
     return (
         <>
             <form onSubmit={submitUserData} className="form__body" action="#" method="post">
+
+            <div class="create__username">Create Username<span>*</span></div>
+                <div class="create__username-box true">
+                    <div class="create__username-top">
+                        <div class="create__username-top-text">Must be 3—20 characters</div>
+                        <div class="create__username-top-text">{getAvailable(available)}</div>
+                    </div>
+                    <input class="create__username-input" type="text"  onChange={e => validateInput(e.target.value)} />
+                </div>
+
+                <div class="create__captcha">
+                    <HCaptcha
+                        sitekey={config.hCaptcha.siteKey}
+                        onVerify={(token, ekey) => handleVerificationSuccess(token, ekey)}
+                    />
+                </div>
+
+                < GetButtonState />
+
+                {/* <a class="create__btn" href="#">Create Account</a>
+
+
                 <div class="create__user-name-box">
                     <div class="create__user-name-title">Create Username<span>*</span></div>
                     <div class="create__input-name-box">
@@ -211,9 +233,9 @@ function SignupForm(props) {
                         sitekey={config.hCaptcha.siteKey}
                         onVerify={(token, ekey) => handleVerificationSuccess(token, ekey)}
                     />
-                </div>
+                </div> */}
 
-                <GetButtonState />
+                
 
             </form>
 

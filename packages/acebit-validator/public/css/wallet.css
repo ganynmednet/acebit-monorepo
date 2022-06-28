@@ -100,13 +100,20 @@
     letter-spacing: 0.01em;
     text-align: center;
     margin: 20px auto 33px;
-    max-width: 302px;
+    max-width: 382px;
     color: #B8B8B8;
     line-height: 26px;
 }
 
 .wallet__auth{
     margin: 0 auto 57px;
+}
+
+.wallet__top-img{
+    width: 64px;
+    height: 64px;
+    border: solid 1px #fff;
+    border-radius: 50%;
 }
 
 @media (max-width: 768px){
