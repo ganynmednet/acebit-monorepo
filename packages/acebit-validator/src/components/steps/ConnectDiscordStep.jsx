@@ -67,7 +67,7 @@ export function ConnectDiscordStep(props) {
                 </div>
 
                 <a class="connect__auth global__btn-yellow" href="#" onClick={async () => { await authorizeDiscord() }}>
-                    CONNECT MY DISCORD ACCOUNT
+                    CONNECT DISCORD ACCOUNT
                 </a>
             </div>
 

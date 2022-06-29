@@ -1,14 +1,15 @@
 
 # backlog
 
-- error
+~~- error~~
+
 - empty form state
 
 - deploy to web
 
 - Debug hCaptcha
 
-- Test Avatar ??
+~~- Test Avatar ??~~
 
 - mobile test
 

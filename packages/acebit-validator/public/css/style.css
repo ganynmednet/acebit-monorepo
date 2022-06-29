@@ -4,6 +4,7 @@
 @import "wallet.css";
 @import "congratulations.css";
 @import "create.css";
+@import "popup.css";
 
 *{
     box-sizing: border-box;

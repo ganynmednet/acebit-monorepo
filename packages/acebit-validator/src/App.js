@@ -35,6 +35,7 @@ function App() {
                         <div className="validator">
 
                             <Popup hidePopup={hidePopup} />
+                            
                             <Header showPopup={showPopup} />
 
                             <div className="validator__content">

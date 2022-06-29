@@ -123,14 +123,24 @@
     bottom: 15px;
 }
 
+
 .create.true .create__username-box:before{
-    transition: background-image .3s ease-in-out;
+    transition: all .3s ease-in-out;
     background-image: url("../images/create/true.svg");
 }
 
 .create.error .create__username-box:before{
-    transition: background-image .3s ease-in-out;
+    transition: all .3s ease-in-out;
     background-image: url("../images/create/error.svg");
+}
+.create__username-box:before{
+    opacity: 0;
+    visibility: hidden;
+}
+
+.create__username-box.true:before{
+    opacity: 1;
+    visibility: visible;
 }
 
 .create__username-top{

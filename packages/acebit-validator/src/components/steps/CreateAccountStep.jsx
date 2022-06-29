@@ -71,6 +71,11 @@ function CreateAccountStep(props) {
 
         console.log(validUsername.test(data))
 
+        if (data.length == 0) {
+            setAvailable(null)
+            return;
+        }
+
         if (data.length < 4 || data.length > 20) {
             setAvailable(false)
             return;
@@ -155,8 +160,8 @@ function CreateAccountStep(props) {
 
             <div class="create__title">Create Account</div>
 
-            <div class="create__connected-box">
-                <div class="create__connected-title">ConnectED with metamask</div>
+            <div class="create__connected-box ">
+                <div class="create__connected-title">Connected wallet</div>
                 <div class="create__connected-content">
                     {/* <Davatar size={24} address={"0x7bBB67605BA0F185Ed8B1c101ece42eefFE32fc4"} generatedAvatarType='jazzicon' /> */}
                     {/* {
@@ -175,7 +180,7 @@ function CreateAccountStep(props) {
             <form onSubmit={submitUserData} className="form__body" action="#" method="post">
 
                 <div class="create__username">Create Username<span>*</span></div>
-                <div class="create__username-box true">
+                <div class={ available === null ? "create__username-box error" : "create__username-box true"}>
                     <div class="create__username-top">
                         <div class="create__username-top-text">Must be 4—20 characters</div>
                         <div class="create__username-top-text">{getAvailable(available)}</div>
@@ -184,10 +189,10 @@ function CreateAccountStep(props) {
                 </div>
 
                 <div class="create__captcha">
-                    {/* <HCaptcha
+                    <HCaptcha
                         sitekey={config.hCaptcha.siteKey}
                         onVerify={(token, ekey) => handleVerificationSuccess(token, ekey)}
-                    /> */}
+                    />
                 </div>
 
                 <button type="submit" class="create__btn" href="#">
