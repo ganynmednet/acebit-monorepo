@@ -78,7 +78,7 @@ const fetchAccessToken = async (code) => {
     'code': code,
     'redirect_uri': config.directionURLs[process.env.NODE_ENV]
   }
-  
+  console.log(details)
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -90,7 +90,8 @@ const fetchAccessToken = async (code) => {
     },
     body: urlencodeSerializer(details)
   };
-  // console.log(requestOptions)
+
+  console.log(requestOptions)
   const result = await fetcher('https://discord.com/api/v8/oauth2/token', requestOptions);
   console.log(result)
 
