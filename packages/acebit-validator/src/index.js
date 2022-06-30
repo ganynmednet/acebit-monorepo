@@ -20,7 +20,7 @@ root.render(
     <Routes>
       <Route index element={<App />} />
       <Route path="./" element={<App />} />
-      <Route path="./callback" element={<DiscordCallback />} />
+      <Route path="/callback" element={<DiscordCallback />} />
       <Route path="*" element={<App />} />
     </Routes>
   </Router>

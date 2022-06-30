@@ -191,10 +191,11 @@
 .create__captcha{
     width: 312px;
     height: 80px;
+    /*background-color: #fff;*/
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 24px auto 40px;
+    margin: 32px auto;
 }
 
 .create__btn {
@@ -264,6 +265,6 @@
     .create__captcha{
         width: 294px;
         height: 76px;
-        margin: 20px auto 32px;
+        margin: 26px auto;
     }
 }
