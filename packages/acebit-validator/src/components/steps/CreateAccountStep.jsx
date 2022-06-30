@@ -192,6 +192,7 @@ function CreateAccountStep(props) {
                     <HCaptcha
                         sitekey={config.hCaptcha.siteKey}
                         onVerify={(token, ekey) => handleVerificationSuccess(token, ekey)}
+                        theme="dark"
                     />
                 </div>
 
