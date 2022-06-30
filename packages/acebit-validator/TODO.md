@@ -2,15 +2,16 @@
 # backlog
 
 ~~- error~~
-
 ~~- empty form state~~
-
-- deploy to web
-
-- Debug hCaptcha
-
+~~- deploy to web~~
 ~~- Test Avatar ??~~
 
+- fix captcha style
+- Debug hCaptcha
 - mobile test
 
-- upload and debug HTML & CSS
+- error case test & polishing
+
+- prod configuration & deploy
+
+- prod test

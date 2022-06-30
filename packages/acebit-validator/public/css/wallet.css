@@ -116,12 +116,21 @@
     border-radius: 50%;
 }
 
+.wallet__roles-box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 8px;
+    row-gap: 8px;
+    margin-top: 4px;
+}
 @media (max-width: 768px){
     .wallet__top-box {
         margin-top: 16px;
     }
     .wallet__top-img{
         width: 50px;
+        height: 50px;
     }
     .wallet__top-box {
         padding: 39px 0 38px 0;
