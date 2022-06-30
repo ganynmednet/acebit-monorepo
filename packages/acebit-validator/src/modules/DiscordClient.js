@@ -84,8 +84,8 @@ const fetchAccessToken = async (code) => {
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
       'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      'Access-Control-Allow-Headers': 'Authorization',
+      // 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+      // 'Access-Control-Allow-Headers': 'Authorization, Content-Type',
       'Access-Control-Allow-Credentials': 'true'
     },
     body: urlencodeSerializer(details)
