@@ -1,5 +1,10 @@
 
 
+
+# info
+https://www.figma.com/file/HQ22lexeL6HdKB3TaVkZa8/AceBit-Minter?node-id=3%3A300
+
+
 # flow 1
 - mint 8888 nfts to the owner (nft distributor)
 - when public mint, distributor do not transfer 4 different suits to the address
@@ -14,3 +19,4 @@
 
 OR
 - upload metadata randomly
+
