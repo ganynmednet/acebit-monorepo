@@ -6,6 +6,10 @@ export const config = {
         development: "https://discord.com/api/oauth2/authorize?client_id=964527215175938060&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=identify%20guilds%20email%20guilds.members.read",
         production: "https://discord.com/api/oauth2/authorize?client_id=992115571770523708&redirect_uri=https%3A%2F%2Fwhitelist.acebit.casino%2Fcallback&response_type=code&scope=guilds.members.read%20email%20guilds"
     },
+    redirectURLs: {
+        development: "https://localhost:3000/callback",
+        production: "https://whitelist.acebit.casino/callback"
+    },
     discordCredentials: {
         development: {
             client_id: "964527215175938060",
@@ -44,10 +48,6 @@ export const config = {
             whitelist: "0x483D125DC49fF936f146ffc14C611ecAE1668dd3",
             UserStorage: "0x7bBB67605BA0F185Ed8B1c101ece42eefFE32fc4",
         }
-    },
-    directionURLs: {
-        development: "https://localhost:3000/callback",
-        production: "https://wl.acebit.casino/callback"
     },
     hCaptcha: {
         siteKey: "02eb9287-a674-4b88-bdf3-f7faa9953e11", 

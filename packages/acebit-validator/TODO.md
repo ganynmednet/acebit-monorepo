@@ -6,6 +6,8 @@
 ~~- deploy to web~~
 ~~- Test Avatar ??~~
 
+~~ - Prod Invalid Redirect URIs
+
 - fix captcha style
 - Debug hCaptcha
 - mobile test

@@ -75,7 +75,7 @@ const fetchAccessToken = async (code) => {
     'client_secret': config.discordCredentials[process.env.NODE_ENV].client_secret,
     'grant_type': 'authorization_code',
     'code': code,
-    'redirect_uri': config.directionURLs[process.env.NODE_ENV]
+    'redirect_uri': config.redirectURLs[process.env.NODE_ENV]
   }
   console.log(details)
   const requestOptions = {
