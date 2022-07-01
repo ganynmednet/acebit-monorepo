@@ -64,7 +64,6 @@ export const checkLocalStorage = async () => {
     return false;
   }
 
-
   return true
 
 }
@@ -72,8 +71,8 @@ export const checkLocalStorage = async () => {
 const fetchAccessToken = async (code) => {
 
   const details = {
-    'client_id': process.env.REACT_APP_CLIENT_ID,
-    'client_secret': process.env.REACT_APP_CLIENT_SECRET,
+    'client_id': config.discordCredentials[process.env.NODE_ENV].client_id,
+    'client_secret': config.discordCredentials[process.env.NODE_ENV].client_secret,
     'grant_type': 'authorization_code',
     'code': code,
     'redirect_uri': config.directionURLs[process.env.NODE_ENV]

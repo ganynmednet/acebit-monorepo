@@ -6,6 +6,16 @@ export const config = {
         development: "https://discord.com/api/oauth2/authorize?client_id=964527215175938060&redirect_uri=https%3A%2F%2Flocalhost%3A3000%2Fcallback&response_type=code&scope=identify%20guilds%20email%20guilds.members.read",
         production: "https://discord.com/api/oauth2/authorize?client_id=992115571770523708&redirect_uri=https%3A%2F%2Fwhitelist.acebit.casino%2Fcallback&response_type=code&scope=guilds.members.read%20email%20guilds"
     },
+    discordCredentials: {
+        development: {
+            client_id: "964527215175938060",
+            client_secret: "SuAqRMoqhrD89hldYetSnDAGeaUCEN6n"
+        },
+        production: {
+            client_id: "992115571770523708",
+            client_secret: "N_ij0fXOKkMK48_V4VkOXt23t2UX5EWv"
+        }
+    },
     discordServer: "952915415078694972",
     discordPermissions: "guilds.members.read identify email guilds",
     roles: {
