@@ -39,8 +39,6 @@ if (window.innerWidth < 444) {
 }
 // Soon section end
 
-
-
 // menu bg start
 let menu = document.getElementById("menu")
 addEventListener("scroll", () => {
@@ -80,3 +78,114 @@ socialTitle.addEventListener('click', () => {
 back.addEventListener('click', () => {
   socialBox.classList.remove('active')
 })
+
+//End header
+
+
+// Slider start
+
+new Swiper('.swiper-desktop', {
+  slidesPerView: 4,
+  loop: true,
+  spaceBetween: 20,
+  autoplay: {
+    delay: 3000,
+    stopOnLastSlide: false,
+    disableOnInteraction: false
+  },
+  navigation: {
+    nextEl: '.benefits__button-next',
+    prevEl: '.benefits__button-prev',
+  },
+  breakpoints: {
+    375: {
+      slidesPerView: 2,
+      spaceBetween: 9,
+    },
+    600: {
+      slidesPerView: 3,
+      spaceBetween: 16,
+    },
+    762: {
+      slidesPerView: 4,
+      spaceBetween: 16,
+    },
+    1001: {
+      slidesPerView: 3,
+      spaceBetween: 16,
+    },
+    1250: {
+      slidesPerView: 4,
+      spaceBetween: 20
+    }
+  }
+});
+const swiperMobile = new Swiper('.swiper-mobile', {
+  slidesPerView: 2,
+  // slidesPerGroup: 1,
+  loop: true,
+  spaceBetween: 9,
+  autoplay: {
+    delay: 3000,
+    // stopOnLastSlide: false,
+    disableOnInteraction: false
+  },
+  // nested: true,
+  navigation: {
+    nextEl: '.benefits__button-next-mobile',
+    prevEl: '.benefits__button-prev-mobile',
+  },
+});
+const swiperMobileTwo = new Swiper('.swiper-mobile-two', {
+  slidesPerView: 2,
+  slidesPerGroup: 1,
+  loop: true,
+  spaceBetween: 9,
+  nested: true,
+});
+swiperMobile.controller.control = swiperMobileTwo
+swiperMobileTwo.controller.control = swiperMobile
+
+// Slider finish
+
+// Slider popup start
+const benefits = document.querySelector('.benefits')
+const benefitsPopup = document.querySelector('.benefits__popup-bg')
+const benefitsPopupTitle = document.querySelector('.benefits__popup-title')
+const benefitsPopupClose = document.querySelector('.benefits__popup-ok')
+const benefitsPopupDescription = document.querySelector('.benefits__popup-description')
+const benefitsPopupImg = document.querySelector('.benefits__popup-img')
+const benefitsPopupQuads = document.querySelector('.benefits__popup-quads')
+
+benefits.addEventListener('click', elem => {
+  const target = elem.target
+  if (target.classList.contains('benefits__readMore')){
+    benefitsPopup.classList.add('active')
+    document.body.classList.add('lock')
+    const slide = target.closest('.swiper-slide')
+    const slideImg = slide.querySelector('.benefits__card-img').cloneNode(true)
+    const slideTitle = slide.querySelector('.benefits__card-title').cloneNode(true)
+    const slideDescription = slide.querySelector('.benefits__card-description').cloneNode(true)
+    const benefitsCardQuads = slide.querySelector('.benefits__card-quads')
+
+    benefitsPopupTitle.append(slideTitle)
+    benefitsPopupDescription.append(slideDescription)
+    benefitsPopupImg.append(slideImg)
+    if (benefitsCardQuads === null){
+      benefitsPopupQuads.classList.add('none')
+    }
+  }
+})
+
+benefitsPopupClose.addEventListener('click', () => {
+  benefitsPopup.classList.remove('active')
+  document.body.classList.remove('lock')
+  setTimeout(() => {
+    benefitsPopupTitle.lastChild.remove()
+    benefitsPopupDescription.lastChild.remove()
+    benefitsPopupImg.lastChild.remove()
+    benefitsPopupQuads.classList.remove('none')
+  },1000)
+})
+
+// Slider popup finish

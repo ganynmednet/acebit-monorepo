@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AceBit Casino</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/style.min.css">
+
     <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 
     <meta name="description"
@@ -12,210 +15,261 @@
     <meta name="robots" content="index, follow" />
 
 </head>
+
 <body>
-<a class="join" href="https://discord.gg/vuZKRh6bt9">
-    <div class="join__bg-one"></div>
-    <div class="join__bg-two"></div>
-</a>
+    <a class="join" href="https://discord.gg/vuZKRh6bt9">
+        <div class="join__bg-one"></div>
+        <div class="join__bg-two"></div>
+    </a>
 
-<header class="header" id="menu">
-    <div class="header__box">
-        <div class="header__btn">
-            <span></span>
-        </div>
-        <div class="header__logo">
-            <img src="./images/header/logo.svg" alt="">
-        </div>
+    <header class="header" id="menu">
+        <div class="header__box">
+            <div class="header__btn">
+                <span></span>
+            </div>
+            <div class="header__logo">
+                <img src="./images/header/logo.svg" alt="">
+            </div>
 
-        <div class="header__links">
-            <a class="header__link" href="#home">
-                Home
-            </a>
-            <a class="header__link" href="#games">
-                Games
-            </a>
-            <a class="header__link" href="#passes">
-                NFT Aces
-            </a>
-            <a class="header__link" href="#why">
-                Why Acebit
-            </a>
-            <a class="header__link header__link-sale" href="#soon">
-                <img class="header__link-star" src="./images/menu/star.png" alt="">
-                NFT sale
-            </a>
-            <div class="header__link social">
-                <span class="social__title">Social</span>
-                <div class="header__social-box">
-                    <a class="header__social-link back" href="#">
-                        <span class="back-image">
-                            <svg width="16" height="9" viewBox="0 0 16 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3 4.44922L14 4.44922" stroke="#F3BC57" stroke-width="2.5" stroke-linecap="round"/>
-                                <path d="M3.97316 6.83203L2 4.51446L4 2.16536" stroke="#F3BC57" stroke-width="2.5" stroke-linecap="round"/>
-                            </svg>
-                        </span>
-                        Back
-                    </a>
-                    <a class="header__social-link twitter" href="https://twitter.com/AceBitCasino">
-<!--                        <span class="twitter__image">-->
-                            <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="header__links">
+                <a class="header__link" href="#home">
+                    Home
+                </a>
+                <a class="header__link" href="#games">
+                    Games
+                </a>
+                <a class="header__link" href="#passes">
+                    NFT Aces
+                </a>
+                <a class="header__link" href="#why">
+                    Why Acebit
+                </a>
+                <a class="header__link header__link-sale" href="#soon">
+                    <img class="header__link-star" src="./images/menu/star.png" alt="">
+                    NFT sale
+                </a>
+                <div class="header__link social">
+                    <span class="social__title">Social</span>
+                    <div class="header__social-box">
+                        <a class="header__social-link back" href="#">
+                            <span class="back-image">
+                                <svg width="16" height="9" viewBox="0 0 16 9" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 4.44922L14 4.44922" stroke="#F3BC57" stroke-width="2.5"
+                                        stroke-linecap="round" />
+                                    <path d="M3.97316 6.83203L2 4.51446L4 2.16536" stroke="#F3BC57" stroke-width="2.5"
+                                        stroke-linecap="round" />
+                                </svg>
+                            </span>
+                            Back
+                        </a>
+                        <a class="header__social-link twitter" href="https://twitter.com/AceBitCasino">
+                            <!--                        <span class="twitter__image">-->
+                            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_170_3336)">
-                                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0002 2.03903C15.4104 2.29927 14.7777 2.47596 14.114 2.55475C14.7921 2.14886 15.3125 1.5042 15.5561 0.737784C14.921 1.11502 14.219 1.38721 13.4717 1.53524C12.8724 0.897753 12.02 0.499023 11.0746 0.499023C9.26237 0.499023 7.79161 1.96979 7.79161 3.78197C7.79161 4.03984 7.82026 4.29053 7.87756 4.52929C5.14853 4.3932 2.7299 3.08479 1.1111 1.09831C0.829366 1.58299 0.667009 2.14647 0.667009 2.74814C0.667009 3.88703 1.2472 4.89221 2.12822 5.47956C1.59101 5.46285 1.08484 5.31481 0.640746 5.06889C0.640746 5.08322 0.640746 5.09515 0.640746 5.10948C0.640746 6.69962 1.77247 8.02713 3.27427 8.32797C2.99969 8.40198 2.70841 8.44257 2.40996 8.44257C2.19746 8.44257 1.99213 8.42108 1.79157 8.38288C2.2094 9.68651 3.4223 10.6368 4.85725 10.663C3.73269 11.5441 2.31923 12.0693 0.779227 12.0693C0.514203 12.0693 0.253955 12.0526 -0.00390625 12.024C1.44775 12.9551 3.17399 13.4995 5.02915 13.4995C11.0674 13.4995 14.3694 8.49749 14.3694 4.15922C14.3694 4.01596 14.3671 3.87509 14.3599 3.73422C15.0022 3.27103 15.5585 2.69323 15.9978 2.03425L16.0002 2.03903Z" fill="#FFE7AA"/>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M16.0002 2.03903C15.4104 2.29927 14.7777 2.47596 14.114 2.55475C14.7921 2.14886 15.3125 1.5042 15.5561 0.737784C14.921 1.11502 14.219 1.38721 13.4717 1.53524C12.8724 0.897753 12.02 0.499023 11.0746 0.499023C9.26237 0.499023 7.79161 1.96979 7.79161 3.78197C7.79161 4.03984 7.82026 4.29053 7.87756 4.52929C5.14853 4.3932 2.7299 3.08479 1.1111 1.09831C0.829366 1.58299 0.667009 2.14647 0.667009 2.74814C0.667009 3.88703 1.2472 4.89221 2.12822 5.47956C1.59101 5.46285 1.08484 5.31481 0.640746 5.06889C0.640746 5.08322 0.640746 5.09515 0.640746 5.10948C0.640746 6.69962 1.77247 8.02713 3.27427 8.32797C2.99969 8.40198 2.70841 8.44257 2.40996 8.44257C2.19746 8.44257 1.99213 8.42108 1.79157 8.38288C2.2094 9.68651 3.4223 10.6368 4.85725 10.663C3.73269 11.5441 2.31923 12.0693 0.779227 12.0693C0.514203 12.0693 0.253955 12.0526 -0.00390625 12.024C1.44775 12.9551 3.17399 13.4995 5.02915 13.4995C11.0674 13.4995 14.3694 8.49749 14.3694 4.15922C14.3694 4.01596 14.3671 3.87509 14.3599 3.73422C15.0022 3.27103 15.5585 2.69323 15.9978 2.03425L16.0002 2.03903Z"
+                                        fill="#FFE7AA" />
                                 </g>
                                 <defs>
-                                <clipPath id="clip0_170_3336">
-                                <rect width="16" height="13.0029" fill="white" transform="translate(0 0.499023)"/>
-                                </clipPath>
+                                    <clipPath id="clip0_170_3336">
+                                        <rect width="16" height="13.0029" fill="white"
+                                            transform="translate(0 0.499023)" />
+                                    </clipPath>
                                 </defs>
                             </svg>
-<!--                        </span>-->
-                        <span class="header__social-title">Twitter</span>
-                    </a>
-                    <a class="header__social-link discord" href="https://discord.gg/vuZKRh6bt9">
-<!--                        <span class="discord__image">-->
-                            <svg width="16" height="14" viewBox="0 0 16 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M13.5535 1.89279C12.5178 1.41275 11.4104 1.06388 10.2526 0.865234C10.1104 1.1199 9.94429 1.46242 9.82976 1.7349C8.599 1.55154 7.37956 1.55154 6.17144 1.7349C6.05693 1.46242 5.88704 1.1199 5.74357 0.865234C4.58454 1.06388 3.47584 1.41403 2.44013 1.89533C0.351095 5.0225 -0.215207 8.07201 0.0679444 11.0782C1.4535 12.1032 2.79627 12.7258 4.11638 13.1333C4.44233 12.6889 4.73302 12.2165 4.98345 11.7187C4.5065 11.5391 4.04969 11.3176 3.61805 11.0604C3.73256 10.9763 3.84457 10.8885 3.95279 10.7981C6.58546 12.0179 9.44593 12.0179 12.0472 10.7981C12.1566 10.8885 12.2686 10.9763 12.3819 11.0604C11.949 11.3189 11.4909 11.5404 11.014 11.72C11.2644 12.2165 11.5538 12.6902 11.881 13.1345C13.2024 12.7271 14.5464 12.1045 15.932 11.0782C16.2642 7.59325 15.3644 4.57176 13.5535 1.89279ZM5.34212 9.22942C4.55181 9.22942 3.9037 8.49855 3.9037 7.60853C3.9037 6.71851 4.53797 5.98637 5.34212 5.98637C6.14628 5.98637 6.79437 6.71722 6.78053 7.60853C6.78178 8.49855 6.14628 9.22942 5.34212 9.22942ZM10.6578 9.22942C9.86752 9.22942 9.21941 8.49855 9.21941 7.60853C9.21941 6.71851 9.85366 5.98637 10.6578 5.98637C11.462 5.98637 12.1101 6.71722 12.0962 7.60853C12.0962 8.49855 11.462 9.22942 10.6578 9.22942Z" />
+                            <!--                        </span>-->
+                            <span class="header__social-title">Twitter</span>
+                        </a>
+                        <a class="header__social-link discord" href="https://discord.gg/vuZKRh6bt9">
+                            <!--                        <span class="discord__image">-->
+                            <svg width="16" height="14" viewBox="0 0 16 14" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M13.5535 1.89279C12.5178 1.41275 11.4104 1.06388 10.2526 0.865234C10.1104 1.1199 9.94429 1.46242 9.82976 1.7349C8.599 1.55154 7.37956 1.55154 6.17144 1.7349C6.05693 1.46242 5.88704 1.1199 5.74357 0.865234C4.58454 1.06388 3.47584 1.41403 2.44013 1.89533C0.351095 5.0225 -0.215207 8.07201 0.0679444 11.0782C1.4535 12.1032 2.79627 12.7258 4.11638 13.1333C4.44233 12.6889 4.73302 12.2165 4.98345 11.7187C4.5065 11.5391 4.04969 11.3176 3.61805 11.0604C3.73256 10.9763 3.84457 10.8885 3.95279 10.7981C6.58546 12.0179 9.44593 12.0179 12.0472 10.7981C12.1566 10.8885 12.2686 10.9763 12.3819 11.0604C11.949 11.3189 11.4909 11.5404 11.014 11.72C11.2644 12.2165 11.5538 12.6902 11.881 13.1345C13.2024 12.7271 14.5464 12.1045 15.932 11.0782C16.2642 7.59325 15.3644 4.57176 13.5535 1.89279ZM5.34212 9.22942C4.55181 9.22942 3.9037 8.49855 3.9037 7.60853C3.9037 6.71851 4.53797 5.98637 5.34212 5.98637C6.14628 5.98637 6.79437 6.71722 6.78053 7.60853C6.78178 8.49855 6.14628 9.22942 5.34212 9.22942ZM10.6578 9.22942C9.86752 9.22942 9.21941 8.49855 9.21941 7.60853C9.21941 6.71851 9.85366 5.98637 10.6578 5.98637C11.462 5.98637 12.1101 6.71722 12.0962 7.60853C12.0962 8.49855 11.462 9.22942 10.6578 9.22942Z" />
                             </svg>
-<!--                        </span>-->
-                        <span class="header__social-title">DISCORD</span>
-                    </a>
+                            <!--                        </span>-->
+                            <span class="header__social-title">DISCORD</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a class="header__document" href="https://docs.acebit.casino/">
+                Documentation
+            </a>
+        </div>
+    </header>
+
+    <section id="home" class="home">
+        <img class="home__image" src="./images/home/bg.webp" alt="">
+        <div class="home__box">
+            <div class="home__content-box">
+
+                <div class="home__left-content">
+                    <div class="home__logo">
+                        <img src="./images/header/logo.svg" alt="">
+                    </div>
+                    <div class="home__title">
+                        <img src="./images/home/title.webp" alt="">
+                    </div>
+                    <div class="home__list">
+                        <div class="home__list-item">Become AceBit Co-Founder with Ace NFTs</div>
+                        <div class="home__list-item">Get AceBit's Quarterly Profit Share</div>
+                        <div class="home__list-item">Play in More than 5000 Best Games</div>
+                    </div>
+                    <a class="header__document home__list-link" href="https://discord.gg/vuZKRh6bt9">Join Discord Community</a>
+                </div>
+
+
+                <div class="home__banner-box">
+                    <img class="home__images-banner" src="./images/home/banner-1.svg" alt="">
+                    <img class="home__images-banner" src="./images/home/banner-2.svg" alt="">
+                    <img class="home__images-banner" src="./images/home/banner-3.svg" alt="">
+                    <img class="home__images-banner" src="./images/home/banner-4.svg" alt="">
                 </div>
             </div>
         </div>
+    </section>
 
-        <a class="header__document" href="https://docs.acebit.casino/">
-            Documentation
-        </a>
-    </div>
-</header>
-
-<section id="home" class="home">
-    <img class="home__image" src="./images/home/bg.webp" alt="">
-    <div class="home__box">
-        <div class="home__content-box">
-
-            <div class="home__left-content">
-                <div class="home__logo">
-                    <img src="./images/header/logo.svg" alt="">
-                </div>
-                <div class="home__title">
-                    <img src="./images/home/title.webp" alt="">
-                </div>
-                <div class="home__list">
-                    
-                    <div class="home__list-item">Become AceBit Co-Founder with Ace NFTs</div>
-                    <div class="home__list-item">Get AceBit's Quarterly Profit Share </div>
-                    <div class="home__list-item">Play in More than 5000 Best Games</div>
-                </div>
-                <a class="header__document home__list-link" href="https://discord.gg/vuZKRh6bt9">Join Discord Community</a>
-            </div>
-
-
-            <div class="home__banner-box">
-                <img class="home__images-banner" src="./images/home/banner-1.svg" alt="">
-                <img class="home__images-banner" src="./images/home/banner-2.svg" alt="">
-                <img class="home__images-banner" src="./images/home/banner-3.svg" alt="">
-                <img class="home__images-banner" src="./images/home/banner-4.svg" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="games" class="games">
-    <div class="games__box">
-        <div class="games__item games__item-crypto">
-            <div class="games__item-title">
-                Crypto Games
-            </div>
-        </div>
-        <div class="games__item games__item-poker">
-            <div class="games__item-title">
-                POKER
-            </div>
-        </div>
-        <div class="games__item games__item-roulette">
-            <div class="games__item-title">
-                Roulette
-            </div>
-        </div>
-        <div class="games__item games__item-slots">
-            <div class="games__item-title">
-                Slots
-            </div>
-        </div>
-        <div class="games__item games__item-live">
-            <div class="games__item-title">
-                Live CASINO
-            </div>
-        </div>
-        <div class="games__item games__item-jackpots">
-            <div class="games__item-title">
-                Jackpots
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="passes" class="passes">
-    <div class="passes__box">
-        <div class="passes__left-content">
-            <img class="passes__title" src="./images/passes/VIP.svg" alt="">
-            <div class="passes__des">
-                <span>Collection of 8888 NFT Aces</span> each of those provides membership in <span>AceBit VIP Club</span>, grants quarterly <span>Casino Profit Share</span> and unlocks <span>AceBit Co-Founder</span> community status.
-            </div>
-        </div>
-
-        <div class="passes__right-content">
-            <img class="passes__image-car" src="./images/passes/car.webp" alt="" />
-        </div>
-    </div>
-    <div class="club__box">
-                <div class="club__title-box">
-                    <picture>
-                        <source class="club__title" srcset="./images/passes/club.webp" media="(max-width: 1125px)">
-                        <img class="club__title" src="./images/passes/the-quads.svg" alt="" >
-                    </picture>
-                </div>
-        <div class="club__content">
-            <div class="club__cart-box">
-
-                <div class="club__cart heart-cart">
-                    <div class="heart-cursor"></div>
-                    <img class="club__cart-img " src="images/passes/heart-cart.svg" alt="" >
-                </div>
-                <div class="club__cart diamond-cart">
-                    <div class="diamond-cursor"></div>
-                    <img class="club__cart-img " src="images/passes/diamond-cart.svg" alt="" >
-                </div>
-                <div class="club__cart club-cart">
-                    <div class="club-cursor"></div>
-                    <img class="club__cart-img " src="images/passes/club-cart.svg" alt="" >
-                </div>
-                <div class="club__cart spade-cart">
-                    <div class="spade-cursor"></div>
-                    <img class="club__cart-img " src="images/passes/spade-cart.svg" alt="" >
+    <section id="games" class="games">
+        <div class="games__box">
+            <div class="games__item games__item-crypto">
+                <div class="games__item-title">
+                    Crypto Games
                 </div>
             </div>
-            <div class="club__des passes__des">
-                <span>The Quads</span> is the set of 4 Aces of different suits that grants to its owner membership in the governance Executive Board, <span>doubles Casino Profit Share</span> and unlocks the access to the full set of VIP Benefits.
-                <a class="club__link" href="https://docs.acebit.casino/tokenomics/tokenomics/ace-nft-collection">Read More.</a>
+            <div class="games__item games__item-poker">
+                <div class="games__item-title">
+                    POKER
+                </div>
+            </div>
+            <div class="games__item games__item-roulette">
+                <div class="games__item-title">
+                    Roulette
+                </div>
+            </div>
+            <div class="games__item games__item-slots">
+                <div class="games__item-title">
+                    Slots
+                </div>
+            </div>
+            <div class="games__item games__item-live">
+                <div class="games__item-title">
+                    Live CASINO
+                </div>
+            </div>
+            <div class="games__item games__item-jackpots">
+                <div class="games__item-title">
+                    Jackpots
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="benefits" class="benefits">
-    <div class="benefits__box">
+    <section id="passes" class="passes">
+        <div class="passes__box">
+            <div class="passes__left-content">
+                <img class="passes__title" src="./images/passes/VIP.svg" alt="">
+                <div class="passes__des">
+                    <span>Collection of 8888 NFT Aces</span> each of those provides membership in <span>AceBit VIP
+                        Club</span>, grants quarterly <span>Casino Profit Share</span> and unlocks <span>AceBit
+                        Co-Founder</span> community status.
+                </div>
+            </div>
+
+            <div class="passes__right-content">
+                <img class="passes__image-car" src="./images/passes/car.webp" alt="" />
+            </div>
+        </div>
+        <div class="club__box">
+            <div class="club__title-box">
+                <picture>
+                    <source class="club__title" srcset="./images/passes/club.webp" media="(max-width: 1125px)">
+                    <img class="club__title" src="./images/passes/the-quads.svg" alt="">
+                </picture>
+            </div>
+            <div class="club__content">
+                <div class="club__cart-box">
+
+                    <div class="club__cart heart-cart">
+                        <div class="heart-cursor"></div>
+                        <img class="club__cart-img " src="images/passes/heart-cart.svg" alt="">
+                    </div>
+                    <div class="club__cart diamond-cart">
+                        <div class="diamond-cursor"></div>
+                        <img class="club__cart-img " src="images/passes/diamond-cart.svg" alt="">
+                    </div>
+                    <div class="club__cart club-cart">
+                        <div class="club-cursor"></div>
+                        <img class="club__cart-img " src="images/passes/club-cart.svg" alt="">
+                    </div>
+                    <div class="club__cart spade-cart">
+                        <div class="spade-cursor"></div>
+                        <img class="club__cart-img " src="images/passes/spade-cart.svg" alt="">
+                    </div>
+                </div>
+                <div class="club__des passes__des">
+                    <span>The Quads</span> is the set of 4 Aces of different suits that grants to its owner membership
+                    in the governance Executive Board, <span>doubles Casino Profit Share</span> and unlocks the access
+                    to the full set of VIP Benefits.
+                    <a class="club__link"
+                        href="https://docs.acebit.casino/tokenomics/tokenomics/ace-nft-collection">Read More.</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="benefits" class="benefits">
+
+        <div class="benefits__popup-bg">
+            <div class="benefits__popup">
+                <div class="benefits__popup-quads">
+                    <div class="benefits__card-quads">
+                        quads
+                    </div>
+                </div>
+                <div class="benefits__popup-img"> </div>
+                <div class="benefits__popup-title"></div>
+                <div class="benefits__popup-description"></div>
+                <div class="benefits__popup-ok">ok</div>
+            </div>
+        </div>
+
         <div class="benefits__title">
-            <img class="benefits__title-exclusive" src="./images/benefits/exclusive-title.svg" alt="">
-            <img class="benefits__title-vip" src="./images/benefits/vip-club-title.svg" alt="">
+            <div class="benefits__title-box">
+                <picture>
+                    <source media="(max-width: 520px)" srcset="./images/benefits/exclusive-title-mobile.svg">
+                    <img class="benefits__title-exclusive" src="./images/benefits/exclusive-title.svg" alt="">
+                </picture>
+                <img class="benefits__title-vip" src="./images/benefits/vip-club-title.svg" alt="">
+
+            </div>
+
+            <div class="benefits__btn-box">
+
+                <div class="benefits__button-slider">
+                    <div class="slider-btn benefits__button-prev"></div>
+                    <div class="slider-btn benefits__button-prev-mobile"></div>
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 11L2 6L7 1" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div class="benefits__button-slider benefits__scale">
+                    <div class="slider-btn benefits__button-next"></div>
+                    <div class="slider-btn benefits__button-next-mobile"></div>
+                    <svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 11L2 6L7 1" stroke="white" stroke-width="2" stroke-linecap="round" />
+                    </svg>
+                </div>
+            </div>
         </div>
 
-        <div class="benefits__cards">
-            <div class="benefits__cards-track">
-                <div class="benefits__card-start"></div>
+        <div class="swiper swiper-desktop">
 
-                <div class="benefits__card benefits__card-money">
+            <div class=" swiper-wrapper">
+                <div class="swiper-slide benefits__card benefits__card-money">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -232,8 +286,7 @@
                         The House Always Wins!
                     </div>
                 </div>
-
-                <div class="benefits__card benefits__card-pig">
+                <div class="swiper-slide benefits__card benefits__card-pig">
                     <div class="benefits__card-img">
                         <img src="./images/benefits/cardsImages/pig.png" alt="">
                     </div>
@@ -248,7 +301,7 @@
                     </div>
                 </div>
 
-                <div class="benefits__card benefits__card-crown">
+                <div class="swiper-slide benefits__card benefits__card-crown">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -261,10 +314,10 @@
                     </div>
                     <div class="benefits__card-description">
                         Impress the community
-                        with the co-founder status and badge.
+                        with the AceBit Co-Founder status badge.
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-cloud">
+                <div class="swiper-slide benefits__card benefits__card-cloud">
                     <div class="benefits__card-img">
                         <img src="./images/benefits/cardsImages/cloud.png" alt="">
                     </div>
@@ -276,7 +329,8 @@
                         Participate in $ACEBIT airdrops that happens every 12 hours.
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-chips">
+
+                <div class="swiper-slide benefits__card benefits__card-chips">
                     <div class="benefits__card-img">
                         <img src="./images/benefits/cardsImages/chips.png" alt="">
                     </div>
@@ -287,7 +341,7 @@
                         In AceBit Every wager you make counts towards the rakeback.
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-girl">
+                <div class="swiper-slide benefits__card benefits__card-girl">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -299,10 +353,12 @@
                         VIP Manager
                     </div>
                     <div class="benefits__card-description">
-                        There will be exclusive host for every VIP. Feel free to contact them any time.
+                        There will be exclusive host for every VIP. 
+                        Feel free to contact them any time.
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-zero">
+
+                <div class="swiper-slide benefits__card benefits__card-zero">
                     <div class="benefits__card-img">
                         <img src="./images/benefits/cardsImages/zero-percent.png" alt="">
                     </div>
@@ -314,7 +370,7 @@
                         Enjoy instant and free Withdrawals 24/7 as our VIP.
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-gold">
+                <div class="swiper-slide benefits__card benefits__card-gold">
                     <div class="benefits__card-img">
                         <img src="./images/benefits/cardsImages/gold.png" alt="">
                     </div>
@@ -328,7 +384,8 @@
                         your style of play.
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-airplane">
+
+                <div class="swiper-slide benefits__card benefits__card-airplane">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -345,7 +402,7 @@
                         the most exotic locations.
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-alcohol">
+                <div class="swiper-slide benefits__card benefits__card-alcohol">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -360,7 +417,8 @@
                         Get ready for champagne, fine dining and red carpets in AceBit Annual Parties!
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-cards">
+
+                <div class="swiper-slide benefits__card benefits__card-cards">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -368,13 +426,13 @@
                         <img src="./images/benefits/cardsImages/cards-and-chips-small.png" alt="">
                     </div>
                     <div class="benefits__card-title">
-                        Free Tour-naments
+                        Free Tournaments
                     </div>
                     <div class="benefits__card-description">
                         Participate in various AceBit Tournaments for free and win mega prizes! 
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-surprice">
+                <div class="swiper-slide benefits__card benefits__card-surprice">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -388,7 +446,8 @@
                         We send our VIP players a mystery parcel from time to time.
                     </div>
                 </div>
-                <div class="benefits__card benefits__card-wheel">
+
+                <div class="swiper-slide benefits__card benefits__card-wheel">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -404,10 +463,14 @@
                         other prizes for free!
                     </div>
                 </div>
-                <div class="benefits__card-finish"></div>
+            </div>
 
+        </div>
 
-                <div class="benefits__card benefits__card-money benefits__card-copy">
+        <div class="swiper swiper-mobile">
+
+            <div class=" swiper-wrapper">
+                <div class="swiper-slide benefits__card benefits__card-money">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -419,13 +482,13 @@
                         Profit Share
                     </div>
                     <div class="benefits__card-description">
-                        Get the quarterly 
-                        casino profit share.
+                        Get the quarterly
+                        casino profit share!
                         The House Always Wins!
                     </div>
+                    <div class="benefits__readMore">Read More</div>
                 </div>
-
-                <div class="benefits__card benefits__card-pig benefits__card-copy">
+                <div class="swiper-slide benefits__card benefits__card-pig">
                     <div class="benefits__card-img">
                         <img src="./images/benefits/cardsImages/pig.png" alt="">
                     </div>
@@ -434,13 +497,14 @@
                         Cashback
                     </div>
                     <div class="benefits__card-description">
-                        Get up to 20% back
-                        on all wagers you made
-                        with AceBit Cashback.
+                        Get back up to 20%
+                        of the losses you made
+                        with our Cashback.
                     </div>
+                    <div class="benefits__readMore">Read More</div>
                 </div>
 
-                <div class="benefits__card benefits__card-crown benefits__card-copy">
+                <div class="swiper-slide benefits__card benefits__card-crown">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -452,11 +516,12 @@
                         Status
                     </div>
                     <div class="benefits__card-description">
-                        There will be exclusive host for every VIP. Feel free
-                        to contact them any time.
+                        Impress the community
+                        with the co-founder status and badge.
                     </div>
+                    <div class="benefits__readMore">Read More</div>
                 </div>
-                <div class="benefits__card benefits__card-cloud benefits__card-copy">
+                <div class="swiper-slide benefits__card benefits__card-cloud">
                     <div class="benefits__card-img">
                         <img src="./images/benefits/cardsImages/cloud.png" alt="">
                     </div>
@@ -465,11 +530,12 @@
                         Rain
                     </div>
                     <div class="benefits__card-description">
-                        There will be exclusive host for every
-                        VIP. Feel free to contact them any time.
+                        Participate in $ACEBIT airdrops that happens every 12 hours.
                     </div>
+                    <div class="benefits__readMore">Read More</div>
                 </div>
-                <div class="benefits__card benefits__card-chips benefits__card-copy">
+
+                <div class="swiper-slide benefits__card benefits__card-chips">
                     <div class="benefits__card-img">
                         <img src="./images/benefits/cardsImages/chips.png" alt="">
                     </div>
@@ -477,12 +543,11 @@
                         Rakeback
                     </div>
                     <div class="benefits__card-description">
-                        Send messages and chat
-                        with your closest friends
-                        in private on-site
+                        In AceBit Every wager you make counts towards the rakeback.
                     </div>
+                    <div class="benefits__readMore">Read More</div>
                 </div>
-                <div class="benefits__card benefits__card-girl benefits__card-copy">
+                <div class="swiper-slide benefits__card benefits__card-girl">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -494,102 +559,12 @@
                         VIP Manager
                     </div>
                     <div class="benefits__card-description">
-                        There will be exclusive host for every VIP.
-                        Feel free to contact them any time.
+                        There will be exclusive host for every VIP. Feel free to contact them any time.
                     </div>
+                    <div class="benefits__readMore">Read More</div>
                 </div>
-                <div class="benefits__card benefits__card-zero benefits__card-copy">
-                    <div class="benefits__card-img">
-                        <img src="./images/benefits/cardsImages/zero-percent.png" alt="">
-                    </div>
-                    <div class="benefits__card-title">
-                        0% fee Fast
-                        Withdrawals
-                    </div>
-                    <div class="benefits__card-description">
-                        Send messages and chat
-                        with your closest friends
-                        in private on-site
-                    </div>
-                </div>
-                <div class="benefits__card benefits__card-gold benefits__card-copy">
-                    <div class="benefits__card-img">
-                        <img src="./images/benefits/cardsImages/gold.png" alt="">
-                    </div>
-                    <div class="benefits__card-title">
-                        Exclusive
-                        VIP Bonuses
-                    </div>
-                    <div class="benefits__card-description">
-                        Send messages and chat
-                        with your closest friends
-                        in private on-site.
-                    </div>
-                </div>
-                <div class="benefits__card benefits__card-airplane benefits__card-copy">
-                    <div class="benefits__card-quads">
-                        quads
-                    </div>
-                    <div class="benefits__card-img">
-                        <img src="./images/benefits/cardsImages/airplane.png" alt="">
-                    </div>
-                    <div class="benefits__card-title">
-                        Exclusive
-                        Trips
-                    </div>
-                    <div class="benefits__card-description">
-                        There will be exclusive host for every
-                        VIP. Feel free to contact them any time.
-                    </div>
-                </div>
-                <div class="benefits__card benefits__card-alcohol benefits__card-copy">
-                    <div class="benefits__card-quads">
-                        quads
-                    </div>
-                    <div class="benefits__card-img">
-                        <img src="./images/benefits/cardsImages/alcohol.png" alt="">
-                    </div>
-                    <div class="benefits__card-title">
-                        Private
-                        Parties
-                    </div>
-                    <div class="benefits__card-description">
-                        There will be exclusive host for every
-                        VIP. Feel free to contact them any time.
-                    </div>
-                </div>
-                <div class="benefits__card benefits__card-cards benefits__card-copy">
-                    <div class="benefits__card-quads">
-                        quads
-                    </div>
-                    <div class="benefits__card-img">
-                        <img src="./images/benefits/cardsImages/cards-and-chips-small.png" alt="">
-                    </div>
-                    <div class="benefits__card-title">
-                        Free
-                        Tournaments
-                    </div>
-                    <div class="benefits__card-description">
-                        There will be exclusive host for every
-                        VIP. Feel free to contact them any time.
-                    </div>
-                </div>
-                <div class="benefits__card benefits__card-surprice benefits__card-copy">
-                    <div class="benefits__card-quads">
-                        quads
-                    </div>
-                    <div class="benefits__card-img">
-                        <img src="./images/benefits/cardsImages/surprise.png" alt="">
-                    </div>
-                    <div class="benefits__card-title">
-                        VIP Gifts
-                    </div>
-                    <div class="benefits__card-description">
-                        There will be exclusive host for every
-                        VIP. Feel free to contact them any time.
-                    </div>
-                </div>
-                <div class="benefits__card benefits__card-wheel benefits__card-copy">
+
+                <div class="swiper-slide benefits__card benefits__card-wheel">
                     <div class="benefits__card-quads">
                         quads
                     </div>
@@ -604,842 +579,970 @@
                         Jackpot or a number of
                         other prizes for free!
                     </div>
+                    <div class="benefits__readMore">Read More</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="swiper swiper-mobile-two">
+
+            <div class=" swiper-wrapper">
+
+
+                <div class="swiper-slide benefits__card benefits__card-zero">
+                    <div class="benefits__card-img">
+                        <img src="./images/benefits/cardsImages/zero-percent.png" alt="">
+                    </div>
+                    <div class="benefits__card-title">
+                        0% fee Fast
+                        Withdrawals
+                    </div>
+                    <div class="benefits__card-description">
+                        Enjoy instant and free Withdrawals 24/7 as our VIP.
+                    </div>
+                    <div class="benefits__readMore">Read More</div>
+                </div>
+                <div class="swiper-slide benefits__card benefits__card-gold">
+                    <div class="benefits__card-img">
+                        <img src="./images/benefits/cardsImages/gold.png" alt="">
+                    </div>
+                    <div class="benefits__card-title">
+                        Exclusive
+                        VIP Bonuses
+                    </div>
+                    <div class="benefits__card-description">
+                        Benefit
+                        from rewards that suit 
+                        your style of play.
+                    </div>
+                    <div class="benefits__readMore">Read More</div>
+                </div>
+
+                <div class="swiper-slide benefits__card benefits__card-airplane">
+                    <div class="benefits__card-quads">
+                        quads
+                    </div>
+                    <div class="benefits__card-img">
+                        <img src="./images/benefits/cardsImages/airplane.png" alt="">
+                    </div>
+                    <div class="benefits__card-title">
+                        Exclusive
+                        Trips
+                    </div>
+                    <div class="benefits__card-description">
+                        You can receive exciting
+                        all-expense-paid trips to 
+                        the most exotic locations.
+                    </div>
+                    <div class="benefits__readMore">Read More</div>
+                </div>
+                <div class="swiper-slide benefits__card benefits__card-alcohol">
+                    <div class="benefits__card-quads">
+                        quads
+                    </div>
+                    <div class="benefits__card-img">
+                        <img src="./images/benefits/cardsImages/alcohol.png" alt="">
+                    </div>
+                    <div class="benefits__card-title">
+                        Private
+                        Parties
+                    </div>
+                    <div class="benefits__card-description">
+                        Get ready for champagne, fine dining and red carpets in AceBit Annual Parties!
+                    </div>
+                    <div class="benefits__readMore">Read More</div>
+                </div>
+
+                <div class="swiper-slide benefits__card benefits__card-cards">
+                    <div class="benefits__card-quads">
+                        quads
+                    </div>
+                    <div class="benefits__card-img">
+                        <img src="./images/benefits/cardsImages/cards-and-chips-small.png" alt="">
+                    </div>
+                    <div class="benefits__card-title">
+                        Free Tournaments
+                    </div>
+                    <div class="benefits__card-description">
+                        Participate in various AceBit Tournaments for free and win mega prizes! 
+                    </div>
+                    <div class="benefits__readMore">Read More</div>
+                </div>
+                <div class="swiper-slide benefits__card benefits__card-surprice">
+                    <div class="benefits__card-quads">
+                        quads
+                    </div>
+                    <div class="benefits__card-img">
+                        <img src="./images/benefits/cardsImages/surprise.png" alt="">
+                    </div>
+                    <div class="benefits__card-title">
+                        VIP Gifts
+                    </div>
+                    <div class="benefits__card-description">
+                        We send our VIP players a mystery parcel from time to time.
+                    </div>
+                    <div class="benefits__readMore">Read More</div>
+                </div>
+
+                <div class="swiper-slide benefits__card benefits__card-wheel none">
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="why" class="why">
+        <div class="why__box">
+            <div class="why__content">
+                <div class="why__before-box">
+                    <img class="why__before" src="./images/why/before-bg.png" alt="">
+                </div>
+
+                <div class="why__center-content">
+                    <div class="why__title-box">
+                        <picture>
+                            <source srcset="./images/why/title-mobile-375.svg" media="(max-width: 408px)">
+                            <source srcset="./images/why/title-mobile.svg" media="(max-width: 1200px)">
+                            <img class="why__title" src="./images/why/title.svg" alt="">
+                        </picture>
+
+                    </div>
+
+                    <div class="why__card">
+                        <img class="why__card-ico" src="./images/why/icon-1.svg" alt="">
+                        <img class="why__card-title" src="./images/why/5000.svg" alt="" />
+                        <div class="why__card-des">of the best world games!</div>
+                    </div>
+                    <div class="why__card">
+                        <img class="why__card-ico" src="./images/why/icon-4.svg" alt="">
+                        <img class="why__card-title" src="images/why/10.svg" alt="" />
+                        <div class="why__card-des">Daily rakebaсks</div>
+                    </div>
+                    <div class="why__card">
+                        <img class="why__card-ico" src="./images/why/icon-3.svg" alt="">
+                        <img class="why__card-title" src="images/why/25.svg" alt="" />
+                        <div class="why__card-des">weekly Cashback</div>
+                    </div>
+                    <div class="why__card">
+                        <img class="why__card-ico" src="./images/why/icon-6.svg" alt="">
+                        <img class="why__card-title" src="./images/why/INSTANT.svg" alt="" />
+                        <div class="why__card-des">Payouts</div>
+                    </div>
+                    <div class="why__card">
+                        <img class="why__card-ico" src="./images/why/icon-5.svg" alt="">
+                        <img class="why__card-title" src="./images/why/24x7.svg" alt="" />
+                        <div class="why__card-des">Support</div>
+                    </div>
+
+                    <div class="why__card">
+                        <img class="why__card-ico" src="./images/why/icon-2.svg" alt="">
+                        <img class="why__card-title" src="./images/why/50.svg" alt="" />
+                        <div class="why__card-des">Welcome Bonus</div>
+                    </div>
+                    <!-- <div class="why__text-bottom">
+                        for additional info <a class="why__text-link" href="#">read more</a>
+                    </div> -->
+
+                </div>
+
+
+                <div class="why__after-box">
+                    <img class="why__after" src="./images/why/after-bg.png" alt="">
                 </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<section id="why" class="why">
-    <div class="why__box">
-        <div class="why__content">
-            <div class="why__before-box">
-                <img class="why__before" src="./images/why/before-bg.png" alt="">
+    <section id="providers" class="providers">
+        <div class="providers__box">
+            <div class="providers__title">
+                <img class="providers__title-best" src="./images/providers/best-title.png" alt="">
+                <img class="providers__title-game" src="./images/providers/game-providers-title.png" alt="">
             </div>
 
-            <div class="why__center-content">
-                <div class="why__title-box">
-                    <picture>
-                        <source srcset="./images/why/title-mobile-375.svg" media="(max-width: 408px)">
-                        <source srcset="./images/why/title-mobile.svg" media="(max-width: 1200px)">
-                        <img class="why__title" src="./images/why/title.svg" alt="" >
-                    </picture>
-
-                </div>
-
-                <div class="why__card">
-                    <img class="why__card-ico" src="./images/why/icon-1.svg" alt="" >
-                    <img class="why__card-title" src="./images/why/5000.svg" alt="" />
-                    <div class="why__card-des">of the best world games!</div>
-                </div>
-                <div class="why__card">
-                    <img class="why__card-ico" src="./images/why/icon-4.svg" alt="" >
-                    <img class="why__card-title" src="images/why/10.svg" alt="" />
-                    <div class="why__card-des">Daily rakebaсks</div>
-                </div>
-                <div class="why__card">
-                    <img class="why__card-ico" src="./images/why/icon-3.svg" alt="" >
-                    <img class="why__card-title" src="images/why/25.svg" alt="" />
-                    <div class="why__card-des">weekly Cashback</div>
-                </div>
-                <div class="why__card">
-                    <img class="why__card-ico" src="./images/why/icon-6.svg" alt="" >
-                    <img class="why__card-title" src="./images/why/INSTANT.svg" alt="" />
-                    <div class="why__card-des">Payouts</div>
-                </div>
-                <div class="why__card">
-                    <img class="why__card-ico" src="./images/why/icon-5.svg" alt="" >
-                    <img class="why__card-title" src="./images/why/24x7.svg" alt="" />
-                    <div class="why__card-des">Support</div>
-                </div>
-
-                <div class="why__card">
-                    <img class="why__card-ico" src="./images/why/icon-2.svg" alt="" >
-                    <img class="why__card-title" src="./images/why/50.svg" alt="" />
-                    <div class="why__card-des">Welcome Bonus</div>
-                </div>
-                <!-- <div class="why__text-bottom">
-                    for additional info <a class="why__text-link" href="#">read more</a>
-                </div> -->
-
-            </div>
-
-
-            <div class="why__after-box">
-                <img class="why__after" src="./images/why/after-bg.png" alt="">
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="providers" class="providers">
-    <div class="providers__box">
-        <div class="providers__title">
-            <img class="providers__title-best" src="./images/providers/best-title.png" alt="">
-            <img class="providers__title-game" src="./images/providers/game-providers-title.png" alt="">
-        </div>
-
-        <div class="providers__slider">
-            <div class="providers__slider-track">
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/0c1d1dc6-4b9b-43b6-a625-a3d6fbdfc656.png" alt="">
+            <div class="providers__slider">
+                <div class="providers__slider-track">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/0c1d1dc6-4b9b-43b6-a625-a3d6fbdfc656.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/2e9917cb-7e4b-42a9-b705-501234406fe4.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/2e9917cb-7e4b-42a9-b705-501234406fe4.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/0d2b46a1-ed2d-4c0b-8950-09c6d341a1d1.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/3fb59fe8-290c-45ad-a564-d3e9162c3cd2.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/0d2b46a1-ed2d-4c0b-8950-09c6d341a1d1.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/1afbff60-9c4f-4eba-8de0-1db162e76f1d.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/4dce425b-0cab-40dc-9ae9-7969a1dac9c5.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/3fb59fe8-290c-45ad-a564-d3e9162c3cd2.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/4f8f075b-1b8f-455d-9356-f76f7722944c.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/5e913d00-e2eb-4ae7-9058-02bd8c5a0ed3.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/1afbff60-9c4f-4eba-8de0-1db162e76f1d.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/6c6481f5-6f6d-4fd6-873d-e014b8354e7e.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/7b4ceb85-20b5-49d3-a04f-0dc79b29200e.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/4dce425b-0cab-40dc-9ae9-7969a1dac9c5.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/9d0cc111-7a1f-4f3d-bcef-8dbdb45531a7.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/9ea95bdf-540c-448d-ae86-6aa692fba26b.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/4f8f075b-1b8f-455d-9356-f76f7722944c.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/43fde7c8-37cd-4c1a-95a5-15a6e44aa5e8.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/47da5727-9cb3-4663-8202-5fcf09f704a1.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/5e913d00-e2eb-4ae7-9058-02bd8c5a0ed3.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/50e7e5cc-6387-447d-9f1d-08c867a96c84.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/74ace62e-f0f9-4adf-91a9-b417c7b5acaa.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/6c6481f5-6f6d-4fd6-873d-e014b8354e7e.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/97b80205-a3c3-4a76-a7f6-70a033811c02.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/354c5c71-7fe8-49ba-9e28-f519ef6d40cf.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/7b4ceb85-20b5-49d3-a04f-0dc79b29200e.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/615c4de4-d8ac-46c4-9994-5ad60bfc9c41.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/0779b846-db9d-4a19-a854-f4c641c32d47.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/9d0cc111-7a1f-4f3d-bcef-8dbdb45531a7.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/1925d10e-2baa-4a6c-b29b-68680f643592.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/6211b0be-c999-41d5-9a14-307db5cbdf79.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/9ea95bdf-540c-448d-ae86-6aa692fba26b.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/9833f431-b349-45be-968f-dd8989e31423.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/70744f7d-b21c-46cd-96dc-a3a0d17478ba.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/43fde7c8-37cd-4c1a-95a5-15a6e44aa5e8.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/79152e17-c424-4b70-98f7-1defd4d33d52.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/62293247-f40f-4fca-bfd6-209e9a0c4d3c.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/47da5727-9cb3-4663-8202-5fcf09f704a1.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/spinmatic.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/a42c879a-bfed-447b-bcf4-30c007da37eb.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/50e7e5cc-6387-447d-9f1d-08c867a96c84.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/a8310f58-71b7-4a48-98e3-6002756f8aa1.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/afb3cd28-551d-426f-a628-85eb005b90e3.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/74ace62e-f0f9-4adf-91a9-b417c7b5acaa.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/amatic.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/b814272e-ed24-4d80-8c1d-38b3d4130287.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/97b80205-a3c3-4a76-a7f6-70a033811c02.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/354c5c71-7fe8-49ba-9e28-f519ef6d40cf.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/615c4de4-d8ac-46c4-9994-5ad60bfc9c41.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/0779b846-db9d-4a19-a854-f4c641c32d47.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/1925d10e-2baa-4a6c-b29b-68680f643592.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/6211b0be-c999-41d5-9a14-307db5cbdf79.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/9833f431-b349-45be-968f-dd8989e31423.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/70744f7d-b21c-46cd-96dc-a3a0d17478ba.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/79152e17-c424-4b70-98f7-1defd4d33d52.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/62293247-f40f-4fca-bfd6-209e9a0c4d3c.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/spinmatic.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/a42c879a-bfed-447b-bcf4-30c007da37eb.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/a8310f58-71b7-4a48-98e3-6002756f8aa1.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/afb3cd28-551d-426f-a628-85eb005b90e3.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/amatic.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/b814272e-ed24-4d80-8c1d-38b3d4130287.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-bigBlock">
                     <div class="providers__slider-bigBlock">
-                        <img src="./images/providers/slider/soft-gaming.png" alt="">
+                        <div class="providers__slider-bigBlock">
+                            <img src="./images/providers/slider/soft-gaming.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/b5755241-c9a6-407d-93e5-ace7668a59dd.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/b5755241-c9a6-407d-93e5-ace7668a59dd.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/bf4731e9-6185-4fe2-b25e-e9d7cf2c6f40.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/bf4731e9-6185-4fe2-b25e-e9d7cf2c6f40.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/bgaming.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c3b7349a-4612-4374-a6a3-525d060b901c.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/bgaming.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c92a1769-9aab-4372-a6df-63459641b7de.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c747cc8a-fa12-4d15-ab77-7919e36f69eb.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c3b7349a-4612-4374-a6a3-525d060b901c.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c952a1ca-787c-4b25-8444-4c04a67a5f1b.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c747cc8a-fa12-4d15-ab77-7919e36f69eb1.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c92a1769-9aab-4372-a6df-63459641b7de.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/cf0523ff-680e-4859-9eea-418c886fae3a.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/cg.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c747cc8a-fa12-4d15-ab77-7919e36f69eb.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/d8ecb853-c77e-471b-adf2-e58084d8e96a.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/e26abb4c-0600-4931-b4dd-9f7ab7645eb7.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c952a1ca-787c-4b25-8444-4c04a67a5f1b.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img class="leap-img"
+                                src="./images/providers/slider/e1e28d57-3c39-4f25-b38f-440c06c462ec.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img class="Untitled-img" src="./images/providers/slider/Untitled.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c747cc8a-fa12-4d15-ab77-7919e36f69eb1.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/e02199e3-8c1e-45bb-9dd9-6a9e70782914.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/f4f0e093-cacf-4f77-bcd1-ff9262150d14.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/cf0523ff-680e-4859-9eea-418c886fae3a.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/f229e608-88a1-42c1-8db2-bb83e5b7eba3.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/dbb660e4-8881-49f8-a6f8-feaec48b8734.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/cg.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/evolutiongaming.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/fded7789-d58d-417c-84e8-6d2e3ae1d781.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/d8ecb853-c77e-471b-adf2-e58084d8e96a.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/ff41fbf7-4ff1-4e17-bcdd-d9b59cdfba6a.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/gameart.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/e26abb4c-0600-4931-b4dd-9f7ab7645eb7.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/habanero.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/igrosoft.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img class="leap-img" src="./images/providers/slider/e1e28d57-3c39-4f25-b38f-440c06c462ec.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/ka.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/netent.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img class="Untitled-img" src="./images/providers/slider/Untitled.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/platipus.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/playngo_logo_rgb.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/e02199e3-8c1e-45bb-9dd9-6a9e70782914.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/pragmaticplay.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/quickspin.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/f4f0e093-cacf-4f77-bcd1-ff9262150d14.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/sa.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/vivo.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/f229e608-88a1-42c1-8db2-bb83e5b7eba3.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/wazdan.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/yggdrasil.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/dbb660e4-8881-49f8-a6f8-feaec48b8734.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/evolutiongaming.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/fded7789-d58d-417c-84e8-6d2e3ae1d781.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/ff41fbf7-4ff1-4e17-bcdd-d9b59cdfba6a.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/gameart.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/habanero.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/igrosoft.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/ka.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/netent.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/platipus.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/playngo_logo_rgb.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/pragmaticplay.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/quickspin.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/sa.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/vivo.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/wazdan.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/yggdrasil.png" alt="">
-                    </div>
-                </div>
 
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/0c1d1dc6-4b9b-43b6-a625-a3d6fbdfc656.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/0c1d1dc6-4b9b-43b6-a625-a3d6fbdfc656.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/2e9917cb-7e4b-42a9-b705-501234406fe4.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/2e9917cb-7e4b-42a9-b705-501234406fe4.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/0d2b46a1-ed2d-4c0b-8950-09c6d341a1d1.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/3fb59fe8-290c-45ad-a564-d3e9162c3cd2.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/0d2b46a1-ed2d-4c0b-8950-09c6d341a1d1.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/1afbff60-9c4f-4eba-8de0-1db162e76f1d.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/4dce425b-0cab-40dc-9ae9-7969a1dac9c5.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/3fb59fe8-290c-45ad-a564-d3e9162c3cd2.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/4f8f075b-1b8f-455d-9356-f76f7722944c.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/5e913d00-e2eb-4ae7-9058-02bd8c5a0ed3.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/1afbff60-9c4f-4eba-8de0-1db162e76f1d.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/6c6481f5-6f6d-4fd6-873d-e014b8354e7e.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/7b4ceb85-20b5-49d3-a04f-0dc79b29200e.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/4dce425b-0cab-40dc-9ae9-7969a1dac9c5.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/9d0cc111-7a1f-4f3d-bcef-8dbdb45531a7.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/9ea95bdf-540c-448d-ae86-6aa692fba26b.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/4f8f075b-1b8f-455d-9356-f76f7722944c.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/43fde7c8-37cd-4c1a-95a5-15a6e44aa5e8.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/47da5727-9cb3-4663-8202-5fcf09f704a1.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/5e913d00-e2eb-4ae7-9058-02bd8c5a0ed3.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/50e7e5cc-6387-447d-9f1d-08c867a96c84.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/74ace62e-f0f9-4adf-91a9-b417c7b5acaa.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/6c6481f5-6f6d-4fd6-873d-e014b8354e7e.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/97b80205-a3c3-4a76-a7f6-70a033811c02.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/354c5c71-7fe8-49ba-9e28-f519ef6d40cf.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/7b4ceb85-20b5-49d3-a04f-0dc79b29200e.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/615c4de4-d8ac-46c4-9994-5ad60bfc9c41.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/0779b846-db9d-4a19-a854-f4c641c32d47.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/9d0cc111-7a1f-4f3d-bcef-8dbdb45531a7.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/1925d10e-2baa-4a6c-b29b-68680f643592.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/6211b0be-c999-41d5-9a14-307db5cbdf79.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/9ea95bdf-540c-448d-ae86-6aa692fba26b.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/9833f431-b349-45be-968f-dd8989e31423.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/70744f7d-b21c-46cd-96dc-a3a0d17478ba.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/43fde7c8-37cd-4c1a-95a5-15a6e44aa5e8.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/79152e17-c424-4b70-98f7-1defd4d33d52.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/62293247-f40f-4fca-bfd6-209e9a0c4d3c.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/47da5727-9cb3-4663-8202-5fcf09f704a1.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/spinmatic.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/a42c879a-bfed-447b-bcf4-30c007da37eb.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/50e7e5cc-6387-447d-9f1d-08c867a96c84.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/a8310f58-71b7-4a48-98e3-6002756f8aa1.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/afb3cd28-551d-426f-a628-85eb005b90e3.png" alt="">
+                        </div>
                     </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/74ace62e-f0f9-4adf-91a9-b417c7b5acaa.png" alt="">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/amatic.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/b814272e-ed24-4d80-8c1d-38b3d4130287.png" alt="">
+                        </div>
                     </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/97b80205-a3c3-4a76-a7f6-70a033811c02.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/354c5c71-7fe8-49ba-9e28-f519ef6d40cf.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/615c4de4-d8ac-46c4-9994-5ad60bfc9c41.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/0779b846-db9d-4a19-a854-f4c641c32d47.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/1925d10e-2baa-4a6c-b29b-68680f643592.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/6211b0be-c999-41d5-9a14-307db5cbdf79.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/9833f431-b349-45be-968f-dd8989e31423.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/70744f7d-b21c-46cd-96dc-a3a0d17478ba.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/79152e17-c424-4b70-98f7-1defd4d33d52.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/62293247-f40f-4fca-bfd6-209e9a0c4d3c.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/spinmatic.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/a42c879a-bfed-447b-bcf4-30c007da37eb.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/a8310f58-71b7-4a48-98e3-6002756f8aa1.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/afb3cd28-551d-426f-a628-85eb005b90e3.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/amatic.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/b814272e-ed24-4d80-8c1d-38b3d4130287.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-bigBlock">
                     <div class="providers__slider-bigBlock">
-                        <img src="./images/providers/slider/soft-gaming.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/b5755241-c9a6-407d-93e5-ace7668a59dd.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/bf4731e9-6185-4fe2-b25e-e9d7cf2c6f40.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/bgaming.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c3b7349a-4612-4374-a6a3-525d060b901c.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c92a1769-9aab-4372-a6df-63459641b7de.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c747cc8a-fa12-4d15-ab77-7919e36f69eb.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c952a1ca-787c-4b25-8444-4c04a67a5f1b.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/c747cc8a-fa12-4d15-ab77-7919e36f69eb1.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/cf0523ff-680e-4859-9eea-418c886fae3a.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/cg.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/d8ecb853-c77e-471b-adf2-e58084d8e96a.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/e26abb4c-0600-4931-b4dd-9f7ab7645eb7.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img class="leap-img" src="./images/providers/slider/e1e28d57-3c39-4f25-b38f-440c06c462ec.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img class="Untitled-img" src="./images/providers/slider/Untitled.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/e02199e3-8c1e-45bb-9dd9-6a9e70782914.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/f4f0e093-cacf-4f77-bcd1-ff9262150d14.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/f229e608-88a1-42c1-8db2-bb83e5b7eba3.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/dbb660e4-8881-49f8-a6f8-feaec48b8734.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/evolutiongaming.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/fded7789-d58d-417c-84e8-6d2e3ae1d781.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/ff41fbf7-4ff1-4e17-bcdd-d9b59cdfba6a.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/gameart.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/habanero.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/igrosoft.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/ka.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/netent.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/platipus.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/playngo_logo_rgb.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/pragmaticplay.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/quickspin.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/sa.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/vivo.png" alt="">
-                    </div>
-                </div>
-                <div class="providers__slider-slide">
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/wazdan.png" alt="">
-                    </div>
-                    <div class="providers__slider-block">
-                        <img src="./images/providers/slider/yggdrasil.png" alt="">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section id="soon" class="soon">
-    <div class="soon__box">
-        <div class="soon__title-box">
-            <img class="soon__title-1" src="images/soon/nft.svg" alt="" loading="lazy"/>
-            <img class="soon__title-2" src="images/soon/acedrop.svg" alt="" loading="lazy"/>
-            <img class="soon__title-3" src="images/soon/soon.svg" alt="" loading="lazy"/>
-        </div>
-        <div class="soon__des">
-            <a class="soon__des-link">8888 NFT Aces</a> are ready for the <a href="https://docs.acebit.casino/ace-sale/ace-private-mint" class="soon__des-link">Private Sale.</a> <br>
-            <a href="https://discord.gg/vuZKRh6bt9" class="soon__des-link">Join Discord</a> to get your Whitelist spot today!
-        </div>
-        <div class="soon__cart-box">
-
-            <div class="soon__card">
-                <div class="soon__card-inner">
-                    <div class="soon__card-front">
-                        <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt=""  loading="lazy">
-                    </div>
-                    <div class="soon__card-back">
-                        <img class="soon__image-back " src="images/passes/diamond-cart.svg" alt=""  loading="lazy">
-                    </div>
-                </div>
-            </div>
-
-            <div class="soon__cart-box-center">
-                <div class="soon__cart-box-top">
-                    <div class="soon__card">
-                        <div class="soon__card-inner">
-                            <div class="soon__card-front">
-                                <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt="" loading="lazy">
-                            </div>
-                            <div class="soon__card-back">
-                                <img class="soon__image-back " src="images/passes/club-cart.svg" alt=""  loading="lazy">
-                            </div>
+                        <div class="providers__slider-bigBlock">
+                            <img src="./images/providers/slider/soft-gaming.png" alt="">
                         </div>
                     </div>
-
-                    <div class="soon__card horizontal">
-                        <div class="soon__card-inner">
-                            <div class="soon__card-front">
-                                <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt="" loading="lazy">
-                            </div>
-                            <div class="soon__card-back">
-                                <img class="soon__image-back " src="images/passes/spade-cart.svg" alt=""  loading="lazy">
-                            </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/b5755241-c9a6-407d-93e5-ace7668a59dd.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/bf4731e9-6185-4fe2-b25e-e9d7cf2c6f40.png" alt="">
                         </div>
                     </div>
-                </div>
-                <div class="soon__cart-box-bottom">
-                    <div class="soon__card">
-                        <div class="soon__card-inner">
-                            <div class="soon__card-front">
-                                <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt="" loading="lazy">
-                            </div>
-                            <div class="soon__card-back">
-                                <img class="soon__image-back " src="images/passes/diamond-cart.svg" alt=""  loading="lazy">
-                            </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/bgaming.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c3b7349a-4612-4374-a6a3-525d060b901c.png" alt="">
                         </div>
                     </div>
-
-                    <div class="soon__card horizontal">
-                        <div class="soon__card-inner">
-                            <div class="soon__card-front">
-                                <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt="" loading="lazy">
-                            </div>
-                            <div class="soon__card-back">
-                                <img class="soon__image-back " src="images/passes/heart-cart.svg" alt=""  loading="lazy">
-                            </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c92a1769-9aab-4372-a6df-63459641b7de.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c747cc8a-fa12-4d15-ab77-7919e36f69eb.png" alt="">
                         </div>
                     </div>
-                </div>
-            </div>
-
-
-            <div class="soon__card">
-                <div class="soon__card-inner">
-                    <div class="soon__card-front">
-                        <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt="">
-                    </div>
-                    <div class="soon__card-back">
-                        <img class="soon__image-back " src="images/passes/club-cart.svg" alt="" >
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-
-
-        <div class="soon__btn-box">
-            <a class="header__document home__list-link" href="https://discord.gg/vuZKRh6bt9">Join Discord Community</a>
-        </div>
-
-    </div>
-</section>
-
-<footer id="footer" class="footer">
-    <div class="footer__wrapper">
-        <div class="footer__logo">
-            <img src="./images/header/logo.svg" alt="">
-        </div>
-
-        <div class="footer__content">
-            <div class="footer__description">
-                AceBit is a community-based crypto casino that offers their players the best online casino experience possible!  At AceBit, we are convinced that blockchain will change the online crypto gambling industry forever!  Jump in and check it out for yourself!  Have fun and earn crypto!
-            </div>
-
-            <div class="footer__links">
-                <a class="footer__links-link" href="#">JOIN US</a>
-                <a class="footer__links-link" href="#">HELP CENTER</a>
-                <a class="footer__links-link" href="#">USER AGREEMENT</a>
-                <a class="footer__links-link" href="#">PRIVACY POLICY</a>
-                <a class="footer__links-link" href="#">APP</a>
-            </div>
-
-            <div class="footer__links">
-                <a class="footer__links-link" href="https://discord.gg/vuZKRh6bt9">DISCORD</a>
-                <a class="footer__links-link" href="https://twitter.com/AceBitCasino">TWITTER</a>
-            </div>
-
-            <div class="footer__contact">
-                <div>
-                    <div class="footer__contact-title">
-                        Contact
-                    </div>
-                    <div class="footer__contact-email">
-                        Business@acebit.casino
-                    </div>
-                </div>
-
-                <div class="footer__contact-socials">
-                    <div class="footer__contact-wrapper">
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Bitcoin.png" alt="" loading="lazy">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c952a1ca-787c-4b25-8444-4c04a67a5f1b.png" alt="">
                         </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Ethereum.png" alt="" loading="lazy">
-                        </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Tether.png" alt="" loading="lazy">
-                        </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/USD-Coin.png" alt="" loading="lazy">
-                        </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Litecoin.png" alt="" loading="lazy">
-                        </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Tron.png" alt="" loading="lazy">
-                        </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Binance-coin.png" alt="" loading="lazy">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/c747cc8a-fa12-4d15-ab77-7919e36f69eb1.png" alt="">
                         </div>
                     </div>
-
-                    <div class="footer__contact-wrapper">
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Dai.png" alt="" loading="lazy">
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/cf0523ff-680e-4859-9eea-418c886fae3a.png" alt="">
                         </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Triangle.png" alt="" loading="lazy">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/cg.png" alt="">
                         </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Xrp.png" alt="" loading="lazy">
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/d8ecb853-c77e-471b-adf2-e58084d8e96a.png" alt="">
                         </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Shield.png" alt="" loading="lazy">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/e26abb4c-0600-4931-b4dd-9f7ab7645eb7.png" alt="">
                         </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Shib.png" alt="" loading="lazy">
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img class="leap-img"
+                                src="./images/providers/slider/e1e28d57-3c39-4f25-b38f-440c06c462ec.png" alt="">
                         </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Stellar.png" alt="" loading="lazy">
+                        <div class="providers__slider-block">
+                            <img class="Untitled-img" src="./images/providers/slider/Untitled.png" alt="">
                         </div>
-                        <div class="footer__contact-social">
-                            <img src="./images/footer/Heptagon.png" alt="" loading="lazy">
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/e02199e3-8c1e-45bb-9dd9-6a9e70782914.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/f4f0e093-cacf-4f77-bcd1-ff9262150d14.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/f229e608-88a1-42c1-8db2-bb83e5b7eba3.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/dbb660e4-8881-49f8-a6f8-feaec48b8734.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/evolutiongaming.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/fded7789-d58d-417c-84e8-6d2e3ae1d781.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/ff41fbf7-4ff1-4e17-bcdd-d9b59cdfba6a.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/gameart.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/habanero.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/igrosoft.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/ka.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/netent.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/platipus.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/playngo_logo_rgb.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/pragmaticplay.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/quickspin.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/sa.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/vivo.png" alt="">
+                        </div>
+                    </div>
+                    <div class="providers__slider-slide">
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/wazdan.png" alt="">
+                        </div>
+                        <div class="providers__slider-block">
+                            <img src="./images/providers/slider/yggdrasil.png" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="footer__sub">
-            <div class="footer__sub-logo">
-                <img src="./images/footer/sub-logo.png" alt="" loading="lazy">
+    <section id="soon" class="soon">
+        <div class="soon__box">
+            <div class="soon__title-box">
+                <img class="soon__title-1" src="images/soon/nft.svg" alt="" loading="lazy" />
+                <img class="soon__title-2" src="images/soon/acedrop.svg" alt="" loading="lazy" />
+                <img class="soon__title-3" src="images/soon/soon.svg" alt="" loading="lazy" />
+            </div>
+            <div class="soon__des">
+                <a class="soon__des-link">8888 NFT Aces</a> are ready for the <a
+                    href="https://docs.acebit.casino/ace-sale/ace-private-mint" class="soon__des-link">Private
+                    Sale.</a> <br>
+                <a href="https://discord.gg/vuZKRh6bt9" class="soon__des-link">Join Discord</a> to get your
+                Whitelist spot today!
+            </div>
+            <div class="soon__cart-box">
+
+                <div class="soon__card">
+                    <div class="soon__card-inner">
+                        <div class="soon__card-front">
+                            <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt="" loading="lazy">
+                        </div>
+                        <div class="soon__card-back">
+                            <img class="soon__image-back " src="images/passes/diamond-cart.svg" alt="" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="soon__cart-box-center">
+                    <div class="soon__cart-box-top">
+                        <div class="soon__card">
+                            <div class="soon__card-inner">
+                                <div class="soon__card-front">
+                                    <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt=""
+                                        loading="lazy">
+                                </div>
+                                <div class="soon__card-back">
+                                    <img class="soon__image-back " src="images/passes/club-cart.svg" alt=""
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="soon__card horizontal">
+                            <div class="soon__card-inner">
+                                <div class="soon__card-front">
+                                    <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt=""
+                                        loading="lazy">
+                                </div>
+                                <div class="soon__card-back">
+                                    <img class="soon__image-back " src="images/passes/spade-cart.svg" alt=""
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="soon__cart-box-bottom">
+                        <div class="soon__card">
+                            <div class="soon__card-inner">
+                                <div class="soon__card-front">
+                                    <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt=""
+                                        loading="lazy">
+                                </div>
+                                <div class="soon__card-back">
+                                    <img class="soon__image-back " src="images/passes/diamond-cart.svg" alt=""
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="soon__card horizontal">
+                            <div class="soon__card-inner">
+                                <div class="soon__card-front">
+                                    <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt=""
+                                        loading="lazy">
+                                </div>
+                                <div class="soon__card-back">
+                                    <img class="soon__image-back " src="images/passes/heart-cart.svg" alt=""
+                                        loading="lazy">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="soon__card">
+                    <div class="soon__card-inner">
+                        <div class="soon__card-front">
+                            <img class="soon__image-front" src="./images/soon/cart-bg.svg" alt="">
+                        </div>
+                        <div class="soon__card-back">
+                            <img class="soon__image-back " src="images/passes/club-cart.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
 
-            <div class="footer__sub-description">
-                AceBit will be operated by AceBit B.V. under a sublicense CIL pursuant to Master gaming License #XXX
+
+            <div class="soon__btn-box">
+                <a class="header__document home__list-link" href="https://discord.gg/vuZKRh6bt9">Join Discord Community</a>
             </div>
 
-            <div class="footer__sub-images">
-                <div class="footer__sub-img">
-                    <img src="./images/footer/age-limit.svg" alt="" loading="lazy">
+        </div>
+    </section>
+
+    <footer id="footer" class="footer">
+        <div class="footer__wrapper">
+            <div class="footer__logo">
+                <img src="./images/header/logo.svg" alt="">
+            </div>
+
+            <div class="footer__content">
+                <div class="footer__description">
+                    AceBit is a community-based crypto casino that offers their players the best online casino
+                    experience possible! At AceBit, we are convinced that blockchain will change the online crypto
+                    gambling industry forever! Jump in and check it out for yourself! Have fun and earn crypto!
                 </div>
-                <div class="footer__sub-img">
-                    <img src="./images/footer/gamanon.svg" alt="" loading="lazy">
+
+                <div class="footer__links">
+                    <a class="footer__links-link" href="#">JOIN US</a>
+                    <a class="footer__links-link" href="#">HELP CENTER</a>
+                    <a class="footer__links-link" href="#">USER AGREEMENT</a>
+                    <a class="footer__links-link" href="#">PRIVACY POLICY</a>
+                    <a class="footer__links-link" href="#">APP</a>
                 </div>
-                <div class="footer__sub-img">
-                    <img src="./images/footer/gamblers-anonymous.svg" alt="" loading="lazy">
+
+                <div class="footer__links">
+                    <a class="footer__links-link" href="#">DISCORD</a>
+                    <a class="footer__links-link" href="#">TWITTER</a>
                 </div>
-                <div class="footer__sub-img">
-                    <img src="./images/footer/gambling-therapy.svg" alt="" loading="lazy">
+
+                <div class="footer__contact">
+                    <div>
+                        <div class="footer__contact-title">
+                            Contact
+                        </div>
+                        <div class="footer__contact-email">
+                            Business@acebit.casino
+                        </div>
+                    </div>
+
+                    <div class="footer__contact-socials">
+                        <div class="footer__contact-wrapper">
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Bitcoin.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Ethereum.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Tether.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/USD-Coin.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Litecoin.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Tron.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Binance-coin.png" alt="" loading="lazy">
+                            </div>
+                        </div>
+
+                        <div class="footer__contact-wrapper">
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Dai.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Triangle.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Xrp.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Shield.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Shib.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Stellar.png" alt="" loading="lazy">
+                            </div>
+                            <div class="footer__contact-social">
+                                <img src="./images/footer/Heptagon.png" alt="" loading="lazy">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="footer__sub-img">
-                    <img src="./images/footer/gamcare.svg" alt="" loading="lazy">
+            </div>
+
+            <div class="footer__sub">
+                <div class="footer__sub-logo">
+                    <img src="./images/footer/sub-logo.png" alt="" loading="lazy">
                 </div>
-                <div class="footer__sub-img">
-                    <img src="./images/footer/provablyfair.svg" alt="" loading="lazy">
+
+                <div class="footer__sub-description">
+                    AceBit is operated by BlockDance B.V. (Commercial register of Curaçao no.158182, Emancipatie
+                    Boulevard Dominico F. Don Martina 39, Curaçao under a sublicense CIL pursuant to Master gaming
+                    License #5536/JAZi
+                </div>
+
+                <div class="footer__sub-images">
+                    <div class="footer__sub-img">
+                        <img src="./images/footer/age-limit.svg" alt="" loading="lazy">
+                    </div>
+                    <div class="footer__sub-img">
+                        <img src="./images/footer/gamanon.svg" alt="" loading="lazy">
+                    </div>
+                    <div class="footer__sub-img">
+                        <img src="./images/footer/gamblers-anonymous.svg" alt="" loading="lazy">
+                    </div>
+                    <div class="footer__sub-img">
+                        <img src="./images/footer/gambling-therapy.svg" alt="" loading="lazy">
+                    </div>
+                    <div class="footer__sub-img">
+                        <img src="./images/footer/gamcare.svg" alt="" loading="lazy">
+                    </div>
+                    <div class="footer__sub-img">
+                        <img src="./images/footer/provablyfair.svg" alt="" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
 
-<script src="js/main.js"></script>
+
+    <script src="js/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
 </body>
+
 </html>
