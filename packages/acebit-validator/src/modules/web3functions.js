@@ -68,3 +68,19 @@ export const addUser = async (newUserData) => {
     return true;
 
 }
+
+
+
+// Welcome to PREMINT!
+
+// Signing is the only way we can truly know 
+// that you are the owner of the wallet you 
+// are connecting. Signing is a safe, gas-less 
+// transaction that does not in any way give 
+// PREMINT permission to perform any 
+// transactions with your wallet.
+
+// Wallet address:
+// 0xdf05ce25b93a11d0a39439e6f6b4d7e3bb554543
+
+// Nonce: K3R56KMVOVJVBBP7F4Z9V3JVDANUBWED
