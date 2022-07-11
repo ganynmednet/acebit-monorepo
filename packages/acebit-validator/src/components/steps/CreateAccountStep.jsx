@@ -136,8 +136,8 @@ function CreateAccountStep(props) {
         if (!_res) {
             store.dispatch({ type: "STATES/TOGGLE_STATE_BACK", payload: "ACCOUNT_CREATED_PENDING" })
             showPopup({
-                header: "Something went wrong! Please try again later on contact Support in AceBit Discord server.",
-                message: `Please try later`,
+                header: "Something went wrong!",
+                message: `Please try again later on contact Support in AceBit Discord server.`,
                 buttons: [
                     {
                         text: "Try Later",
