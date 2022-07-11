@@ -6,14 +6,18 @@
 ~~- deploy to web~~
 ~~- Test Avatar ??~~
 
-~~ - Prod Invalid Redirect URIs
+~~ - Prod Invalid Redirect URIs~~ 
+~~ - prod configuration & deploy~~ 
+~~ - fix captcha style~~ 
 
-- fix captcha style
+- error when cancel Discord OAuth2
+- error con
+
 - Debug hCaptcha
 - mobile test
 
 - error case test & polishing
 
-- prod configuration & deploy
+
 
 - prod test
