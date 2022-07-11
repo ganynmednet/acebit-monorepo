@@ -1,0 +1,311 @@
+input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.mint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 23px 34px 23px;
+}
+
+.mint__title {
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    color: #E5E5E5;
+    font-size: 26px;
+    line-height: 32px;
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+}
+
+.mint__img {
+    height: 121px;
+    margin-bottom: 6px;
+}
+
+.mint__already {
+    margin-bottom: 40px;
+    margin-left: 1px;
+}
+
+.mint__already-title {
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    color: #8A8A8A;
+    font-size: 10px;
+    line-height: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.mint__already-container {
+    display: flex;
+}
+
+.mint__already-ready {
+    font-family: 'ProximaNova-Semi-Bold', sans-serif;
+    color: #E6C365;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.01em;
+    margin-right: 5px;
+}
+
+.mint__already-maximum {
+    font-family: 'ProximaNova-Semi-Bold', sans-serif;
+    color: #FFFFFF;
+    font-size: 20px;
+    line-height: 32px;
+    letter-spacing: 0.01em;
+}
+
+.mint__count {
+    display: flex;
+    margin-bottom: 44px;
+}
+
+.mint__total {
+    width: 144px;
+}
+
+.mint__amount {
+    margin-right: 17px;
+}
+
+.mint__amount-title,
+.mint__total-title {
+    font-family: 'ProximaNova-Semi-Bold', sans-serif;
+    color: #E5E5E5;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+}
+
+.mint__input {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 160px;
+    height: 48px;
+    background-color: #2C2C2C;
+    border-radius: 8px;
+    padding-right: 4px;
+}
+
+.mint__input input {
+    padding-left: 16px;
+    border: none;
+    outline: none;
+    width: 130px;
+    font-family: 'ProximaNova-Semi-Bold', sans-serif;
+    color: #E5E5E5;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 0.03em;
+    background: none;
+}
+
+.mint__total-count {
+    font-family: 'ProximaNova-Semi-Bold', sans-serif;
+    color: #E6C365;
+    font-size: 32px;
+    line-height: 32px;
+    letter-spacing: 0.03em;
+    margin-top: 18px;
+}
+
+.mint__total-eth {
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    color: #8A8A8A;
+    font-size: 16px;
+    line-height: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-left: -2px;
+}
+
+.mint__input-increment {
+    cursor: pointer;
+    width: 18px;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-right-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+    margin-bottom: 2px;
+}
+
+.mint__input-decrement {
+    cursor: pointer;
+    width: 18px;
+    height: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-right-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.mint__input-decrement img {
+    transform: rotate(180deg);
+}
+
+.mint__buttons {
+    display: flex;
+    column-gap: 12px;
+}
+
+.mint__buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mint__buttons-mint {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    height: 41px;
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    color: #E6C365;
+    font-size: 14px;
+    line-height: 17px;
+    border-radius: 24px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: 2px solid #E6C365;
+}
+
+.mint__buttons-stake {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 210px;
+    height: 41px;
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    color: #232323;
+    font-size: 14px;
+    line-height: 17px;
+    border-radius: 24px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background: #E6C365;
+}
+
+.mint__buttons-info {
+    display: flex;
+    margin-top: 12px;
+    margin-right: 3px;
+}
+
+.mint__buttons-description {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    color: #8A8A8A;
+    font-size: 10px;
+    line-height: 16px;
+    letter-spacing: 0.03em;
+}
+
+.mint__buttons-question {
+    margin-left: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 700;
+    color: #8F8F8F;
+    font-size: 8px;
+    line-height: 12px;
+    letter-spacing: -0.01em;
+}
+
+.mint__buttons-take .mint__buttons-stake {
+    width: 321px;
+}
+
+@media (max-width: 768px) {
+    .mint__buttons-take {
+        margin-top: 19px;
+        margin-bottom: 57px;
+    }
+
+    .mint__buttons-take .mint__buttons-stake {
+        width: 278px;
+    }
+
+    .mint__buttons-info{
+        margin-top: 7px;
+    }
+    .mint {
+        padding: 0 7px 34px 7px;
+    }
+
+    .mint {
+        padding-bottom: 16px;
+    }
+
+    .mint__img {
+        height: 75px;
+        margin-bottom: 13px;
+        margin-top: 5px;
+    }
+
+    .mint__img img {
+        height: 112px;
+    }
+
+    .mint__already {
+        margin-left: 12px;
+    }
+
+    .mint__title {
+        font-size: 24px;
+        line-height: 32px;
+        margin-bottom: 12px;
+    }
+
+    .mint__buttons {
+        flex-direction: column;
+        row-gap: 12px;
+        column-gap: 0;
+    }
+
+    .mint__buttons-mint {
+        width: 278px;
+    }
+
+    .mint__buttons-stake {
+        width: 278px;
+    }
+
+    .mint__input {
+        width: 128px;
+    }
+
+    .mint__input input {
+        width: 106px;
+    }
+
+    .mint__amount {
+        margin-right: 20px;
+    }
+
+    .mint__count {
+        margin-right: auto;
+        margin-bottom: 21px;
+    }
+
+    .mint__total {
+        width: auto;
+    }
+}
