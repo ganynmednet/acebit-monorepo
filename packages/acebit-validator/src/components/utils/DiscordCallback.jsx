@@ -12,7 +12,6 @@ function DiscordCallback(props) {
 
     // console.log(_code)
 
-
     const fetchUserData = async (code) => {
         // connectDiscord(code)
         await connectDiscord(code);

@@ -10,14 +10,14 @@
 ~~ - prod configuration & deploy~~ 
 ~~ - fix captcha style~~ 
 
-- error when cancel Discord OAuth2
-- error con
+~~- error when cancel Discord OAuth2~~
+
+~~- error case test & polishing~~
+
 
 - Debug hCaptcha
-- mobile test
-
-- error case test & polishing
-
-
 
 - prod test
+
+
+- mobile test
