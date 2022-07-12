@@ -2,12 +2,12 @@
 import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { config } from '../../configs/config';
-import { getDiscordAvatart } from '../../modules/DiscordClient.js'
+// import { getDiscordAvatart } from '../../modules/DiscordClient.js'
 import { ConnectWallet, DisconnectWallet } from '../../modules/web3Client.js';
 import ConnectionButtonSection from '../utils/ConnectionButton'
-import { Web3Context } from '../../App';
-import { PopupContext } from '../../App';
+import { Web3Context, PopupContext } from '../../App';
 import store from '../../store';
+
 
 class RolesList extends React.Component {
     constructor(props) {
