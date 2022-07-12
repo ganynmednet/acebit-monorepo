@@ -190,12 +190,6 @@ export const getDiscordAvatart = async (_id, _img) => {
   return _url;
 }
 
-// export function connectDiscord(code) {
-//   console.log("CONNECT DISCORD >>>");
-//   console.log(code)
-//   // console.log(updateUserData)
-
-//   createUser()
 export const connectDiscord = async (code) => {
 
   console.log("CONNECT DISCORD >>>");
@@ -240,7 +234,6 @@ const fetchFullUserData = async () => {
 
   // set user data and toggle state
   store.dispatch({ type: "USERDATA/UPDATE_USER_DATA", payload: _userData })
-  // store.dispatch( {type: "STATES/TOGGLE_STATE", payload: "DISCORD_DONE"})
 
   return true;
 

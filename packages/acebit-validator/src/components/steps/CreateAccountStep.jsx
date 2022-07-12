@@ -52,6 +52,7 @@ function CreateAccountStep(props) {
         var _res = await verifyCaptchaAPI(token, ekey)
         console.log(_res)
         if (_res) {
+            console.log("capthca verified")
             setCaptchaVerified(true)
         }
         return;

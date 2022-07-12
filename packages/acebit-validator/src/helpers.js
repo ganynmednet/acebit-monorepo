@@ -94,14 +94,15 @@ export const verifyCaptchaAPI = async (token, ekey) => {
     'secret': config.hCaptcha.secret,
     'response': token,
   }
+
+  // 'Access-Control-Allow-Origin': '*',
+  // 'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
+  // 'Access-Control-Allow-Headers': 'Authorization',
+  // 'Access-Control-Allow-Credentials': 'true'
   const requestOptions = {
     method: 'POST',
     headers: {
-      'Content-Type': 'application/x-www-form-urlencoded',
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE',
-      'Access-Control-Allow-Headers': 'Authorization',
-      'Access-Control-Allow-Credentials': 'true'
+      'Content-Type': 'application/x-www-form-urlencoded'
     },
     body: urlencodeSerializer(details)
   };
