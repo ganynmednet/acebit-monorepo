@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import HCaptcha from '@hcaptcha/react-hcaptcha';
-import { addUser } from "../../modules/web3functions";
+import { addUser } from "../../modules/web3Functions";
 import { addressShortener, getDefaultAvatar, validUsername, verifyCaptchaAPI } from '../../helpers';
 import { ConnectWallet, DisconnectWallet } from '../../modules/web3Client.js';
 import { config, MAINNET } from '../../configs/config';
