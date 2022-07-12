@@ -5,7 +5,7 @@ import { MAINNET } from '../configs/config';
 import { utils } from 'ethers';
 import store from "../store";
 import Web3 from 'web3';
-import { checkWhitelistStatus } from "./web3functions";
+import { checkWhitelistStatus } from "./web3Functions";
 
 
 export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner) => {
@@ -39,11 +39,11 @@ export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner
     } catch (e) {
         console.log(e)
         showPopup({
-            header: "Problem getting Provider",
-            message: `Please, check your wallet settings.`,
+            header: "Problem getting your Provider",
+            message: "Please, check your wallet settings and try again later.",
             buttons: [
                 {
-                    text: "Close and Check the Wallet",
+                    text: "Close and Try Again",
                     highlighted: true,
                     action: hidePopup
                 }
