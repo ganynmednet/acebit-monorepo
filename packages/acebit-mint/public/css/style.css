@@ -1,0 +1,211 @@
+/*Global style start*/
+@import "_font.css";
+@import "header.css";
+@import "status.css";
+
+*{
+    box-sizing: border-box;
+    list-style: none;
+}
+
+body {
+    background-color: #171717;
+    color: #FFFFFF;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+.menu-bg {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    transition: opacity .4s ease-in-out, visibility .4s ease-in-out, background .4s ease-in-out;
+    background: rgba(0, 0, 0, 0.8);
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.menu-bg.active-menu-bg {
+    opacity: 1;
+    visibility: visible;
+    z-index: 10;
+}
+
+body * {
+    box-sizing: border-box;
+}
+
+*,*::before, *::after{
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul,
+li{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+    margin: 0;
+    font-size: inherit;
+}
+
+.global__btn-yellow {
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    border-radius: 32px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    background-color: #E6C365;
+    color: #000000;
+    padding: 12px 32px;
+    position: relative;
+}
+
+div .global__btn-opacity {
+    display: inline-block;
+}
+
+.global__btn-opacity {
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    border: 2px solid #FFFFFF;
+    border-radius: 32px;
+    padding: 11px 30px;
+    color: #FFFFFF;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+
+.global__btn-opacity:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.global__btn-yellow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    transition: background .2s ease-in-out;
+    border-radius: 32px;
+}
+
+.global__btn-yellow:hover::before {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/*Global style end*/
+
+.validator{
+    height: 100vh;
+    width: 100%;
+    background-image: url('../images/global/bg-new.png');
+    background-size: 2560px;
+    background-position: center top;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.validator__content{
+    width: 480px;
+    background: #232323;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+    padding: 0 24px;
+}
+
+.validator__disconnect{
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    padding: 12px 22px 12px 47px;
+    border: 2px solid #FFFFFF;
+    border-radius: 32px;
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    background-color: rgba(255, 255, 255, 0);
+    transition: background-color .3s ease-in-out;
+}
+
+.validator__disconnect:before{
+    content: '';
+    position: absolute;
+    background-image: url('../images/global/Chip-N-btn.svg');
+    width: 25px;
+    height: 25px;
+    left: 10px;
+    top: 8px;
+}
+
+.validator__disconnect:hover{
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 1920px) {
+    .validator {
+        background-size: 2270px;
+    }
+}
+
+@media (max-width: 1440px) {
+    .validator {
+        background-size: 1803px;
+    }
+}
+
+@media (max-width: 768px) {
+    .validator__content{
+        width: 326px;
+    }
+
+    .validator__logo {
+        top: 20px;
+        left: 20px;
+    }
+    .validator__logo img{
+        width: 65.33px;
+        height: 16px;
+    }
+    .validator__content {
+        padding: 0 16px;
+    }
+    .validator__content {
+        margin-top: 120px;
+    }
+    .validator{
+        min-height: 812px;
+        align-items: flex-start;
+    }
+}
+
+

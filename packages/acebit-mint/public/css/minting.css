@@ -1,0 +1,54 @@
+.minting {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 82px;
+    padding-bottom: 121px;
+}
+
+.minting__title {
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    font-size: 26px;
+    line-height: 32px;
+    color: #FFFFFF;
+    margin-left: 28px;
+    margin-bottom: 40px;
+}
+
+.minting__img {
+    margin-bottom: 40px;
+}
+
+.minting__description {
+    font-family: 'Proxima-Nova-Regular', sans-serif;
+    font-size: 18px;
+    line-height: 26px;
+    letter-spacing: 0.01em;
+    max-width: 215px;
+    text-align: center;
+    color: #B8B8B8;
+}
+
+@media (max-width: 768px) {
+    .minting {
+        padding-top: 103.5px;
+        padding-bottom: 103.5px;
+    }
+
+    .minting__title {
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: -0.01em;
+        margin-left: 23px;
+        margin-bottom: 30px;
+    }
+
+    .minting__img {
+        margin-bottom: 54px;
+    }
+
+    .minting__description {
+        font-size: 18px;
+        line-height: 26px;
+    }
+}

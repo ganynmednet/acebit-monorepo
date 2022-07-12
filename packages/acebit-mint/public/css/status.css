@@ -1,0 +1,66 @@
+.status {
+    display: flex;
+    column-gap: 39px;
+    position: absolute;
+    top: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 22px;
+    background-color: #2C2C2C;
+    border-radius: 32px;
+    z-index: 5;
+}
+
+.status__mint {
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 17px;
+    white-space: nowrap;
+}
+
+.status__mint-live {
+    color: #88C662;
+    position: relative;
+    margin-left: 5px;
+}
+
+.status__mint-live::after {
+    content: "";
+    position: absolute;
+    top: 49%;
+    right: -15px;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    background: #88C662;
+    border-radius: 50%;
+}
+
+.status__sale {
+    font-family: 'Proxima-Nova-Bold', sans-serif;
+    color: rgba(255, 255, 255, 0.5);
+    text-transform: uppercase;
+    font-size: 14px;
+    line-height: 17px;
+    white-space: nowrap;
+}
+
+.status__sale-sale {
+    color: #E5E5E5;
+    margin-left: 5px;
+}
+
+@media (max-width: 1200px) {
+    .status {
+        top: 80px;
+    }
+}
+
+@media (max-width: 700px) {
+    .status {
+        top: 60px;
+        padding: 12px 32px;
+    }
+}
