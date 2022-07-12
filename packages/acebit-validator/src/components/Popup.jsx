@@ -22,7 +22,6 @@ function Popup() {
         }
 
         return (
-            // <a class="header__btn-disconnect" href="#" onClick={button.action}> {button.text} </a>
 
             <div class="popup__cancel global__btn-opacity" key={getUniqueKey()}>
                 {button.text}
@@ -31,7 +30,6 @@ function Popup() {
 
     }
     const getButtonList = (message) => {
-        // console.log(message)
         if (!message) {
             return;
         }
