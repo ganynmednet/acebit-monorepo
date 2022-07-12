@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { sortRoles } from '../../helpers';
 // import UserProfile from '../storage/userProfile';
 
 class ConnectionButtonSection extends React.Component {
@@ -12,8 +13,8 @@ class ConnectionButtonSection extends React.Component {
     }
 
     render() {
-
-        if (this.userData.roles.length == 0) {
+        console.log(sortRoles(this.userData.roles))
+        if (sortRoles(this.userData.roles).length == []) {
 
             return (
                 <>

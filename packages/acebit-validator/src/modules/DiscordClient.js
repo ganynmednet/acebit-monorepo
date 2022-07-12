@@ -231,7 +231,7 @@ const fetchFullUserData = async () => {
   var _userRoles = await getUserRoles();
   console.log("USER ROLES FETCHED >>");
   console.log(_userRoles)
-  _userData["roles"] = sortRoles(_userRoles);
+  _userData["roles"] = _userRoles;
 
   if (!_userRoles) {
     console.log("error getting USER DATA");

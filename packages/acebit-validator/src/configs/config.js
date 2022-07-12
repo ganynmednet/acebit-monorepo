@@ -30,6 +30,13 @@ export const config = {
         "952917669806481438": "Gamblers",
         "952917857228963860": "Backoffice"
     },
+    supportedRoles: {
+        "952917940498489416": "Marshals",
+        "955458512270553088": "Marshal Deputy",
+        "952918169452961822": "Aces",
+        "952918122619371601": "VIP",
+        "952917857228963860": "Backoffice"
+    },
     roleColors: {
         "952917940498489416": "wallet__roles marshals", // Marshal
         "955458512270553088": "wallet__roles marshal-deputy", // Marshal Deputy

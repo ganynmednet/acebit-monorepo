@@ -26,7 +26,7 @@ export const sortRoles = (userRoles) => {
 
   // var filteredKeywords = fullWordList.filter((word) => wordsToRemove.includes(word));
 
-  var _supportedRoles = Object.keys(config.roles);
+  var _supportedRoles = Object.keys(config.supportedRoles);
   var _validRoles = _supportedRoles.filter((e) => userRoles.includes(e));
 
   return _validRoles
