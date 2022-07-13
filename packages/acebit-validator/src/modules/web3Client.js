@@ -4,7 +4,7 @@ import { providerOptions } from '../configs/providerOptions';
 import { MAINNET } from '../configs/config';
 import store from "../store";
 import Web3 from 'web3';
-import { checkWhitelistStatus } from "./web3Functions_";
+import { checkWhitelistStatus } from "./web3Functions";
 
 
 export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner) => {
