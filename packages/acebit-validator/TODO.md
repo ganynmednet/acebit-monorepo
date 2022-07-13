@@ -14,7 +14,7 @@
 
 ~~- error case test & polishing~~
 
-- Fix build dependencies
+~~- Fix build dependencies~~
   
 - Debug hCaptcha
 
