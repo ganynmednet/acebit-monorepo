@@ -5,7 +5,7 @@ import { MAINNET } from '../configs/config';
 // import { utils } from 'ethers';
 import store from "../store";
 import Web3 from 'web3';
-import { checkWhitelistStatus } from "./web3functions";
+import { checkWhitelistStatus } from "./web3Functions";
 
 
 export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner) => {
@@ -121,8 +121,8 @@ export const ConnectWallet = async (showPopup, hidePopup, setProvider, setSigner
 
     if (_whitelisted) { 
         store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "WALLET_CONNECTED_DONE" })
-        store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "ACCOUNT_CREATED_PENDING" })
-        store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "ACCOUNT_CREATED_DONE" })
+        // store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "ACCOUNT_CREATED_PENDING" })
+        // store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "ACCOUNT_CREATED_DONE" })
         return;
     }
 

@@ -3,9 +3,7 @@ import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { ConnectWallet, DisconnectWallet } from '../modules/web3Client.js';
 import { addressShortener } from '../helpers';
-import { PopupContext } from '../App';
-import { Web3Context } from '../App';
-
+import { PopupContext, Web3Context } from '../App';
 
 function Header(props) {
 
@@ -26,8 +24,7 @@ function Header(props) {
         // console.log(props)
         if (props.account) {
             return (
-                <a class="validator__disconnect" href=""onClick={disconnectWallet}> {addressShortener(props.account)} </a>
-
+                <a class="validator__disconnect" href="" onClick={disconnectWallet}> {addressShortener(props.account)} </a>
             )
         }
 
@@ -42,7 +39,7 @@ function Header(props) {
                 <img src="./images/global/logo.svg" alt="" />
             </a>
 
-            { getButtonText(props.account) }
+            {getButtonText(props.account)}
         </>
     )
 }

@@ -1,10 +1,11 @@
 
+import React, { useContext } from 'react';
 import { connect } from 'react-redux';
 import { PopupContext } from '../App';
 import { Web3Context } from '../App';
 import { ConnectWallet, DisconnectWallet } from '../modules/web3Connector';
 import { addressShortener } from '../helpers';
-
+import store from '../store';
 
 
 function Header(props) {
@@ -14,6 +15,11 @@ function Header(props) {
 
     const connectWallet = () => {
         console.log("HEADER: I TRY TO CONNECT")
+
+        if (!props.userStates["WALLET_CONNECTED_PENDING"].completed) {
+            store.dispatch({ type: "STATES/TOGGLE_STATE", payload: "WALLET_CONNECTED_PENDING" })
+        }
+        
         ConnectWallet(showPopup, hidePopup, setProvider, setSigner)
     }
 
@@ -26,13 +32,19 @@ function Header(props) {
         // console.log(props)
         if (props.account) {
             return (
-                <a class="header__menu-profile" href="" onClick={disconnectWallet}> {addressShortener(props.account)} </a>
+                <a class="header__menu-profile" href="" onClick={disconnectWallet}>
+                    <img src="./images/global/profile-img.png" alt="" />
+
+                    {addressShortener(props.account)} </a>
 
             )
         }
 
-        <a class="header__menu-profile" href="" onClick={connectWallet}> Connect Wallet </a>
-        return;
+        return (
+            <a class="header__menu-profile" href="" onClick={connectWallet}>
+                Connect Wallet 
+            </a>
+        );
 
     }
 
@@ -47,10 +59,9 @@ function Header(props) {
                     <a class="header__menu-link" href="#">Documentation</a>
                     <a class="header__menu-link" href="#">Website</a>
                 </div>
-                <a class="header__menu-profile" href="#">
-                    <img src="./images/global/profile-img.png" alt="" />
-                    {getButtonText()}
-                </a>
+
+                {getButtonText()}
+
             </div>
             <button class="menu-btn" aria-label="Main Menu">
                 <svg width="30" height="30" viewBox="0 0 100 100">

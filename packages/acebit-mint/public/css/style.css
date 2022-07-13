@@ -2,6 +2,7 @@
 @import "_font.css";
 @import "header.css";
 @import "status.css";
+@import "twitter.css";
 
 *{
     box-sizing: border-box;

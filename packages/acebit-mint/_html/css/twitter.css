@@ -47,10 +47,24 @@
     margin-bottom: 16px;
 }
 
+.twitter__btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .twitter__btn{
+    display: block;
     width: 160px;
-    height: 157.46px;
+    height: 157px;
     margin-bottom: 16px;
+    border-radius: 50%;
+}
+
+.twitter__btn img{
+    width: 160px;
+    height: 168px;
+    border-radius: 50%;
 }
 
 .twitter__des{

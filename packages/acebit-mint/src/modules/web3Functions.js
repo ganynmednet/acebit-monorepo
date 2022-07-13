@@ -2,7 +2,7 @@
 import { ethers, utils } from 'ethers';
 import { StaticJsonRpcProvider } from "@ethersproject/providers";
 import { config, PRIVATE_KEYS, NODE_URIs, MAINNET} from '../configs/config';
-import userStorageAbi from '../abi/userStorage.json'
+import userStorageAbi from '../abis/userStorage.json'
 
 
 export const checkWhitelistStatus = async (signer, userAccount) => {
