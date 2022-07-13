@@ -2,7 +2,6 @@ import Web3Modal from "web3modal";
 import { Web3Provider } from "@ethersproject/providers";
 import { providerOptions } from '../configs/providerOptions';
 import { MAINNET } from '../configs/config';
-// import { utils } from 'ethers';
 import store from "../store";
 import Web3 from 'web3';
 import { checkWhitelistStatus } from "./web3Functions";
